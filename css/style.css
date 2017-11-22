@@ -55,3 +55,17 @@ p {
 footer.page-footer {
   margin: 0;
 }
+
+.banner-title-img {
+  width: 50%;
+  min-width: 220px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.banner-button-img {
+  width: 5%;
+  min-width: 45px;
+  margin: 0 1% 0 1%;
+}
