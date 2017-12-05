@@ -91,3 +91,8 @@ footer.page-footer {
 textarea.materialize-textarea {
   min-height: 6rem;
 }
+
+.resume {
+  background-color: white;
+  color: black;
+}
