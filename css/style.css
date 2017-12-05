@@ -7,20 +7,24 @@
  */
 
 body {
-  color : #e0e0e0 ;
+  color : #e0e0e0 !important;
   background-color: black;
+}
+
+input, textarea {
+  color: #e0e0e0 !important;
 }
 
 nav ul a,
 nav .brand-logo {
-  color: #e0e0e0 ;
+  color: #e0e0e0;
 }
 
 p {
   line-height: 2rem;
 }
 
-.button-collapse {
+.sidenav-trigger {
   color: #26a69a;
 }
 
@@ -94,5 +98,5 @@ textarea.materialize-textarea {
 
 .resume {
   background-color: white;
-  color: black;
+  color: 
 }
