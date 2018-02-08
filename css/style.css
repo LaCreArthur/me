@@ -20,6 +20,10 @@ nav .brand-logo {
   color: #e0e0e0;
 }
 
+nav ul a:hover, nav .brand-logo:hover {
+    color: white;
+}
+
 p {
   line-height: 2rem;
 }
@@ -85,7 +89,7 @@ footer.page-footer {
 
 .collection.with-header .collection-header, .collection.with-header a {
   background-color: rgb(0, 0, 0);
-  padding: 10px 20px 5px 20px;
+  /*padding: 10px 20px 5px 20px;*/
 }
 
 .collection a.collection-item:not(.active):hover {
@@ -96,7 +100,26 @@ textarea.materialize-textarea {
   min-height: 6rem;
 }
 
-.resume {
-  background-color: white;
-  color: 
+/* adapte collapsible to home style */
+
+.collapsible-header {
+    padding: inherit;
+    display: block;
+    border-bottom: 1px solid #3b3b3b;
+}
+
+.collapsible {
+    border: 0px solid #000000;
+    margin: 0.5rem 0 1rem 0;
+}
+
+.collapsible-body {
+    border-top : 1px solid black;
+    margin-top : -1px; /* mask the header border-bottom when active */
+    border-bottom: 1px solid #3b3b3b;
+    padding: 0 0 1em 4em;
+}
+
+.collapsible-body a {
+    border: 0px solid #000000 !important;
 }
