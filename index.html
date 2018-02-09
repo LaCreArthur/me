@@ -237,6 +237,7 @@
                             </a>
                         </div>
                         <div class="collapsible-body">
+                            <i class="tiny material-icons">chevron_right</i>
                             <span class="light">Developed in 48 hours with Unity</span><br>
                             <i class="tiny material-icons">chevron_right</i>
                             <span class="light">Team of 4 (4 programmers including me)</span><br>
@@ -255,13 +256,14 @@
                             </a>
                         </div>
                         <div class="collapsible-body">
+                            <i class="tiny material-icons">chevron_right</i>
                             <span class="light">Developed in 24 hours with Unity</span><br>
                             <i class="tiny material-icons">chevron_right</i>
                             <span class="light">Team of 4 (3 programmers including me, 1 artist)</span><br>
                             <i class="tiny material-icons">chevron_right</i>
                             <span class="light">I've also helped in game and level designing &amp; managing</span><br>
                             <i class="tiny material-icons">chevron_right</i>
-                            <span class="light">More details and the downloadable game are <a href="https://robzz.itch.io/sausage-master">here on itch.io</a></span><br>
+                            <span class="light">More details and the downloadable game are <a href="https://robzz.itch.io/sausage-master">here on itch.io</a></span><br/>
                         </div>
                     </li>
                 </ul>
@@ -269,30 +271,89 @@
             </div>
             <div class="col s2"></div>
             <div class="col s5">
-              <div class="collection with-header">
-                  
-                  <h5 class="collection-header">Training Projects</h5>
-                  
-                  <a href="https://github.com/LaCreArthur/MatC-Compiler" class="collection-item avatar grey-text text-lighten-4">
-                    <i class="material-icons circle amber accent-4">code</i>
-                    <span class="title">Mat-C Compiler</span>
-                    <p class="light">Fully working compiler for a sub-C fake language, using <strong>C, Lex &amp; Yacc</strong> and generate an assembly program</p>
-                  </a>
-                  <a href="https://github.com/LaCreArthur/shortestPathGA" class="collection-item avatar grey-text text-lighten-4">
-                    <i class="material-icons circle light-green">gesture</i>
-                    <span class="title">Shortest Path GA</span>
-                    <p class="light">A <strong>C++</strong> Genetic Algorithm that search for the shortest path on a 2D OpenGL map with randomly generated obstacles</p>
-                  </a>
-                  <a href="https://github.com/LaCreArthur/GenBank-Miner" class="collection-item avatar grey-text text-lighten-4">
-                    <i class="material-icons circle cyan">storage</i>
-                    <span class="title">GenBank Big Miner</span>
-                    <p class="light">A <strong>Java</strong> project that computes statistics over the GenBank genomic Big Data and create an excel files tree</p>
-                  </a>
-                  <a href="https://github.com/LaCreArthur/stereoscope" class="collection-item avatar grey-text text-lighten-4">
-                    <i class="material-icons circle purple">photo_camera</i>
-                    <span class="title">Simplified Stereoscope</span>
-                    <p class="light">A <strong>C++</strong> Stereoscope using OpenGL to create a 3D model of an object and compute it distance to the camera</p>
-                  </a>
+                <div class="collection with-header">
+
+                    <h5 class="collection-header">Training Projects</h5>
+                    <ul class="collapsible">
+                        <li>
+                            <div class="collapsible-header">
+                                <a class="collection-item avatar grey-text text-lighten-4">
+                                    <i class="tiny material-icons circle amber accent-4">code</i>
+                                    <span class="title">Mat-C Compiler</span>
+                                </a>
+                            </div>
+                            <div class="collapsible-body">
+                                <i class="tiny material-icons">chevron_right</i>
+                                <span class="light">Fully working compiler for a sub-C language, using <strong>C, Lex &amp; Yacc</strong></span><br />
+                                <i class="tiny material-icons">chevron_right</i>
+                                <span class="light">Generate an assembly program compilable into a working exe</span><br />
+                                    <i class="tiny material-icons">chevron_right</i>
+                                    <span class="light">Semester project on the Compilation course, <a href="https://github.com/LaCreArthur/MatC-Compiler">sources here</a></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header">
+                                <a class="collection-item avatar grey-text text-lighten-4">
+                                    <i class="material-icons circle light-green">gesture</i>
+                                    <span class="title">Shortest Path GA</span>
+                                </a>
+                            </div>
+                            <div class="collapsible-body">
+                                <i class="tiny material-icons">chevron_right</i>
+                                <span class="light">A <strong>C++</strong> Genetic Algorithm that search for the shortest path on a 2D OpenGL map with randomly generated obstacles</span><br />
+                                <i class="tiny material-icons">chevron_right</i>
+                                <span class="light">From scratch genetic algorithm with distributed islands</span> <br />
+                                    <i class="tiny material-icons">chevron_right</i>
+                                    <span class="light">Semester project on the Distributed Systems course, <a href="https://github.com/LaCreArthur/shortestPathGA">sources here</a></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header">
+                                <a class="collection-item avatar grey-text text-lighten-4">
+                                    <i class="material-icons circle cyan">storage</i>
+                                    <span class="title">GenBank Big Miner</span>
+                                </a>
+                            </div>
+                            <div class="collapsible-body">
+                                <i class="tiny material-icons">chevron_right</i>
+                                <span class="light">A <strong>Java</strong> project that computes statistics over the GenBank genomic Big Data and create an excel files tree</span><br />
+                                <i class="tiny material-icons">chevron_right</i>
+                                <span class="light">Uses JxBrowser to provide a responsive web interface bridged to Java components</span><br />
+                                <i class="tiny material-icons">chevron_right</i>
+                                <span class="light">Handles connections loss during the process and updates of statistics</span><br />
+                                <i class="tiny material-icons">chevron_right</i>
+                                <span class="light">Year project on Research Algorithms &amp; Bioinformatics courses, <a href="https://github.com/LaCreArthur/GenBank-Miner">sources here</a></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header">
+                                <a class="collection-item avatar grey-text text-lighten-4">
+                                    <i class="material-icons circle blue darken-3">web</i>
+                                    <span class="title">SoftMarket</span>
+                                </a>
+                            </div>
+                            <div class="collapsible-body">
+                                <i class="tiny material-icons">chevron_right</i>
+                                <span class="light">A <strong>HTML/CSS/PHP/JS</strong> web market featuring a fully fonctional basket and a "pixel perfect" integration of an image model</span><br />
+                                <i class="tiny material-icons">chevron_right</i>
+                                <span class="light">Half semester project on the Web langages course, <a href="https://github.com/LaCreArthur/SoftMarket">sources here</a></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header">
+                                <a class="collection-item avatar grey-text text-lighten-4">
+                                    <i class="material-icons circle purple">photo_camera</i>
+                                    <span class="title">Simplified Stereoscope</span>
+                                </a>
+                            </div>
+                            <div class="collapsible-body">
+                                <i class="tiny material-icons">chevron_right</i>
+                                <span class="light">A <strong>C++</strong> Stereoscope using OpenGL to create a 3D model of an object and compute it distance to the camera</span><br />
+                                <i class="tiny material-icons">chevron_right</i>
+                                <span class="light">Semester project on the Object oriented programming course, <a href="https://github.com/LaCreArthur/stereoscope">sources here</a></span>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
       </div>

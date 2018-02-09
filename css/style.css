@@ -84,7 +84,7 @@ footer.page-footer {
 
 .collection.with-header, .collection.with-header .collection-header,  .collection.with-header a {
   border: 0px solid #000000;
-  border-bottom: 1px solid #3b3b3b;
+  /*border-bottom: 1px solid #3b3b3b;*/
 }
 
 .collection.with-header .collection-header, .collection.with-header a {
@@ -96,8 +96,17 @@ footer.page-footer {
   background-color: rgb(54, 54, 54);
 }
 
-textarea.materialize-textarea {
-  min-height: 6rem;
+.collection .collection-item.avatar i.circle {
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 20px;
+    line-height: 35px;
+    margin-top: -0.3em;
+}
+
+.collection .collection-item.avatar {
+    min-height: 0;
+    padding : 1em 0 1.5em 0; 
 }
 
 /* adapte collapsible to home style */
