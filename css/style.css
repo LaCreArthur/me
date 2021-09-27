@@ -77,7 +77,7 @@ footer.page-footer {
 }
 
 .banner-button-img {
-  width: 5%;
+  width: 4%;
   min-width: 45px;
   margin: 3% 1% 0 1%;
 }
@@ -131,4 +131,13 @@ footer.page-footer {
 
 .collapsible-body a {
     border: 0px solid #000000 !important;
+}
+
+.mobile-icon {
+  border-radius: 22%;
+  height: 126px;
+}
+
+.underlined {
+  text-decoration: underline;
 }
