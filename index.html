@@ -162,30 +162,30 @@
 
     <!-- Hero Section with Parallax -->
     <section class="parallax-section min-h-[60vh]">
-        <img src="img/background1.jpg" alt="Background" class="parallax-bg">
+        <img src="img/background1.jpg" alt="Starry night sky with colorful nebula" class="parallax-bg">
         <div class="text-center z-10 px-4 pt-16">
             <img src="img/title.png" alt="LaCreArthur du Net" class="max-w-md mx-auto mb-8 w-full">
             <div class="flex flex-wrap justify-center gap-3">
-                <a href="https://youtube.com/c/LaCreArthur" class="hover:scale-110 transition-transform">
-                    <img src="img/s_yt.png" alt="Youtube" class="w-12 h-12 rounded-full shadow-lg">
+                <a href="https://youtube.com/c/LaCreArthur" title="YouTube - Game dev tutorials & devlogs" class="hover:scale-110 transition-transform">
+                    <img src="img/s_yt.png" alt="YouTube channel" class="w-12 h-12 rounded-full shadow-lg">
                 </a>
-                <a href="https://github.com/LaCreArthur/" class="hover:scale-110 transition-transform">
-                    <img src="img/s_gh.png" alt="GitHub" class="w-12 h-12 rounded-full shadow-lg">
+                <a href="https://github.com/LaCreArthur/" title="GitHub - Open source projects" class="hover:scale-110 transition-transform">
+                    <img src="img/s_gh.png" alt="GitHub profile" class="w-12 h-12 rounded-full shadow-lg">
                 </a>
-                <a href="https://facebook.com/lacrearthur" class="hover:scale-110 transition-transform">
-                    <img src="img/s_fb.png" alt="Facebook" class="w-12 h-12 rounded-full shadow-lg">
+                <a href="https://facebook.com/lacrearthur" title="Facebook" class="hover:scale-110 transition-transform">
+                    <img src="img/s_fb.png" alt="Facebook page" class="w-12 h-12 rounded-full shadow-lg">
                 </a>
-                <a href="https://www.linkedin.com/in/arthur-scheidel/" class="hover:scale-110 transition-transform">
-                    <img src="img/s_lin.png" alt="LinkedIn" class="w-12 h-12 rounded-full shadow-lg">
+                <a href="https://www.linkedin.com/in/arthur-scheidel/" title="LinkedIn - Professional profile" class="hover:scale-110 transition-transform">
+                    <img src="img/s_lin.png" alt="LinkedIn profile" class="w-12 h-12 rounded-full shadow-lg">
                 </a>
-                <a href="https://twitter.com/LaCreArthur" class="hover:scale-110 transition-transform">
-                    <img src="img/s_tw.png" alt="Twitter" class="w-12 h-12 rounded-full shadow-lg">
+                <a href="https://twitter.com/LaCreArthur" title="Twitter/X - Updates & thoughts" class="hover:scale-110 transition-transform">
+                    <img src="img/s_tw.png" alt="Twitter profile" class="w-12 h-12 rounded-full shadow-lg">
                 </a>
-                <a href="https://www.instagram.com/lacrearthur/" class="hover:scale-110 transition-transform">
-                    <img src="img/s_ig.jpg" alt="Instagram" class="w-12 h-12 rounded-full shadow-lg">
+                <a href="https://www.instagram.com/lacrearthur/" title="Instagram - Behind the scenes" class="hover:scale-110 transition-transform">
+                    <img src="img/s_ig.jpg" alt="Instagram profile" class="w-12 h-12 rounded-full shadow-lg">
                 </a>
-                <a href="https://www.paypal.me/LaCreArthur" class="hover:scale-110 transition-transform">
-                    <img src="img/s_don.png" alt="PayPal" class="w-12 h-12 rounded-full shadow-lg">
+                <a href="https://www.paypal.me/LaCreArthur" title="Support my work via PayPal" class="hover:scale-110 transition-transform">
+                    <img src="img/s_don.png" alt="Donate via PayPal" class="w-12 h-12 rounded-full shadow-lg">
                 </a>
             </div>
         </div>
@@ -227,7 +227,7 @@
 
     <!-- Second Parallax -->
     <section class="parallax-section h-[40vh]">
-        <img src="img/background2.jpg" alt="Background" class="parallax-bg">
+        <img src="img/background2.jpg" alt="Collaboration with famous French YouTuber for game launch" class="parallax-bg">
         <div class="text-center z-10 px-4">
             <h5 class="text-xl text-white/90 drop-shadow-lg">Famous French Youtuber Bob Lennon wearing my Rody A Ibiza Pins</h5>
         </div>
@@ -578,7 +578,7 @@
 
     <!-- Third Parallax -->
     <section class="parallax-section h-[40vh]">
-        <img src="img/background3.png" alt="Background" class="parallax-bg">
+        <img src="img/background3.png" alt="Screenshot from Doge To Mars space game" class="parallax-bg">
     </section>
 
     <!-- Contact Section -->
@@ -607,6 +607,15 @@
         </div>
     </section>
 
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        class="fixed bottom-6 right-6 bg-teal-600 hover:bg-teal-700 text-white p-3 rounded-full shadow-lg transition-all opacity-0 translate-y-4 pointer-events-none z-50"
+        aria-label="Scroll to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
     <!-- Footer -->
     <footer class="bg-teal-600 py-8">
         <div class="max-w-6xl mx-auto px-4">
@@ -624,22 +633,53 @@
         </div>
     </footer>
 
-    <!-- Simple parallax script -->
+    <!-- Scripts -->
     <script>
         // Mobile menu toggle
         function toggleMenu() {
             document.getElementById('mobile-menu').classList.toggle('active');
         }
 
-        // Parallax effect
+        // Scroll event handler for parallax, scroll-to-top, and active nav
         window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+
+            // Parallax effect
             const parallaxBgs = document.querySelectorAll('.parallax-bg');
             parallaxBgs.forEach(bg => {
                 const section = bg.parentElement;
                 const rect = section.getBoundingClientRect();
-                const scrolled = window.pageYOffset;
                 const rate = (rect.top + scrolled) * 0.3;
                 bg.style.transform = `translateY(${scrolled * 0.3 - rate}px)`;
+            });
+
+            // Scroll-to-top button visibility
+            const scrollBtn = document.getElementById('scrollTop');
+            if (scrolled > 400) {
+                scrollBtn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+                scrollBtn.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                scrollBtn.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+                scrollBtn.classList.remove('opacity-100', 'translate-y-0');
+            }
+
+            // Active nav highlighting
+            const sections = ['Top', 'Games', 'Projects', 'ContactMe'];
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+            let current = 'Top';
+            sections.forEach(id => {
+                const section = document.getElementById(id);
+                if (section && section.getBoundingClientRect().top <= 100) {
+                    current = id;
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-teal-400');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('text-teal-400');
+                }
             });
         });
     </script>
