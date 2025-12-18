@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -59,645 +59,590 @@
     }
     </script>
 
-    <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teal: {
+                            DEFAULT: '#14b8a6',
+                            dark: '#0d9488'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom styles for parallax and details -->
+    <style>
+        html { scroll-behavior: smooth; }
+
+        /* Parallax effect */
+        .parallax-section {
+            position: relative;
+            height: 50vh;
+            min-height: 300px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .parallax-section .parallax-bg {
+            position: absolute;
+            top: -20%;
+            left: 0;
+            width: 100%;
+            height: 140%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Details/Summary styling */
+        details summary { cursor: pointer; list-style: none; }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::before {
+            content: "▶";
+            font-size: 0.7rem;
+            color: #14b8a6;
+            margin-right: 0.5rem;
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        /* Mobile menu */
+        .mobile-menu { display: none; }
+        .mobile-menu.active { display: block; }
+    </style>
 </head>
 
-<body>
-    <nav class="black" role="navigation">
-        <div class="nav-wrapper container">
-            <a href="#Top" class="btn-floating waves-effect waves-light teal">
-                <img src="img/logo.png" alt="Logo" style="height: inherit;">
-            </a>
-            <a id="logo-container" href="#Top" class="brand-logo">&nbsp; CreArthur - Bretzel Studio</a>
-            <ul class="right hide-on-med-and-down">
-                <li>
-                    <a href="#Top">About me</a>
-                </li>
-                <li>
-                    <a href="#Games">Games</a>
-                </li>
-                <li>
-                    <a href="#Projects">Projects</a>
-                </li>
-                <li>
-                    <a href="#ContactMe">Contact</a>
-                </li>
-                <li>
-                    <a href="https://lacrearthur.github.io/resume/">Resume</a>
-                </li>
-            </ul>
-            <ul id="nav-mobile" class="sidenav">
-                <li>
-                    <a href="#Top">Home</a>
-                </li>
-                <li>
-                    <a href="#Games">Games</a>
-                </li>
-                <li>
-                    <a href="#Projects">Projects</a>
-                </li>
-                <li>
-                    <a href="#ContactMe">Contact</a>
-                </li>
-                <li>
-                    <a href="https://lacrearthur.github.io/resume/">Resume</a>
-                </li>
-            </ul>
-            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+<body class="bg-black text-gray-200">
+    <!-- Navigation -->
+    <nav id="Top" class="bg-black/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-gray-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="#Top" class="flex items-center gap-3">
+                    <img src="img/logo.png" alt="Logo" class="h-10 w-10 rounded-full">
+                    <span class="font-semibold text-lg hidden sm:block">CreArthur - Bretzel Studio</span>
+                </a>
+
+                <!-- Desktop menu -->
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="#Top" class="hover:text-teal-400 transition-colors">About</a>
+                    <a href="#Games" class="hover:text-teal-400 transition-colors">Games</a>
+                    <a href="#Projects" class="hover:text-teal-400 transition-colors">Projects</a>
+                    <a href="#ContactMe" class="hover:text-teal-400 transition-colors">Contact</a>
+                    <a href="https://lacrearthur.github.io/resume/" class="bg-teal-600 hover:bg-teal-700 px-4 py-2 rounded-lg transition-colors">Resume</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button onclick="toggleMenu()" class="md:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden pb-4">
+                <a href="#Top" class="block py-2 hover:text-teal-400">About</a>
+                <a href="#Games" class="block py-2 hover:text-teal-400">Games</a>
+                <a href="#Projects" class="block py-2 hover:text-teal-400">Projects</a>
+                <a href="#ContactMe" class="block py-2 hover:text-teal-400">Contact</a>
+                <a href="https://lacrearthur.github.io/resume/" class="block py-2 hover:text-teal-400">Resume</a>
+            </div>
         </div>
     </nav>
 
-    <div id="index-banner" class="parallax-container">
-        <div class="section no-pad-bot">
-            <img src="img/title.png" alt="LaCreArthur du Net" class="banner-title-img">
-            <div class="row center">
-                <a href="https://youtube.com/c/LaCreArthur">
-                    <img src="img/s_yt.png" data-position="bottom" data-delay="50" data-tooltip="Youtube" alt="Youtube"
-                        class="banner-button-img tooltipped z-depth-3 circle">
+    <!-- Hero Section with Parallax -->
+    <section class="parallax-section min-h-[60vh]">
+        <img src="img/background1.jpg" alt="Background" class="parallax-bg">
+        <div class="text-center z-10 px-4 pt-16">
+            <img src="img/title.png" alt="LaCreArthur du Net" class="max-w-md mx-auto mb-8 w-full">
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="https://youtube.com/c/LaCreArthur" class="hover:scale-110 transition-transform">
+                    <img src="img/s_yt.png" alt="Youtube" class="w-12 h-12 rounded-full shadow-lg">
                 </a>
-                <a href="https://github.com/LaCreArthur/">
-                    <img src="img/s_gh.png" data-position="bottom" data-delay="50" data-tooltip="GitHub" alt="GitHub"
-                        class="banner-button-img tooltipped z-depth-3 circle">
+                <a href="https://github.com/LaCreArthur/" class="hover:scale-110 transition-transform">
+                    <img src="img/s_gh.png" alt="GitHub" class="w-12 h-12 rounded-full shadow-lg">
                 </a>
-                <a href="https://facebook.com/lacrearthur">
-                    <img src="img/s_fb.png" data-position="bottom" data-delay="50" data-tooltip="Facebook"
-                        alt="Facebook" class="banner-button-img tooltipped z-depth-3 circle">
+                <a href="https://facebook.com/lacrearthur" class="hover:scale-110 transition-transform">
+                    <img src="img/s_fb.png" alt="Facebook" class="w-12 h-12 rounded-full shadow-lg">
                 </a>
-                <a href="https://www.linkedin.com/in/arthur-scheidel/">
-                    <img src="img/s_lin.png" data-position="bottom" data-delay="50" data-tooltip="Linkedin"
-                        alt="Linkedin" class="banner-button-img tooltipped z-depth-3 circle">
+                <a href="https://www.linkedin.com/in/arthur-scheidel/" class="hover:scale-110 transition-transform">
+                    <img src="img/s_lin.png" alt="LinkedIn" class="w-12 h-12 rounded-full shadow-lg">
                 </a>
-                <a href="https://twitter.com/LaCreArthur">
-                    <img src="img/s_tw.png" data-position="bottom" data-delay="50" data-tooltip="Twitter" alt="Twitter"
-                        class="banner-button-img tooltipped z-depth-3 circle">
+                <a href="https://twitter.com/LaCreArthur" class="hover:scale-110 transition-transform">
+                    <img src="img/s_tw.png" alt="Twitter" class="w-12 h-12 rounded-full shadow-lg">
                 </a>
-                <a href="https://www.instagram.com/lacrearthur/">
-                    <img src="img/s_ig.jpg" data-position="bottom" data-delay="50" data-tooltip="Instagram"
-                        alt="Instagram" class="banner-button-img tooltipped z-depth-3 circle">
+                <a href="https://www.instagram.com/lacrearthur/" class="hover:scale-110 transition-transform">
+                    <img src="img/s_ig.jpg" alt="Instagram" class="w-12 h-12 rounded-full shadow-lg">
                 </a>
-                <a href="https://www.paypal.me/LaCreArthur">
-                    <img src="img/s_don.png" data-position="bottom" data-delay="50" data-tooltip="Donation" alt="PayPal"
-                        class="banner-button-img tooltipped z-depth-3 circle">
+                <a href="https://www.paypal.me/LaCreArthur" class="hover:scale-110 transition-transform">
+                    <img src="img/s_don.png" alt="PayPal" class="w-12 h-12 rounded-full shadow-lg">
                 </a>
             </div>
         </div>
-        <div class="parallax"><img src="img/background1.jpg" alt="Unsplashed background img 1"></div>
-    </div>
+    </section>
 
-    <div class="container">
-        <div class="section">
-            <div class="row">
-                <div class="col s12 m4">
-                    <div class="icon-block">
-                        <div class="center">
-                            <img class="circle" src="img/id2018.jpg" style="height: 100px;" alt="Arthur Scheidel">
-                        </div>
-                        <h5 class="center">About me</h5>
-                        <p class="light">
-                            <strong>Hi, I'm Arthur Scheidel</strong> — Lead Unity Developer & former CTO based in Paris. Over <strong>7+ years</strong>, I've shipped games at <strong>Ubisoft</strong>, led Web3 startups, and built indie hits. I'm also a competitive skateboarder: <strong>2x French Championship qualifier</strong> (2024 & 2025).
-                        </p>
-                    </div>
+    <!-- About Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- About Me -->
+                <div class="text-center">
+                    <img src="img/id2018.jpg" alt="Arthur Scheidel" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-3">About me</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        <strong class="text-white">Hi, I'm Arthur Scheidel</strong> — Lead Unity Developer & former CTO based in Paris. Over <strong class="text-white">7+ years</strong>, I've shipped games at <strong class="text-white">Ubisoft</strong>, led Web3 startups, and built indie hits. I'm also a competitive skateboarder: <strong class="text-white">2x French Championship qualifier</strong> (2024 & 2025).
+                    </p>
                 </div>
 
-                <div class="col s12 m4">
-                    <div class="icon-block">
-                        <h2 class="center light-green-text">
-                            <i class="material-icons">code</i>
-                        </h2>
-                        <h5 class="center">Experience</h5>
-                        <p class="light">
-                            I've worked at <strong>Ubisoft (Ketchapp)</strong> on hyper-casual games, served as <strong>CTO at CARFT</strong> (Web3 gaming startup), and led Unity development at <strong>Yumon</strong>. My indie game <strong>Dogecoin To The Moon</strong> reached <strong>25k downloads</strong> with a <strong>4.9★</strong> rating — all organic growth.
-                        </p>
-                    </div>
+                <!-- Experience -->
+                <div class="text-center">
+                    <div class="text-4xl text-green-400 mb-4">💻</div>
+                    <h3 class="text-xl font-semibold mb-3">Experience</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        I've worked at <strong class="text-white">Ubisoft (Ketchapp)</strong> on hyper-casual games, served as <strong class="text-white">CTO at CARFT</strong> (Web3 gaming startup), and led Unity development at <strong class="text-white">Yumon</strong>. My indie game <strong class="text-white">Dogecoin To The Moon</strong> reached <strong class="text-white">25k downloads</strong> with a <strong class="text-white">4.9★</strong> rating — all organic growth.
+                    </p>
                 </div>
 
-                <div class="col s12 m4">
-                    <div class="icon-block">
-                        <h2 class="center cyan-text">
-                            <i class="material-icons">school</i>
-                        </h2>
-                        <h5 class="center">Skills & Education</h5>
-                        <p class="light">
-                            <strong>Master's in Computer Science</strong> (with honors) from University of Strasbourg. I specialize in <strong>Unity, C#, React, Python</strong>, and <strong>Web3/NFT</strong> integration. I also teach Unity courses and mentor junior developers.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="parallax-container valign-wrapper">
-        <div class="section no-pad-bot">
-            <div class="container">
-                <div class="row center">
-                    <h5 class="header col s12 light">Famous French Youtuber Bob Lennon wearing my Rody A Ibiza Pins</h5>
+                <!-- Skills & Education -->
+                <div class="text-center">
+                    <div class="text-4xl text-cyan-400 mb-4">🎓</div>
+                    <h3 class="text-xl font-semibold mb-3">Skills & Education</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        <strong class="text-white">Master's in Computer Science</strong> (with honors) from University of Strasbourg. I specialize in <strong class="text-white">Unity, C#, React, Python</strong>, and <strong class="text-white">Web3/NFT</strong> integration. I also teach Unity courses and mentor junior developers.
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="parallax"><img src="img/background2.jpg" alt="Unsplashed background img 2"></div>
-    </div>
+    </section>
 
-    <div class="container">
-        <div class="section">
+    <!-- Second Parallax -->
+    <section class="parallax-section h-[40vh]">
+        <img src="img/background2.jpg" alt="Background" class="parallax-bg">
+        <div class="text-center z-10 px-4">
+            <h5 class="text-xl text-white/90 drop-shadow-lg">Famous French Youtuber Bob Lennon wearing my Rody A Ibiza Pins</h5>
+        </div>
+    </section>
 
-            <div class="row">
-                <div class="col s12 center">
-                    <h3 id="Games" class="anchor">
-                        Games
-                    </h3>
-                    <span id="Projects"></span>
-                    <h6>
-                        You will find my PC games on <a href="https://lacrearthur.itch.io/">lacrearthur.itch.io</a>.
-                        my Android games are on <a
-                            href="https://play.google.com/store/apps/developer?id=Bretzel+Studio&hl=fr&gl=US">Google
-                            Play Store</a>.
-                        my iOS games are on <a
-                            href="https://apps.apple.com/us/developer/arthur-scheidel/id1529721903">Apple App Store</a>.
-                    </h6>
-                </div>
+    <!-- Games Section -->
+    <section id="Games" class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-4">Games</h2>
+            <p class="text-center text-gray-400 mb-8">
+                Find my PC games on <a href="https://lacrearthur.itch.io/" class="text-teal-400 hover:underline">lacrearthur.itch.io</a>.
+                Android games on <a href="https://play.google.com/store/apps/developer?id=Bretzel+Studio" class="text-teal-400 hover:underline">Google Play Store</a>.
+                iOS games on <a href="https://apps.apple.com/us/developer/arthur-scheidel/id1529721903" class="text-teal-400 hover:underline">Apple App Store</a>.
+            </p>
+
+            <h4 class="text-xl font-semibold text-center mb-6">My Last Mobile Games</h4>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 mb-12">
+                <a href="https://play.google.com/store/apps/details?id=com.bretzelstudio.farmrun" class="group text-center">
+                    <img src="https://play-lh.googleusercontent.com/FICrMRrxStHsEiVib7fiZFsapQqkflB_JWCzAn4wYegpfd7UjDP2eMzPr0cos8Oc3xlM=s256-rw" alt="Farm Land Run 3D" class="w-20 h-20 mx-auto rounded-2xl shadow-lg group-hover:scale-105 transition-transform">
+                    <p class="mt-2 text-sm underline">Farm Land Run 3D!</p>
+                </a>
+                <a href="https://apps.apple.com/us/app/dogecoin-to-moon/id1574465636" class="group text-center">
+                    <img src="https://is4-ssl.mzstatic.com/image/thumb/Purple125/v4/8d/47/15/8d47153a-b3c1-9efe-3e47-064b725b11f7/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp" alt="Dogecoin To The Moon" class="w-20 h-20 mx-auto rounded-2xl shadow-lg group-hover:scale-105 transition-transform">
+                    <p class="mt-2 text-sm underline">Dogecoin To The Moon</p>
+                    <span class="inline-block bg-teal-600 text-xs px-2 py-0.5 rounded mt-1">25k+ ★4.9</span>
+                </a>
+                <a href="https://apps.apple.com/us/app/mine-block-tap/id1570215589" class="group text-center">
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/6e/f2/84/6ef284aa-7c28-17f0-2f4e-35c15b4f7b92/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp" alt="Mine Block Tap" class="w-20 h-20 mx-auto rounded-2xl shadow-lg group-hover:scale-105 transition-transform">
+                    <p class="mt-2 text-sm underline">Mine Block Tap</p>
+                </a>
+                <a href="https://apps.apple.com/us/app/find-it-3d/id1566705591" class="group text-center">
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/de/91/c6/de91c6ed-835b-7138-ec1b-8d301f5b0e91/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp" alt="Find-it 3D" class="w-20 h-20 mx-auto rounded-2xl shadow-lg group-hover:scale-105 transition-transform">
+                    <p class="mt-2 text-sm underline">Find-it 3D!</p>
+                </a>
+                <a href="https://apps.apple.com/us/app/dont-fall-guys/id1563951588" class="group text-center">
+                    <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple115/v4/24/5f/d6/245fd693-0c59-7cb6-144c-119903475560/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp" alt="Don't Fall Guys" class="w-20 h-20 mx-auto rounded-2xl shadow-lg group-hover:scale-105 transition-transform">
+                    <p class="mt-2 text-sm underline">Don't Fall Guys!</p>
+                </a>
+                <a href="https://apps.apple.com/us/app/snap-guys/id1542504605" class="group text-center">
+                    <img src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/62/53/ef/6253ef72-1286-51a6-9b47-b635e8920c45/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp" alt="Snap Guys" class="w-20 h-20 mx-auto rounded-2xl shadow-lg group-hover:scale-105 transition-transform">
+                    <p class="mt-2 text-sm underline">Snap Guys</p>
+                </a>
             </div>
 
-            <div class="col s12 center">
-                <h5>My Last Mobile Games </h5>
-                <br>
-            </div>
-            <div class="row">
-                <div class="col s6 m4 l2 center">
-                    <a href="https://play.google.com/store/apps/details?id=com.bretzelstudio.farmrun">
-                        <img class="mobile-icon"
-                            src="https://play-lh.googleusercontent.com/FICrMRrxStHsEiVib7fiZFsapQqkflB_JWCzAn4wYegpfd7UjDP2eMzPr0cos8Oc3xlM=s256-rw"
-                            alt="">
-                        <h6 class="white-text underlined">Farm Land Run 3D!</h6>
-                    </a>
-                </div>
-                <div class="col s6 m4 l2 center">
-                    <a href="https://apps.apple.com/us/app/dogecoin-to-moon/id1574465636">
-                        <img class="center mobile-icon"
-                            src="https://is4-ssl.mzstatic.com/image/thumb/Purple125/v4/8d/47/15/8d47153a-b3c1-9efe-3e47-064b725b11f7/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp"
-                            alt="Dogecoin To The Moon - 25k downloads">
-                        <h6 class="white-text underlined">Dogecoin To The Moon</h6>
-                        <span class="new badge teal" data-badge-caption="25k+ ★4.9"></span>
-                    </a>
-                </div>
-                <div class="col s6 m4 l2 center">
-                    <a href="https://apps.apple.com/us/app/mine-block-tap/id1570215589">
-                        <img class="center mobile-icon"
-                            src="https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/6e/f2/84/6ef284aa-7c28-17f0-2f4e-35c15b4f7b92/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp"
-                            alt="">
-                        <h6 class="white-text underlined">Mine Block Tap</h6>
-                    </a>
-                </div>
-                <div class="col s6 m4 l2 center">
-                    <a href="https://apps.apple.com/us/app/find-it-3d/id1566705591">
-                        <img class="center mobile-icon"
-                            src="https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/de/91/c6/de91c6ed-835b-7138-ec1b-8d301f5b0e91/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp"
-                            alt="">
-                        <h6 class="white-text underlined">Find-it 3D!</h6>
-                    </a>
-                </div>
-                <div class="col s6 m4 l2 center">
-                    <a href="https://apps.apple.com/us/app/dont-fall-guys/id1563951588">
-                        <img class="center mobile-icon"
-                            src="https://is5-ssl.mzstatic.com/image/thumb/Purple115/v4/24/5f/d6/245fd693-0c59-7cb6-144c-119903475560/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp"
-                            alt="">
-                        <h6 class="white-text underlined">Don't Fall Guys !</h6>
-                    </a>
-                </div>
-                <div class="col s6 m4 l2 center">
-                    <a href="https://apps.apple.com/us/app/snap-guys/id1542504605">
-                        <img class="center mobile-icon"
-                            src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/62/53/ef/6253ef72-1286-51a6-9b47-b635e8920c45/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp"
-                            alt="">
-                        <h6 class="white-text underlined">Snap Guys</h6>
-                    </a>
-                </div>
-            </div>
-
-<!-- Projects Section -->
-            <div class="projects-section">
+            <!-- Projects Section -->
+            <div id="Projects" class="space-y-8">
                 <!-- Featured Projects -->
-                <div class="project-category">
-                    <h5><i class="material-icons teal-text">star</i> Featured Projects</h5>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                        <span class="text-teal-400">★</span> Featured Projects
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
+                            <details>
+                                <summary class="p-4">
+                                    <div class="flex justify-between items-start">
+                                        <span class="font-semibold">Doge To Mars</span>
+                                        <span class="text-gray-500 text-sm">2025</span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm mt-1">Sequel to my 25k-download hit, embraced by the Dogecoin community</p>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Mobile</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Crypto</span>
+                                        <span class="bg-teal-600 text-black text-xs px-2 py-0.5 rounded font-semibold ml-auto">Community Featured</span>
+                                    </div>
+                                </summary>
+                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
+                                    <p class="text-gray-400 text-sm mb-3">Follow-up to Dogecoin To The Moon. Received extremely positive reception from the Dogecoin community, leading to a competitive scholarship invitation to the Dogecoin Hackathon (June 2025).</p>
+                                    <a href="https://lacrearthur.itch.io/" target="_blank" class="text-teal-400 hover:underline text-sm">🎮 itch.io</a>
+                                </div>
+                            </details>
+                        </div>
 
-                    <div class="project-card">
-                        <details>
-                            <summary>
-                                <div class="project-header">
-                                    <span class="project-name">Doge To Mars</span>
-                                    <span class="project-year">2025</span>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
+                            <details>
+                                <summary class="p-4">
+                                    <div class="flex justify-between items-start">
+                                        <span class="font-semibold">Dogecoin To The Moon</span>
+                                        <span class="text-gray-500 text-sm">2021</span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm mt-1">Crypto-themed mobile game with organic viral growth</p>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Mobile</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">NFT</span>
+                                        <span class="bg-teal-600 text-black text-xs px-2 py-0.5 rounded font-semibold ml-auto">25k downloads · 4.9★</span>
+                                    </div>
+                                </summary>
+                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
+                                    <p class="text-gray-400 text-sm mb-3">Mobile game targeting the Dogecoin community with NFT integration. Achieved 25,000 organic downloads with a 4.9-star rating — no marketing budget. Early example of successful crypto-gaming convergence.</p>
+                                    <div class="flex gap-4">
+                                        <a href="https://apps.apple.com/us/app/dogecoin-to-moon/id1574465636" target="_blank" class="text-teal-400 hover:underline text-sm">📱 App Store</a>
+                                        <a href="https://github.com/LaCreArthur/DogecoinToTheMoon" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
+                                    </div>
                                 </div>
-                                <span class="project-summary">Sequel to my 25k-download hit, embraced by the Dogecoin community</span>
-                                <div class="project-tech">
-                                    <span class="tech-badge">Unity</span>
-                                    <span class="tech-badge">C#</span>
-                                    <span class="tech-badge">Mobile</span>
-                                    <span class="tech-badge">Crypto</span>
-                                    <span class="project-metrics">Community Featured</span>
-                                </div>
-                            </summary>
-                            <div class="project-details">
-                                <p class="project-description">Follow-up to Dogecoin To The Moon. Received extremely positive reception from the Dogecoin community, leading to a competitive scholarship invitation to the Dogecoin Hackathon (June 2025).</p>
-                                <div class="project-links">
-                                    <a href="https://lacrearthur.itch.io/" target="_blank"><i class="material-icons">sports_esports</i> itch.io</a>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
+                            </details>
+                        </div>
 
-                    <div class="project-card">
-                        <details>
-                            <summary>
-                                <div class="project-header">
-                                    <span class="project-name">Dogecoin To The Moon</span>
-                                    <span class="project-year">2021</span>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
+                            <details>
+                                <summary class="p-4">
+                                    <div class="flex justify-between items-start">
+                                        <span class="font-semibold">Rody & Mastico Collection</span>
+                                        <span class="text-gray-500 text-sm">2018</span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm mt-1">Remastered Atari ST series with integrated level editor</p>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Level Editor</span>
+                                        <span class="bg-teal-600 text-black text-xs px-2 py-0.5 rounded font-semibold ml-auto">3 years dev · YouTuber collab</span>
+                                    </div>
+                                </summary>
+                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
+                                    <p class="text-gray-400 text-sm mb-3">3+ years of development recreating classic Atari ST games. Features Rody Maker, a full level editor allowing players to create and share custom stories. Collaborated with French YouTubers for launch, gaining significant exposure.</p>
+                                    <div class="flex flex-wrap gap-4">
+                                        <a href="https://lacrearthur.itch.io/rody-mastico-collection" target="_blank" class="text-teal-400 hover:underline text-sm">🎮 itch.io</a>
+                                        <a href="https://lacrearthur.github.io/RodyAIbiza/" target="_blank" class="text-teal-400 hover:underline text-sm">🌐 Website</a>
+                                        <a href="https://www.youtube.com/watch?v=DEktCBMKopE" target="_blank" class="text-teal-400 hover:underline text-sm">▶️ Trailer</a>
+                                    </div>
                                 </div>
-                                <span class="project-summary">Crypto-themed mobile game with organic viral growth</span>
-                                <div class="project-tech">
-                                    <span class="tech-badge">Unity</span>
-                                    <span class="tech-badge">C#</span>
-                                    <span class="tech-badge">Mobile</span>
-                                    <span class="tech-badge">NFT</span>
-                                    <span class="project-metrics">25k downloads · 4.9★</span>
-                                </div>
-                            </summary>
-                            <div class="project-details">
-                                <p class="project-description">Mobile game targeting the Dogecoin community with NFT integration. Achieved 25,000 organic downloads with a 4.9-star rating — no marketing budget. Early example of successful crypto-gaming convergence.</p>
-                                <div class="project-links">
-                                    <a href="https://apps.apple.com/us/app/dogecoin-to-moon/id1574465636" target="_blank"><i class="material-icons">phone_iphone</i> App Store</a>
-                                    <a href="https://github.com/LaCreArthur/DogecoinToTheMoon" target="_blank"><i class="material-icons">code</i> GitHub</a>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <div class="project-card">
-                        <details>
-                            <summary>
-                                <div class="project-header">
-                                    <span class="project-name">Rody & Mastico Collection</span>
-                                    <span class="project-year">2018</span>
-                                </div>
-                                <span class="project-summary">Remastered Atari ST series with integrated level editor</span>
-                                <div class="project-tech">
-                                    <span class="tech-badge">Unity</span>
-                                    <span class="tech-badge">C#</span>
-                                    <span class="tech-badge">Level Editor</span>
-                                    <span class="project-metrics">3 years dev · YouTuber collab</span>
-                                </div>
-                            </summary>
-                            <div class="project-details">
-                                <p class="project-description">3+ years of development recreating classic Atari ST games. Features Rody Maker, a full level editor allowing players to create and share custom stories. Collaborated with French YouTubers for launch, gaining significant exposure.</p>
-                                <div class="project-links">
-                                    <a href="https://lacrearthur.itch.io/rody-mastico-collection" target="_blank"><i class="material-icons">sports_esports</i> itch.io</a>
-                                    <a href="https://lacrearthur.github.io/RodyAIbiza/" target="_blank"><i class="material-icons">language</i> Website</a>
-                                    <a href="https://www.youtube.com/watch?v=DEktCBMKopE" target="_blank"><i class="material-icons">play_circle</i> Trailer</a>
-                                </div>
-                            </div>
-                        </details>
+                            </details>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Tools & SDKs -->
-                <div class="project-category">
-                    <h5><i class="material-icons light-green-text">build</i> Tools & SDKs</h5>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                        <span class="text-green-400">🔧</span> Tools & SDKs
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
+                            <details>
+                                <summary class="p-4">
+                                    <div class="flex justify-between items-start">
+                                        <span class="font-semibold">Unity CI/CD Template</span>
+                                        <span class="text-gray-500 text-sm">2025</span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm mt-1">Complete automation pipeline for Unity mobile games</p>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">GitHub Actions</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Fastlane</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">CI/CD</span>
+                                    </div>
+                                </summary>
+                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
+                                    <p class="text-gray-400 text-sm mb-3">Production-ready template automating Unity builds for Android (AAB → Play Store) and iOS (IPA → TestFlight) using GameCI and Fastlane. Includes Firebase distribution for beta testing.</p>
+                                    <a href="https://github.com/LaCreArthur/unity-fastlane-ci" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
+                                </div>
+                            </details>
+                        </div>
 
-                    <div class="project-card">
-                        <details>
-                            <summary>
-                                <div class="project-header">
-                                    <span class="project-name">Unity CI/CD Template</span>
-                                    <span class="project-year">2025</span>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
+                            <details>
+                                <summary class="p-4">
+                                    <div class="flex justify-between items-start">
+                                        <span class="font-semibold">Sorolla Palette SDK</span>
+                                        <span class="text-gray-500 text-sm">2025</span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm mt-1">Zero-config mobile publisher SDK for Unity games</p>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">SDK</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Mobile</span>
+                                    </div>
+                                </summary>
+                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
+                                    <p class="text-gray-400 text-sm mb-3">Unity Package Manager SDK for mobile game publishing. Features automatic iOS ATT handling, ad network integration, and analytics setup with minimal configuration required.</p>
+                                    <a href="https://github.com/LaCreArthur/sorolla-palette-upm" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
                                 </div>
-                                <span class="project-summary">Complete automation pipeline for Unity mobile games</span>
-                                <div class="project-tech">
-                                    <span class="tech-badge">Unity</span>
-                                    <span class="tech-badge">GitHub Actions</span>
-                                    <span class="tech-badge">Fastlane</span>
-                                    <span class="tech-badge">CI/CD</span>
-                                </div>
-                            </summary>
-                            <div class="project-details">
-                                <p class="project-description">Production-ready template automating Unity builds for Android (AAB → Play Store) and iOS (IPA → TestFlight) using GameCI and Fastlane. Includes Firebase distribution for beta testing.</p>
-                                <div class="project-links">
-                                    <a href="https://github.com/LaCreArthur/unity-fastlane-ci" target="_blank"><i class="material-icons">code</i> GitHub</a>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
+                            </details>
+                        </div>
 
-                    <div class="project-card">
-                        <details>
-                            <summary>
-                                <div class="project-header">
-                                    <span class="project-name">Sorolla Palette SDK</span>
-                                    <span class="project-year">2025</span>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
+                            <details>
+                                <summary class="p-4">
+                                    <div class="flex justify-between items-start">
+                                        <span class="font-semibold">Facebook SDK for UPM</span>
+                                        <span class="text-gray-500 text-sm">2025</span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm mt-1">Facebook SDK repackaged for Unity Package Manager</p>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Objective-C++</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">SDK</span>
+                                    </div>
+                                </summary>
+                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
+                                    <p class="text-gray-400 text-sm mb-3">Clean UPM-compatible package of the Facebook SDK for easier integration into Unity projects via Package Manager instead of manual import.</p>
+                                    <a href="https://github.com/LaCreArthur/facebook-unity-sdk-upm" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
                                 </div>
-                                <span class="project-summary">Zero-config mobile publisher SDK for Unity games</span>
-                                <div class="project-tech">
-                                    <span class="tech-badge">Unity</span>
-                                    <span class="tech-badge">C#</span>
-                                    <span class="tech-badge">SDK</span>
-                                    <span class="tech-badge">Mobile</span>
-                                </div>
-                            </summary>
-                            <div class="project-details">
-                                <p class="project-description">Unity Package Manager SDK for mobile game publishing. Features automatic iOS ATT handling, ad network integration, and analytics setup with minimal configuration required.</p>
-                                <div class="project-links">
-                                    <a href="https://github.com/LaCreArthur/sorolla-palette-upm" target="_blank"><i class="material-icons">code</i> GitHub</a>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <div class="project-card">
-                        <details>
-                            <summary>
-                                <div class="project-header">
-                                    <span class="project-name">Facebook SDK for UPM</span>
-                                    <span class="project-year">2025</span>
-                                </div>
-                                <span class="project-summary">Facebook SDK repackaged for Unity Package Manager</span>
-                                <div class="project-tech">
-                                    <span class="tech-badge">Unity</span>
-                                    <span class="tech-badge">Objective-C++</span>
-                                    <span class="tech-badge">SDK</span>
-                                </div>
-                            </summary>
-                            <div class="project-details">
-                                <p class="project-description">Clean UPM-compatible package of the Facebook SDK for easier integration into Unity projects via Package Manager instead of manual import.</p>
-                                <div class="project-links">
-                                    <a href="https://github.com/LaCreArthur/facebook-unity-sdk-upm" target="_blank"><i class="material-icons">code</i> GitHub</a>
-                                </div>
-                            </div>
-                        </details>
+                            </details>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Game Jams & Indie -->
-                <div class="project-category">
-                    <h5><i class="material-icons cyan-text">videogame_asset</i> Game Jams & Indie</h5>
+                <!-- Game Jams -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                        <span class="text-cyan-400">🎮</span> Game Jams & Indie
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
+                            <details>
+                                <summary class="p-4">
+                                    <div class="flex justify-between items-start">
+                                        <span class="font-semibold">The Binding of Euclide</span>
+                                        <span class="text-gray-500 text-sm">2021</span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm mt-1">Geometry-themed roguelike dungeon crawler</p>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Roguelike</span>
+                                    </div>
+                                </summary>
+                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
+                                    <p class="text-gray-400 text-sm mb-3">A roguelike inspired by The Binding of Isaac but with geometric shapes and math-themed mechanics. Built for a game jam.</p>
+                                    <a href="https://lacrearthur.itch.io/the-binding-of-euclide" target="_blank" class="text-teal-400 hover:underline text-sm">🎮 Play on itch.io</a>
+                                </div>
+                            </details>
+                        </div>
 
-                    <div class="project-card">
-                        <details>
-                            <summary>
-                                <div class="project-header">
-                                    <span class="project-name">The Binding of Euclide</span>
-                                    <span class="project-year">2021</span>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
+                            <details>
+                                <summary class="p-4">
+                                    <div class="flex justify-between items-start">
+                                        <span class="font-semibold">The Plot Hole: Little Red</span>
+                                        <span class="text-gray-500 text-sm">2020</span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm mt-1">Narrative game jam entry — team of 4</p>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Narrative</span>
+                                    </div>
+                                </summary>
+                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
+                                    <p class="text-gray-400 text-sm mb-3">Story-driven game created during a game jam with a team of 4 developers. Explores the concept of plot holes in fairy tales.</p>
+                                    <a href="https://lacrearthur.itch.io/plot-hole" target="_blank" class="text-teal-400 hover:underline text-sm">🎮 Play on itch.io</a>
                                 </div>
-                                <span class="project-summary">Geometry-themed roguelike dungeon crawler</span>
-                                <div class="project-tech">
-                                    <span class="tech-badge">Unity</span>
-                                    <span class="tech-badge">C#</span>
-                                    <span class="tech-badge">Roguelike</span>
-                                </div>
-                            </summary>
-                            <div class="project-details">
-                                <p class="project-description">A roguelike inspired by The Binding of Isaac but with geometric shapes and math-themed mechanics. Built for a game jam.</p>
-                                <div class="project-links">
-                                    <a href="https://lacrearthur.itch.io/the-binding-of-euclide" target="_blank"><i class="material-icons">sports_esports</i> Play on itch.io</a>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
+                            </details>
+                        </div>
 
-                    <div class="project-card">
-                        <details>
-                            <summary>
-                                <div class="project-header">
-                                    <span class="project-name">The Plot Hole: Little Red</span>
-                                    <span class="project-year">2020</span>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
+                            <details>
+                                <summary class="p-4">
+                                    <div class="flex justify-between items-start">
+                                        <span class="font-semibold">Univeria</span>
+                                        <span class="text-gray-500 text-sm">2021</span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm mt-1">Universe-scale puzzle exploration game</p>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Puzzle</span>
+                                    </div>
+                                </summary>
+                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
+                                    <p class="text-gray-400 text-sm mb-3">Puzzle game exploring the scale of the universe, from atoms to galaxies.</p>
+                                    <a href="https://lacrearthur.itch.io/univeria" target="_blank" class="text-teal-400 hover:underline text-sm">🎮 Play on itch.io</a>
                                 </div>
-                                <span class="project-summary">Narrative game jam entry — team of 4</span>
-                                <div class="project-tech">
-                                    <span class="tech-badge">Unity</span>
-                                    <span class="tech-badge">C#</span>
-                                    <span class="tech-badge">Narrative</span>
-                                </div>
-                            </summary>
-                            <div class="project-details">
-                                <p class="project-description">Story-driven game created during a game jam with a team of 4 developers. Explores the concept of plot holes in fairy tales.</p>
-                                <div class="project-links">
-                                    <a href="https://lacrearthur.itch.io/plot-hole" target="_blank"><i class="material-icons">sports_esports</i> Play on itch.io</a>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <div class="project-card">
-                        <details>
-                            <summary>
-                                <div class="project-header">
-                                    <span class="project-name">Univeria</span>
-                                    <span class="project-year">2021</span>
-                                </div>
-                                <span class="project-summary">Universe-scale puzzle exploration game</span>
-                                <div class="project-tech">
-                                    <span class="tech-badge">Unity</span>
-                                    <span class="tech-badge">C#</span>
-                                    <span class="tech-badge">Puzzle</span>
-                                </div>
-                            </summary>
-                            <div class="project-details">
-                                <p class="project-description">Puzzle game exploring the scale of the universe, from atoms to galaxies.</p>
-                                <div class="project-links">
-                                    <a href="https://lacrearthur.itch.io/univeria" target="_blank"><i class="material-icons">sports_esports</i> Play on itch.io</a>
-                                </div>
-                            </div>
-                        </details>
+                            </details>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Teaching Projects -->
-                <div class="project-category">
-                    <h5><i class="material-icons purple-text">school</i> Teaching Projects</h5>
-
-                    <div class="project-card">
-                        <details>
-                            <summary>
-                                <div class="project-header">
-                                    <span class="project-name">Vampire Survivor Clone</span>
-                                    <span class="project-year">2025</span>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                        <span class="text-purple-400">🎓</span> Teaching Projects
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
+                            <details>
+                                <summary class="p-4">
+                                    <div class="flex justify-between items-start">
+                                        <span class="font-semibold">Vampire Survivor Clone</span>
+                                        <span class="text-gray-500 text-sm">2025</span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm mt-1">Educational project for Unity students</p>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Teaching</span>
+                                        <span class="bg-teal-600 text-black text-xs px-2 py-0.5 rounded font-semibold ml-auto">20 students taught</span>
+                                    </div>
+                                </summary>
+                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
+                                    <p class="text-gray-400 text-sm mb-3">Vampire Survivors-style game created as teaching material for my Unity courses at Futurae school. Used to teach 20 students (ages 20-22) game development fundamentals.</p>
+                                    <a href="https://github.com/LaCreArthur/FuturaeVampireSurvivor" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
                                 </div>
-                                <span class="project-summary">Educational project for Unity students</span>
-                                <div class="project-tech">
-                                    <span class="tech-badge">Unity</span>
-                                    <span class="tech-badge">C#</span>
-                                    <span class="tech-badge">Teaching</span>
-                                    <span class="project-metrics">20 students taught</span>
-                                </div>
-                            </summary>
-                            <div class="project-details">
-                                <p class="project-description">Vampire Survivors-style game created as teaching material for my Unity courses at Futurae school. Used to teach 20 students (ages 20-22) game development fundamentals.</p>
-                                <div class="project-links">
-                                    <a href="https://github.com/LaCreArthur/FuturaeVampireSurvivor" target="_blank"><i class="material-icons">code</i> GitHub</a>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <div class="project-card">
-                        <details>
-                            <summary>
-                                <div class="project-header">
-                                    <span class="project-name">Sci-Fi Tower Defense</span>
-                                    <span class="project-year">2025</span>
-                                </div>
-                                <span class="project-summary">Tower defense tutorial project</span>
-                                <div class="project-tech">
-                                    <span class="tech-badge">Unity</span>
-                                    <span class="tech-badge">C#</span>
-                                    <span class="tech-badge">Teaching</span>
-                                </div>
-                            </summary>
-                            <div class="project-details">
-                                <p class="project-description">Sci-fi themed tower defense game built as a teaching resource for Unity courses, demonstrating game architecture patterns.</p>
-                                <div class="project-links">
-                                    <a href="https://github.com/LaCreArthur/FuturaeScifiTD" target="_blank"><i class="material-icons">code</i> GitHub</a>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <div class="project-card">
-                        <details>
-                            <summary>
-                                <div class="project-header">
-                                    <span class="project-name">Genetic Algorithm Pathfinder</span>
-                                    <span class="project-year">2017</span>
-                                </div>
-                                <span class="project-summary">Distributed genetic algorithm for pathfinding</span>
-                                <div class="project-tech">
-                                    <span class="tech-badge">C++</span>
-                                    <span class="tech-badge">OpenGL</span>
-                                    <span class="tech-badge">AI</span>
-                                </div>
-                            </summary>
-                            <div class="project-details">
-                                <p class="project-description">C++ implementation of a genetic algorithm finding shortest paths on 2D maps with obstacles. Features distributed island model for parallel evolution. Master's degree project.</p>
-                                <div class="project-links">
-                                    <a href="https://github.com/LaCreArthur/shortestPathGA" target="_blank"><i class="material-icons">code</i> GitHub</a>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-                </div>
-            </div>
-            <!-- End Projects Section -->
-            
-
-        </div>
-    </div>
-    <div class="parallax-container valign-wrapper">
-    
-        <div class="parallax"><img src="img/background3.png" alt="Unsplashed background img 3"></div>
-    </div>
-
-    <div class="container">
-        <div class="section">
-            <div class="row">
-                <div class="col s12 center">
-                    <h4 id="ContactMe">Contact Me</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12 center">
-                    <form action="https://formspree.io/f/xblgjdky" method="POST">
-                        <div class="col s6">
-                            <div class="input-field">
-                                <i class="material-icons prefix">mail</i>
-                                <input id="icon_mail" type="email" class="validate" name="_replyto">
-                                <label for="icon_mail">Mail</label>
-                            </div>
-                            <div class="input-field">
-                                <i class="material-icons prefix">account_circle</i>
-                                <input id="icon_prefix" type="text" data-length="50" class="validate" name="_subject">
-                                <label for="icon_prefix">Subject</label>
-                            </div>
+                            </details>
                         </div>
-                        <div class="col s6">
-                            <div class="input-field">
-                                <i class="material-icons prefix">mode_edit</i>
-                                <textarea id="textarea" data-length="500" class="materialize-textarea"
-                                    name="body"></textarea>
-                                <label for="textarea">Message</label>
-                            </div>
+
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
+                            <details>
+                                <summary class="p-4">
+                                    <div class="flex justify-between items-start">
+                                        <span class="font-semibold">Sci-Fi Tower Defense</span>
+                                        <span class="text-gray-500 text-sm">2025</span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm mt-1">Tower defense tutorial project</p>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Teaching</span>
+                                    </div>
+                                </summary>
+                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
+                                    <p class="text-gray-400 text-sm mb-3">Sci-fi themed tower defense game built as a teaching resource for Unity courses, demonstrating game architecture patterns.</p>
+                                    <a href="https://github.com/LaCreArthur/FuturaeScifiTD" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
+                                </div>
+                            </details>
                         </div>
-                        <input type="hidden" name="_next" value="https://lacrearthur.github.io/home/" />
-                        <input type="text" name="_gotcha" style="display:none" /> <!-- honeypot for scrapers -->
-                        <input class="waves-effect waves-light btn" type="submit" value="Send">
-                    </form>
+
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
+                            <details>
+                                <summary class="p-4">
+                                    <div class="flex justify-between items-start">
+                                        <span class="font-semibold">Genetic Algorithm Pathfinder</span>
+                                        <span class="text-gray-500 text-sm">2017</span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm mt-1">Distributed genetic algorithm for pathfinding</p>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C++</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">OpenGL</span>
+                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">AI</span>
+                                    </div>
+                                </summary>
+                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
+                                    <p class="text-gray-400 text-sm mb-3">C++ implementation of a genetic algorithm finding shortest paths on 2D maps with obstacles. Features distributed island model for parallel evolution. Master's degree project.</p>
+                                    <a href="https://github.com/LaCreArthur/shortestPathGA" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- END HOME -->
-    <!-- FIXED BUTTON -->
-    <div class="fixed-action-btn">
-        <a class="btn-floating btn-large waves-effect waves-light teal">
-            <img src="img/logo.png" alt="Logo" style="height: inherit;">
-        </a>
-        <ul>
-            <li><a href="./resume.pdf" class="btn-floating purple tooltipped" data-position="left" data-delay="50"
-                    data-tooltip="Resume">
-                    <i class="material-icons">account_circle</i></a>
-            </li>
-            <li><a href="#ContactMe" class="btn-floating cyan tooltipped" data-position="left" data-delay="50"
-                    data-tooltip="Contact">
-                    <i class="material-icons">message</i></a>
-            </li>
-            <li><a href="#Games" class="btn-floating light-green tooltipped" data-position="left" data-delay="50"
-                    data-tooltip="Games">
-                    <i class="material-icons">videogame_asset</i></a>
-            </li>
-            <li><a href="#Top" class="btn-floating amber accent-4 tooltipped" data-position="left" data-delay="50"
-                    data-tooltip="Top">
-                    <i class="material-icons">home</i></a>
-            </li>
-        </ul>
-    </div>
-    <!-- END FIXED BUTTON -->
-    <!-- FOOTER -->
-    <footer class="page-footer teal accent-4">
-        <div class="container">
-            <div class="row center">
-                <div class="col s2 white-text" style="font-size: 1.64rem;">Connect</div>
-                <div class="col s2" style="transform: translateY(43%);">
-                    <a class="white-text" href="https://www.linkedin.com/in/arthur-scheidel/">Linkedin</a>
+    </section>
+
+    <!-- Third Parallax -->
+    <section class="parallax-section h-[40vh]">
+        <img src="img/background3.png" alt="Background" class="parallax-bg">
+    </section>
+
+    <!-- Contact Section -->
+    <section id="ContactMe" class="py-16 px-4">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8">Contact Me</h2>
+            <form action="https://formspree.io/f/xblgjdky" method="POST" class="space-y-4">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="email" class="block text-sm text-gray-400 mb-1">Email</label>
+                        <input type="email" id="email" name="_replyto" required class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-teal-500">
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm text-gray-400 mb-1">Subject</label>
+                        <input type="text" id="subject" name="_subject" required class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-teal-500">
+                    </div>
                 </div>
-                <div class="col s2" style="transform: translateY(43%);">
-                    <a class="white-text" href="https://x.com/LaCreArthur">Twitter</a>
+                <div>
+                    <label for="message" class="block text-sm text-gray-400 mb-1">Message</label>
+                    <textarea id="message" name="body" rows="5" required class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-teal-500"></textarea>
                 </div>
-                <div class="col s2" style="transform: translateY(43%);">
-                    <a class="white-text" href="https://facebook.com/lacrearthur">Facebook</a>
-                </div>
-                <div class="col s2" style="transform: translateY(43%);">
-                    <a class="white-text" href="https://youtube.com/c/LaCreArthur">Youtube</a>
-                </div>
-                <div class="col s2" style="transform: translateY(43%);">
-                    <a class="white-text" href="https://www.instagram.com/lacrearthur/">Instagram</a>
-                </div>
-            </div>
+                <input type="hidden" name="_next" value="https://lacrearthur.github.io/" />
+                <input type="text" name="_gotcha" style="display:none" />
+                <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 rounded-lg transition-colors">Send Message</button>
+            </form>
         </div>
-        <div class="footer-copyright">
-            <div class="container">
-                Made by LaCreArthur with
-                <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a> <a
-                    class="grey-text text-lighten-4 right">Last update : 12/2025</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-teal-600 py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-6 mb-6">
+                <span class="text-xl font-semibold">Connect</span>
+                <a href="https://www.linkedin.com/in/arthur-scheidel/" class="hover:underline">LinkedIn</a>
+                <a href="https://x.com/LaCreArthur" class="hover:underline">Twitter/X</a>
+                <a href="https://facebook.com/lacrearthur" class="hover:underline">Facebook</a>
+                <a href="https://youtube.com/c/LaCreArthur" class="hover:underline">YouTube</a>
+                <a href="https://www.instagram.com/lacrearthur/" class="hover:underline">Instagram</a>
+            </div>
+            <div class="text-center text-sm text-teal-100">
+                Made by LaCreArthur with Tailwind CSS · Last update: 12/2025
             </div>
         </div>
     </footer>
 
+    <!-- Simple parallax script -->
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('active');
+        }
 
-    <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/materialize.js"></script>
-    <script src="js/init.js"></script>
-    <script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
-    <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
+        // Parallax effect
+        window.addEventListener('scroll', function() {
+            const parallaxBgs = document.querySelectorAll('.parallax-bg');
+            parallaxBgs.forEach(bg => {
+                const section = bg.parentElement;
+                const rect = section.getBoundingClientRect();
+                const scrolled = window.pageYOffset;
+                const rate = (rect.top + scrolled) * 0.3;
+                bg.style.transform = `translateY(${scrolled * 0.3 - rate}px)`;
+            });
+        });
+    </script>
 </body>
 
 </html>
