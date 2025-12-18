@@ -1,0 +1,177 @@
+{
+  "categories": [
+    {
+      "id": "featured",
+      "name": "Featured Projects",
+      "icon": "star"
+    },
+    {
+      "id": "tools",
+      "name": "Tools & SDKs",
+      "icon": "build"
+    },
+    {
+      "id": "games",
+      "name": "Game Jams & Indie",
+      "icon": "videogame_asset"
+    },
+    {
+      "id": "teaching",
+      "name": "Teaching Projects",
+      "icon": "school"
+    }
+  ],
+  "projects": [
+    {
+      "id": "doge-to-mars",
+      "name": "Doge To Mars",
+      "category": "featured",
+      "year": 2025,
+      "tech": ["Unity", "C#", "Mobile", "Crypto"],
+      "summary": "Sequel to my 25k-download hit, embraced by the Dogecoin community",
+      "description": "Follow-up to Dogecoin To The Moon. Received extremely positive reception from the Dogecoin community, leading to a competitive scholarship invitation to the Dogecoin Hackathon (June 2025).",
+      "metrics": "Community Featured",
+      "links": {
+        "itch": "https://lacrearthur.itch.io/"
+      }
+    },
+    {
+      "id": "dogecoin-to-the-moon",
+      "name": "Dogecoin To The Moon",
+      "category": "featured",
+      "year": 2021,
+      "tech": ["Unity", "C#", "Mobile", "NFT"],
+      "summary": "Crypto-themed mobile game with organic viral growth",
+      "description": "Mobile game targeting the Dogecoin community with NFT integration. Achieved 25,000 organic downloads with a 4.9-star rating — no marketing budget. Early example of successful crypto-gaming convergence.",
+      "metrics": "25k downloads · 4.9★",
+      "links": {
+        "appstore": "https://apps.apple.com/us/app/dogecoin-to-moon/id1574465636",
+        "github": "https://github.com/LaCreArthur/DogecoinToTheMoon"
+      }
+    },
+    {
+      "id": "rody-collection",
+      "name": "Rody & Mastico Collection",
+      "category": "featured",
+      "year": 2018,
+      "tech": ["Unity", "C#", "Level Editor"],
+      "summary": "Remastered Atari ST series with integrated level editor",
+      "description": "3+ years of development recreating classic Atari ST games. Features Rody Maker, a full level editor allowing players to create and share custom stories. Collaborated with French YouTubers for launch, gaining significant exposure.",
+      "metrics": "3 years dev · YouTuber collab",
+      "links": {
+        "itch": "https://lacrearthur.itch.io/rody-mastico-collection",
+        "website": "https://lacrearthur.github.io/RodyAIbiza/",
+        "youtube": "https://www.youtube.com/watch?v=DEktCBMKopE"
+      }
+    },
+    {
+      "id": "unity-fastlane-ci",
+      "name": "Unity CI/CD Template",
+      "category": "tools",
+      "year": 2025,
+      "tech": ["Unity", "GitHub Actions", "Fastlane", "CI/CD"],
+      "summary": "Complete automation pipeline for Unity mobile games",
+      "description": "Production-ready template automating Unity builds for Android (AAB → Play Store) and iOS (IPA → TestFlight) using GameCI and Fastlane. Includes Firebase distribution for beta testing.",
+      "links": {
+        "github": "https://github.com/LaCreArthur/unity-fastlane-ci"
+      }
+    },
+    {
+      "id": "sorolla-palette-upm",
+      "name": "Sorolla Palette SDK",
+      "category": "tools",
+      "year": 2025,
+      "tech": ["Unity", "C#", "SDK", "Mobile"],
+      "summary": "Zero-config mobile publisher SDK for Unity games",
+      "description": "Unity Package Manager SDK for mobile game publishing. Features automatic iOS ATT handling, ad network integration, and analytics setup with minimal configuration required.",
+      "links": {
+        "github": "https://github.com/LaCreArthur/sorolla-palette-upm"
+      }
+    },
+    {
+      "id": "facebook-sdk-upm",
+      "name": "Facebook SDK for UPM",
+      "category": "tools",
+      "year": 2025,
+      "tech": ["Unity", "Objective-C++", "SDK"],
+      "summary": "Facebook SDK repackaged for Unity Package Manager",
+      "description": "Clean UPM-compatible package of the Facebook SDK for easier integration into Unity projects via Package Manager instead of manual import.",
+      "links": {
+        "github": "https://github.com/LaCreArthur/facebook-unity-sdk-upm"
+      }
+    },
+    {
+      "id": "binding-of-euclide",
+      "name": "The Binding of Euclide",
+      "category": "games",
+      "year": 2021,
+      "tech": ["Unity", "C#", "Roguelike"],
+      "summary": "Geometry-themed roguelike dungeon crawler",
+      "description": "A roguelike inspired by The Binding of Isaac but with geometric shapes and math-themed mechanics. Built for a game jam.",
+      "links": {
+        "itch": "https://lacrearthur.itch.io/the-binding-of-euclide"
+      }
+    },
+    {
+      "id": "plot-hole",
+      "name": "The Plot Hole: Little Red",
+      "category": "games",
+      "year": 2020,
+      "tech": ["Unity", "C#", "Narrative"],
+      "summary": "Narrative game jam entry — team of 4",
+      "description": "Story-driven game created during a game jam with a team of 4 developers. Explores the concept of plot holes in fairy tales.",
+      "links": {
+        "itch": "https://lacrearthur.itch.io/plot-hole"
+      }
+    },
+    {
+      "id": "univeria",
+      "name": "Univeria",
+      "category": "games",
+      "year": 2021,
+      "tech": ["Unity", "C#", "Puzzle"],
+      "summary": "Universe-scale puzzle exploration game",
+      "description": "Puzzle game exploring the scale of the universe, from atoms to galaxies.",
+      "links": {
+        "itch": "https://lacrearthur.itch.io/univeria"
+      }
+    },
+    {
+      "id": "futurae-vampire",
+      "name": "Vampire Survivor Clone",
+      "category": "teaching",
+      "year": 2025,
+      "tech": ["Unity", "C#", "Teaching"],
+      "summary": "Educational project for Unity students",
+      "description": "Vampire Survivors-style game created as teaching material for my Unity courses at Futurae school. Used to teach 20 students (ages 20-22) game development fundamentals.",
+      "metrics": "20 students taught",
+      "links": {
+        "github": "https://github.com/LaCreArthur/FuturaeVampireSurvivor"
+      }
+    },
+    {
+      "id": "futurae-td",
+      "name": "Sci-Fi Tower Defense",
+      "category": "teaching",
+      "year": 2025,
+      "tech": ["Unity", "C#", "Teaching"],
+      "summary": "Tower defense tutorial project",
+      "description": "Sci-fi themed tower defense game built as a teaching resource for Unity courses, demonstrating game architecture patterns.",
+      "links": {
+        "github": "https://github.com/LaCreArthur/FuturaeScifiTD"
+      }
+    },
+    {
+      "id": "shortest-path-ga",
+      "name": "Genetic Algorithm Pathfinder",
+      "category": "teaching",
+      "year": 2017,
+      "tech": ["C++", "OpenGL", "AI"],
+      "summary": "Distributed genetic algorithm for pathfinding",
+      "description": "C++ implementation of a genetic algorithm finding shortest paths on 2D maps with obstacles. Features distributed island model for parallel evolution. Master's degree project.",
+      "links": {
+        "github": "https://github.com/LaCreArthur/shortestPathGA"
+      }
+    }
+  ]
+}
