@@ -1,0 +1,60 @@
+# Arthur Scheidel - Lead Unity Developer & CTO
+
+> Lead Unity & Full-Stack Developer with 7+ years of experience in game development, Web3 integration, and technical leadership. Based in Paris, France.
+
+## Professional Summary
+
+Arthur Scheidel is a Lead Unity Developer and former CTO with extensive experience in the gaming industry. He has worked at Ubisoft (Ketchapp) developing hyper-casual mobile games, served as CTO at CARFT (a Web3 gaming startup), and led Unity development at Yumon. His indie game "Dogecoin To The Moon" achieved 25,000 organic downloads with a 4.9-star rating.
+
+## Key Facts
+
+- **Current Role**: Lead Unity Developer & Indie Game Developer
+- **Location**: Paris, France
+- **Experience**: 7+ years in game development
+- **Education**: Master's in Computer Science (with honors) from University of Strasbourg
+- **Languages**: French (native), English (fluent)
+
+## Technical Skills
+
+- **Game Development**: Unity (expert), Unreal Engine, C#, C++
+- **Web Development**: React, Angular, Python, TypeScript, Firebase
+- **Blockchain/Web3**: NFT integration, Metamask, Play-to-Earn frameworks
+- **AI**: Goal-Oriented Action Planning (GOAP), data mining algorithms
+
+## Notable Companies
+
+- **Ubisoft (Ketchapp)** - Hyper-Casual Mobile Game Developer (2019)
+- **CARFT** - Chief Technology Officer (2022-2023)
+- **Yumon** - Lead Unity Developer (2023)
+- **YourArt** - Senior Unity and Full-Stack Engineer (2024)
+
+## Key Projects
+
+### Dogecoin To The Moon (2020-2021)
+- Mobile game with NFT integration targeting the Dogecoin community
+- 25,000 organic downloads with 4.9-star rating
+- Early example of successful crypto-gaming convergence
+
+### Doge To Mars (2023-2025)
+- Sequel to Dogecoin To The Moon
+- Extremely positive reception from Dogecoin community
+- Led to competitive scholarship invitation to Dogecoin Hackathon (June 2025)
+
+### Rody Game Series (2015-2018)
+- Recreation of classic Atari ST games in Unity
+- Featured integrated level editor (Rody Maker)
+- Collaboration with French YouTubers for launch
+
+## Personal Achievements
+
+- **Competitive Skateboard**: 2x French Championship Qualifier (2024, 2025)
+- **Teaching**: Unity instructor at private school (2025), mentored 20 students
+- **Community**: Active contributor to Dogecoin gaming community
+
+## Contact & Links
+
+- Website: https://lacrearthur.github.io/
+- GitHub: https://github.com/LaCreArthur
+- LinkedIn: https://linkedin.com/in/arthur-scheidel
+- itch.io: https://lacrearthur.itch.io/
+- Email: arthur.scheidel@gmail.com
