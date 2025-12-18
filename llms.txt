@@ -19,7 +19,8 @@ Arthur Scheidel is a Lead Unity Developer and former CTO with extensive experien
 - **Game Development**: Unity (expert), Unreal Engine, C#, C++
 - **Web Development**: React, Angular, Python, TypeScript, Firebase
 - **Blockchain/Web3**: NFT integration, Metamask, Play-to-Earn frameworks
-- **AI**: Goal-Oriented Action Planning (GOAP), data mining algorithms
+- **DevOps**: CI/CD pipelines, GitHub Actions, Fastlane, Firebase Distribution
+- **AI**: Goal-Oriented Action Planning (GOAP), Genetic Algorithms, data mining
 
 ## Notable Companies
 
@@ -28,22 +29,72 @@ Arthur Scheidel is a Lead Unity Developer and former CTO with extensive experien
 - **Yumon** - Lead Unity Developer (2023)
 - **YourArt** - Senior Unity and Full-Stack Engineer (2024)
 
-## Key Projects
+## Featured Projects
 
-### Dogecoin To The Moon (2020-2021)
-- Mobile game with NFT integration targeting the Dogecoin community
-- 25,000 organic downloads with 4.9-star rating
-- Early example of successful crypto-gaming convergence
-
-### Doge To Mars (2023-2025)
-- Sequel to Dogecoin To The Moon
+### Doge To Mars (2025)
+- Sequel to the 25k-download hit Dogecoin To The Moon
 - Extremely positive reception from Dogecoin community
 - Led to competitive scholarship invitation to Dogecoin Hackathon (June 2025)
+- Technologies: Unity, C#, Mobile, Crypto
 
-### Rody Game Series (2015-2018)
-- Recreation of classic Atari ST games in Unity
-- Featured integrated level editor (Rody Maker)
+### Dogecoin To The Moon (2021)
+- Mobile game with NFT integration targeting the Dogecoin community
+- 25,000 organic downloads with 4.9-star rating (no marketing budget)
+- Early example of successful crypto-gaming convergence
+- Technologies: Unity, C#, Mobile, NFT
+
+### Rody & Mastico Collection (2018)
+- 3+ years of development recreating classic Atari ST games
+- Features Rody Maker, a full integrated level editor
 - Collaboration with French YouTubers for launch
+- Technologies: Unity, C#, Level Editor
+
+## Tools & SDKs
+
+### Unity CI/CD Template (2025)
+- Production-ready automation pipeline for Unity mobile games
+- Android AAB → Play Store and iOS IPA → TestFlight
+- Uses GameCI and Fastlane with Firebase distribution
+- GitHub: https://github.com/LaCreArthur/unity-fastlane-ci
+
+### Sorolla Palette SDK (2025)
+- Zero-config mobile publisher SDK for Unity games
+- Automatic iOS ATT handling and ad network integration
+- GitHub: https://github.com/LaCreArthur/sorolla-palette-upm
+
+### Facebook SDK for UPM (2025)
+- Facebook SDK repackaged for Unity Package Manager
+- GitHub: https://github.com/LaCreArthur/facebook-unity-sdk-upm
+
+## Game Jam Projects
+
+### The Binding of Euclide (2021)
+- Geometry-themed roguelike dungeon crawler
+- itch.io: https://lacrearthur.itch.io/the-binding-of-euclide
+
+### The Plot Hole: Little Red (2020)
+- Narrative game jam entry with team of 4
+- itch.io: https://lacrearthur.itch.io/plot-hole
+
+### Univeria (2021)
+- Universe-scale puzzle exploration game
+- itch.io: https://lacrearthur.itch.io/univeria
+
+## Teaching Projects
+
+### Vampire Survivor Clone (2025)
+- Educational project for Unity students at Futurae school
+- Used to teach 20 students game development fundamentals
+- GitHub: https://github.com/LaCreArthur/FuturaeVampireSurvivor
+
+### Sci-Fi Tower Defense (2025)
+- Tower defense tutorial demonstrating game architecture patterns
+- GitHub: https://github.com/LaCreArthur/FuturaeScifiTD
+
+### Genetic Algorithm Pathfinder (2017)
+- C++ distributed genetic algorithm for pathfinding
+- Master's degree project using OpenGL
+- GitHub: https://github.com/LaCreArthur/shortestPathGA
 
 ## Personal Achievements
 
