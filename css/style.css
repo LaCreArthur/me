@@ -6,6 +6,10 @@
  * Made By MaterializeCSS.com
  */
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color : #e0e0e0 !important;
   background-color: black;
