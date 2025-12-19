@@ -78,588 +78,687 @@
 
     <!-- Custom styles -->
     <style>
+        /* ===== BRUTALIST + GAME DEV FOUNDATION ===== */
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap');
+
+        :root {
+            --teal: #14b8a6;
+            --black: #000;
+            --white: #fff;
+            --gray: #666;
+        }
+
+        * { font-family: 'JetBrains Mono', monospace; }
         html { scroll-behavior: smooth; }
 
         /* Mobile menu */
         .mobile-menu { display: none; }
         .mobile-menu.active { display: block; }
 
-        /* ===== GRADIENT TEXT ===== */
-        .gradient-text {
-            background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 50%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        /* ===== RAW TYPOGRAPHY ===== */
+        .headline {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 800;
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
         }
 
-        /* ===== ANIMATED BACKGROUND ===== */
-        .hero-bg {
+        .subhead {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 400;
+            color: var(--gray);
+            letter-spacing: 0.05em;
+        }
+
+        /* ===== PIXEL CURSOR ===== */
+        .pixel-cursor {
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Crect x='0' y='0' width='4' height='4' fill='%2314b8a6'/%3E%3Crect x='4' y='4' width='4' height='4' fill='%2314b8a6'/%3E%3Crect x='8' y='8' width='4' height='4' fill='%2314b8a6'/%3E%3Crect x='4' y='8' width='4' height='4' fill='%2314b8a6'/%3E%3Crect x='8' y='12' width='4' height='4' fill='%2314b8a6'/%3E%3C/svg%3E") 0 0, auto;
+        }
+
+        /* ===== EXPOSED GRID ===== */
+        .grid-lines {
+            background-image:
+                linear-gradient(rgba(20, 184, 166, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(20, 184, 166, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* ===== TERMINAL BOX ===== */
+        .terminal-box {
+            border: 1px solid var(--teal);
+            position: relative;
+        }
+        .terminal-box::before {
+            content: '>';
+            position: absolute;
+            top: -0.7em;
+            left: 1rem;
+            background: var(--black);
+            padding: 0 0.5rem;
+            color: var(--teal);
+            font-weight: 700;
+        }
+
+        /* ===== GLITCH HOVER ===== */
+        .glitch-hover {
+            position: relative;
+            transition: none;
+        }
+        .glitch-hover:hover {
+            animation: glitch 0.3s ease;
+        }
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(2px, -2px); }
+            60% { transform: translate(-1px, -1px); }
+            80% { transform: translate(1px, 1px); }
+        }
+
+        /* ===== SCANLINES (subtle) ===== */
+        .scanlines::after {
+            content: '';
             position: absolute;
             inset: 0;
-            background:
-                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(20, 184, 166, 0.15), transparent),
-                radial-gradient(ellipse 60% 40% at 80% 50%, rgba(139, 92, 246, 0.1), transparent),
-                radial-gradient(ellipse 50% 30% at 20% 80%, rgba(6, 182, 212, 0.08), transparent);
-            animation: heroGlow 8s ease-in-out infinite alternate;
-        }
-        @keyframes heroGlow {
-            0% { opacity: 0.6; transform: scale(1); }
-            100% { opacity: 1; transform: scale(1.05); }
-        }
-
-        /* ===== GLOW EFFECTS ===== */
-        .glow-teal {
-            box-shadow: 0 0 20px rgba(20, 184, 166, 0.3), 0 0 40px rgba(20, 184, 166, 0.1);
-        }
-        .glow-teal-strong {
-            box-shadow: 0 0 30px rgba(20, 184, 166, 0.5), 0 0 60px rgba(20, 184, 166, 0.2);
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 0, 0, 0.1) 2px,
+                rgba(0, 0, 0, 0.1) 4px
+            );
+            pointer-events: none;
+            opacity: 0.3;
         }
 
-        /* ===== METRIC COUNTER ===== */
-        .metric-value {
-            font-variant-numeric: tabular-nums;
-            text-shadow: 0 0 30px rgba(20, 184, 166, 0.5);
-        }
-
-        /* ===== BUTTONS ===== */
-        .btn-primary {
+        /* ===== VIDEO CONTAINER ===== */
+        .video-raw {
+            border: 2px solid var(--teal);
+            background: var(--black);
             position: relative;
+        }
+        .video-raw::before {
+            content: 'REC ●';
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            font-size: 0.7rem;
+            color: #ef4444;
+            z-index: 10;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* ===== BRUTAL BUTTONS ===== */
+        .btn-brutal {
+            border: 2px solid var(--teal);
+            background: transparent;
+            color: var(--teal);
+            padding: 1rem 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            transition: all 0.1s ease;
+        }
+        .btn-brutal:hover {
+            background: var(--teal);
+            color: var(--black);
+            transform: translate(-4px, -4px);
+            box-shadow: 4px 4px 0 var(--teal);
+        }
+        .btn-brutal:active {
+            transform: translate(0);
+            box-shadow: none;
+        }
+
+        .btn-brutal-filled {
+            border: 2px solid var(--teal);
+            background: var(--teal);
+            color: var(--black);
+            padding: 1rem 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.1s ease;
+        }
+        .btn-brutal-filled:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 4px 4px 0 var(--white);
+        }
+
+        /* ===== PROJECT CARD ===== */
+        .project-card {
+            border: 1px solid #333;
+            transition: border-color 0.1s;
+        }
+        .project-card:hover {
+            border-color: var(--teal);
+        }
+        .project-card:hover .project-index {
+            color: var(--teal);
+        }
+
+        /* ===== METRIC BLOCK ===== */
+        .metric {
+            border-left: 3px solid var(--teal);
+            padding-left: 1rem;
+        }
+        .metric-number {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1;
+            color: var(--white);
+        }
+        .metric-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gray);
+        }
+
+        /* ===== ASCII DECORATION ===== */
+        .ascii-border {
+            position: relative;
+        }
+        .ascii-border::before {
+            content: '┌──────────────────────────────────────┐';
+            position: absolute;
+            top: -1.5rem;
+            left: 0;
+            color: #333;
+            font-size: 0.6rem;
+            white-space: nowrap;
             overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.5s ease;
-        }
-        .btn-primary:hover::before {
-            transform: translateX(100%);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(20, 184, 166, 0.4);
         }
 
-        .btn-secondary {
-            position: relative;
-            transition: all 0.3s ease;
+        /* ===== LINK STYLE ===== */
+        a.raw-link {
+            color: var(--teal);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.1s;
         }
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            border-color: #14b8a6;
-            box-shadow: 0 0 20px rgba(20, 184, 166, 0.2);
-        }
-
-        /* ===== CASE STUDY CARDS ===== */
-        .case-study-card {
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background: linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(17, 24, 39, 0.4) 100%);
-            backdrop-filter: blur(10px);
-        }
-        .case-study-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            padding: 1px;
-            background: linear-gradient(135deg, rgba(20, 184, 166, 0.3), transparent 50%, rgba(139, 92, 246, 0.2));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        .case-study-card:hover {
-            transform: translateY(-8px) scale(1.01);
-            box-shadow:
-                0 20px 40px rgba(0, 0, 0, 0.4),
-                0 0 40px rgba(20, 184, 166, 0.15);
-        }
-        .case-study-card:hover::before {
-            opacity: 1;
+        a.raw-link:hover {
+            border-bottom-color: var(--teal);
         }
 
-        /* ===== VIDEO PLACEHOLDER ===== */
-        .video-placeholder {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1e1b4b 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        .video-placeholder::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(45deg, transparent 40%, rgba(20, 184, 166, 0.1) 50%, transparent 60%);
-            animation: shimmer 3s infinite;
-        }
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        /* ===== WORK CARDS ===== */
+        /* ===== WORK CARD ===== */
         .work-card {
-            transition: all 0.3s ease;
-            position: relative;
+            border: 1px solid #222;
+            transition: all 0.1s;
         }
         .work-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(20, 184, 166, 0.5);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(20, 184, 166, 0.1);
+            border-color: var(--teal);
+            background: rgba(20, 184, 166, 0.05);
         }
 
-        /* ===== SOCIAL ICONS ===== */
-        .social-icon {
-            transition: all 0.3s ease;
-        }
-        .social-icon:hover {
-            transform: translateY(-3px) scale(1.1);
-            filter: drop-shadow(0 0 8px rgba(20, 184, 166, 0.6));
-        }
-
-        /* ===== SCROLL REVEAL ===== */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-
-        /* ===== TAGS/BADGES ===== */
-        .tag {
-            transition: all 0.2s ease;
-        }
-        .tag:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 10px rgba(20, 184, 166, 0.3);
+        /* ===== TAG ===== */
+        .tag-raw {
+            border: 1px solid #444;
+            font-size: 0.65rem;
+            padding: 0.25rem 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        /* ===== SECTION DIVIDER ===== */
-        .section-glow {
-            position: relative;
+        /* ===== SECTION MARKER ===== */
+        .section-marker {
+            font-size: 0.7rem;
+            color: var(--teal);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
         }
-        .section-glow::before {
-            content: '';
+        .section-marker::before {
+            content: '// ';
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-brutal {
+            border-top: 1px solid var(--teal);
+        }
+
+        /* ===== SURPRISE: MARQUEE ===== */
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ===== SURPRISE: OFFSET ELEMENTS ===== */
+        .offset-left {
+            margin-left: -2rem;
+        }
+        @media (min-width: 768px) {
+            .offset-left { margin-left: -4rem; }
+        }
+
+        /* ===== SURPRISE: OVERSIZED NUMBER ===== */
+        .big-index {
+            font-size: clamp(4rem, 15vw, 10rem);
+            font-weight: 800;
+            line-height: 0.8;
+            color: #111;
             position: absolute;
+            right: 0;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(20, 184, 166, 0.5), transparent);
+            z-index: 0;
+            user-select: none;
         }
 
-        /* ===== NAV LINK UNDERLINE ===== */
-        .nav-link {
+        /* ===== FORM BRUTAL ===== */
+        .input-brutal {
+            border: 1px solid #333;
+            background: transparent;
+            padding: 0.75rem 1rem;
+            color: var(--white);
+            transition: border-color 0.1s;
+        }
+        .input-brutal:focus {
+            outline: none;
+            border-color: var(--teal);
+        }
+        .input-brutal::placeholder {
+            color: #555;
+        }
+
+        /* ===== NAV BRUTAL ===== */
+        .nav-brutal a {
             position: relative;
         }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #14b8a6, #06b6d4);
-            transition: width 0.3s ease;
+        .nav-brutal a::before {
+            content: '[';
+            opacity: 0;
+            transition: opacity 0.1s;
         }
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
+        .nav-brutal a::after {
+            content: ']';
+            opacity: 0;
+            transition: opacity 0.1s;
         }
-
-        /* ===== ABOUT PHOTO ===== */
-        .photo-glow {
-            position: relative;
-        }
-        .photo-glow::before {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            background: linear-gradient(135deg, #14b8a6, #06b6d4, #8b5cf6);
-            border-radius: 50%;
-            z-index: -1;
-            opacity: 0.7;
-            filter: blur(8px);
-            animation: photoGlow 3s ease-in-out infinite alternate;
-        }
-        @keyframes photoGlow {
-            0% { opacity: 0.5; }
-            100% { opacity: 0.8; }
-        }
-
-        /* ===== FORM INPUTS ===== */
-        .input-glow:focus {
-            box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.3), 0 0 20px rgba(20, 184, 166, 0.1);
-        }
-
-        /* ===== FOOTER GRADIENT ===== */
-        .footer-gradient {
-            background: linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #0891b2 100%);
+        .nav-brutal a:hover::before,
+        .nav-brutal a:hover::after {
+            opacity: 1;
+            color: var(--teal);
         }
     </style>
 </head>
 
-<body class="bg-black text-gray-200 overflow-x-hidden">
+<body class="bg-black text-gray-300 overflow-x-hidden grid-lines pixel-cursor">
     <!-- Sticky Navigation -->
-    <nav class="bg-black/95 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-gray-800">
-        <div class="max-w-5xl mx-auto px-4">
+    <nav class="bg-black fixed top-0 left-0 right-0 z-50 border-b border-[#222]">
+        <div class="max-w-6xl mx-auto px-4 md:px-8">
             <div class="flex items-center justify-between h-14">
-                <a href="#" class="font-semibold text-lg">Arthur Scheidel</a>
+                <a href="#" class="text-white text-sm tracking-widest uppercase">Arthur_Scheidel</a>
 
                 <!-- Desktop nav -->
-                <div class="hidden md:flex items-center gap-6">
-                    <a href="#work" class="nav-link text-sm hover:text-teal-400 transition-colors">Work</a>
-                    <a href="#about" class="nav-link text-sm hover:text-teal-400 transition-colors">About</a>
-                    <a href="#contact" class="nav-link text-sm hover:text-teal-400 transition-colors">Contact</a>
-                    <a href="https://lacrearthur.github.io/resume/" class="btn-primary bg-teal-600 hover:bg-teal-700 px-4 py-1.5 rounded text-sm">Resume</a>
+                <div class="nav-brutal hidden md:flex items-center gap-8 text-sm text-gray-500">
+                    <a href="#work" class="hover:text-teal-400">Work</a>
+                    <a href="#about" class="hover:text-teal-400">About</a>
+                    <a href="#contact" class="hover:text-teal-400">Contact</a>
+                    <a href="https://lacrearthur.github.io/resume/" class="btn-brutal text-xs px-4 py-2">Resume</a>
                 </div>
 
                 <!-- Mobile menu button -->
-                <button onclick="toggleMenu()" class="md:hidden p-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
+                <button onclick="toggleMenu()" class="md:hidden p-2 text-teal-400">
+                    <span class="text-xl">[=]</span>
                 </button>
             </div>
 
             <!-- Mobile menu -->
-            <div id="mobile-menu" class="mobile-menu md:hidden pb-4">
-                <a href="#work" class="block py-2 hover:text-teal-400">Work</a>
-                <a href="#about" class="block py-2 hover:text-teal-400">About</a>
-                <a href="#contact" class="block py-2 hover:text-teal-400">Contact</a>
-                <a href="https://lacrearthur.github.io/resume/" class="block py-2 hover:text-teal-400">Resume</a>
+            <div id="mobile-menu" class="mobile-menu md:hidden pb-4 border-t border-[#222] mt-2 pt-4">
+                <a href="#work" class="block py-2 text-gray-500 hover:text-teal-400">> Work</a>
+                <a href="#about" class="block py-2 text-gray-500 hover:text-teal-400">> About</a>
+                <a href="#contact" class="block py-2 text-gray-500 hover:text-teal-400">> Contact</a>
+                <a href="https://lacrearthur.github.io/resume/" class="block py-2 text-gray-500 hover:text-teal-400">> Resume</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-[80vh] flex flex-col justify-center pt-20 pb-12 px-4 relative overflow-hidden">
-        <!-- Animated gradient background -->
-        <div class="hero-bg"></div>
+    <section class="min-h-screen flex flex-col justify-center pt-20 pb-12 px-4 md:px-8">
+        <div class="max-w-6xl mx-auto w-full">
+            <!-- Terminal-style intro -->
+            <div class="text-teal-400 text-sm mb-4 tracking-widest">
+                > LOADING PORTFOLIO...
+            </div>
 
-        <div class="max-w-5xl mx-auto text-center relative z-10">
-            <!-- Headline -->
-            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6">
-                <span class="gradient-text">Unity Developer</span>
-                <br class="hidden sm:block">
-                <span class="text-white">Who Ships</span>
+            <!-- Headline - Brutalist oversized -->
+            <h1 class="headline text-white mb-6">
+                UNITY<br>
+                <span class="text-teal-400">DEVELOPER</span><br>
+                WHO SHIPS
             </h1>
-            <p class="text-xl sm:text-2xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+
+            <p class="subhead max-w-xl mb-12">
                 7+ years building games at Ubisoft, leading Web3 startups as CTO, and shipping indie hits with real traction.
             </p>
 
-            <!-- Metrics Bar -->
-            <div class="flex flex-wrap justify-center gap-4 sm:gap-8 mb-10">
-                <div class="text-center">
-                    <div class="text-3xl sm:text-4xl font-bold text-teal-400 metric-value">25k+</div>
-                    <div class="text-sm text-gray-500">Downloads</div>
+            <!-- Metrics - Raw left-aligned blocks -->
+            <div class="flex flex-wrap gap-8 md:gap-12 mb-12">
+                <div class="metric">
+                    <div class="metric-number">25K+</div>
+                    <div class="metric-label">Downloads</div>
                 </div>
-                <div class="text-center">
-                    <div class="text-3xl sm:text-4xl font-bold text-teal-400 metric-value">4.9★</div>
-                    <div class="text-sm text-gray-500">App Rating</div>
+                <div class="metric">
+                    <div class="metric-number">4.9★</div>
+                    <div class="metric-label">Rating</div>
                 </div>
-                <div class="text-center">
-                    <div class="text-3xl sm:text-4xl font-bold text-teal-400 metric-value">10+</div>
-                    <div class="text-sm text-gray-500">Games Shipped</div>
+                <div class="metric">
+                    <div class="metric-number">10+</div>
+                    <div class="metric-label">Games</div>
                 </div>
-                <div class="text-center">
-                    <div class="text-3xl sm:text-4xl font-bold text-teal-400 metric-value">20+</div>
-                    <div class="text-sm text-gray-500">Students Taught</div>
+                <div class="metric">
+                    <div class="metric-number">20+</div>
+                    <div class="metric-label">Students</div>
                 </div>
             </div>
 
-            <!-- CTAs -->
-            <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <a href="https://lacrearthur.github.io/resume/" class="btn-primary bg-teal-600 hover:bg-teal-700 text-white font-semibold px-8 py-4 rounded-lg text-lg">
+            <!-- CTAs - Brutal style -->
+            <div class="flex flex-wrap gap-4 mb-12">
+                <a href="https://lacrearthur.github.io/resume/" class="btn-brutal-filled glitch-hover">
                     View Resume
                 </a>
-                <a href="#contact" class="btn-secondary border-2 border-gray-600 text-white font-semibold px-8 py-4 rounded-lg text-lg">
-                    Let's Talk
+                <a href="#contact" class="btn-brutal">
+                    Contact Me
                 </a>
             </div>
 
-            <!-- Social Links (subtle) -->
-            <div class="flex justify-center gap-5">
-                <a href="https://github.com/LaCreArthur/" title="GitHub" class="social-icon text-gray-500 hover:text-teal-400">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                </a>
-                <a href="https://www.linkedin.com/in/arthur-scheidel/" title="LinkedIn" class="social-icon text-gray-500 hover:text-teal-400">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                </a>
-                <a href="https://youtube.com/c/LaCreArthur" title="YouTube" class="social-icon text-gray-500 hover:text-teal-400">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                </a>
-                <a href="https://x.com/LaCreArthur" title="Twitter/X" class="social-icon text-gray-500 hover:text-teal-400">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                </a>
-                <a href="https://lacrearthur.itch.io/" title="itch.io" class="social-icon text-gray-500 hover:text-teal-400">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M3.13 1.338C2.08 1.96.02 4.328 0 4.95v1.03c0 1.303 1.22 2.45 2.325 2.45 1.33 0 2.436-1.102 2.436-2.41 0 1.308 1.07 2.41 2.4 2.41 1.328 0 2.362-1.102 2.362-2.41 0 1.308 1.137 2.41 2.466 2.41h.024c1.33 0 2.466-1.102 2.466-2.41 0 1.308 1.034 2.41 2.363 2.41 1.33 0 2.4-1.102 2.4-2.41 0 1.308 1.106 2.41 2.435 2.41C22.78 8.43 24 7.283 24 5.98V4.95c-.02-.62-2.082-2.99-3.13-3.612-3.253-.114-5.508-.134-8.87-.133-3.362 0-7.945.053-8.87.133zm6.376 6.477a2.74 2.74 0 01-.468.602c-.5.49-1.19.795-1.947.795a2.786 2.786 0 01-1.95-.795c-.182-.178-.32-.37-.446-.59-.127.222-.303.412-.486.59a2.788 2.788 0 01-1.95.795c-.092 0-.187-.025-.264-.052-.107 1.113-.152 2.176-.168 2.95v.005l-.006 1.167c.02 2.334-.23 7.564 1.03 8.85 1.952.454 5.545.662 9.15.663 3.605 0 7.198-.21 9.15-.664 1.26-1.284 1.01-6.514 1.03-8.848l-.006-1.167v-.004c-.016-.775-.06-1.838-.168-2.95-.077.026-.172.052-.263.052a2.788 2.788 0 01-1.95-.795 2.202 2.202 0 01-.486-.59c-.127.22-.264.412-.447.59a2.786 2.786 0 01-1.95.794c-.76 0-1.446-.303-1.948-.794a2.843 2.843 0 01-.468-.602 2.906 2.906 0 01-.47.602 2.788 2.788 0 01-1.948.794h-.024a2.787 2.787 0 01-1.947-.794 2.74 2.74 0 01-.468-.602zm.722 4.54l.05-.003h3.457c.063 0 .124.008.18.022l.11.035-.02.006v.002c.463.166.82.642.822 1.353-.005.715-.36 1.19-.823 1.354v.003l.02.006-.11.034c-.056.014-.117.023-.18.023h-1.2v3.456c0 .403-.267.7-.657.7h-1.142c-.39 0-.656-.297-.656-.7v-5.59c-.001-.317.21-.6.55-.693l.11-.035-.02-.006v-.002c.06-.016.12-.025.183-.028l.05-.003z"/></svg>
-                </a>
+            <!-- Social - Raw links -->
+            <div class="flex gap-6 text-sm text-gray-600">
+                <a href="https://github.com/LaCreArthur/" class="raw-link hover:text-teal-400">GitHub</a>
+                <a href="https://www.linkedin.com/in/arthur-scheidel/" class="raw-link hover:text-teal-400">LinkedIn</a>
+                <a href="https://youtube.com/c/LaCreArthur" class="raw-link hover:text-teal-400">YouTube</a>
+                <a href="https://lacrearthur.itch.io/" class="raw-link hover:text-teal-400">itch.io</a>
             </div>
         </div>
     </section>
 
-    <!-- Work Section: Case Studies -->
-    <section id="work" class="py-20 px-4 section-glow">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-center reveal">
-                <span class="gradient-text">Featured Work</span>
+    <!-- Marquee surprise -->
+    <div class="marquee py-3 text-gray-600 text-xs">
+        <div class="marquee-content">
+            UNITY · C# · MOBILE · WEB3 · REACT · PYTHON · CICD · GAME DEV · UNITY · C# · MOBILE · WEB3 · REACT · PYTHON · CICD · GAME DEV · UNITY · C# · MOBILE · WEB3 · REACT · PYTHON · CICD · GAME DEV ·
+        </div>
+    </div>
+
+    <!-- Work Section -->
+    <section id="work" class="py-20 px-4 md:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="section-marker">Featured Work</div>
+            <h2 class="headline text-white text-3xl sm:text-4xl md:text-5xl mb-16">
+                PROJECTS THAT<br>
+                <span class="text-teal-400">SHIPPED</span>
             </h2>
-            <p class="text-gray-500 text-center mb-12 reveal reveal-delay-1">Projects that shipped and made an impact</p>
 
-            <!-- Case Study 1: Doge To Mars -->
-            <div class="case-study-card bg-gray-900/50 border border-gray-800 rounded-xl p-6 md:p-8 mb-8 reveal">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Video/Image placeholder -->
-                    <div class="video-placeholder rounded-lg aspect-video flex items-center justify-center">
+            <!-- Project 1: Doge To Mars -->
+            <article class="project-card p-6 md:p-8 mb-8 relative">
+                <span class="big-index">01</span>
+                <div class="grid md:grid-cols-2 gap-8 relative z-10">
+                    <!-- Video Container -->
+                    <div class="video-raw aspect-video flex items-center justify-center scanlines">
+                        <div class="text-center p-4">
+                            <img src="https://is4-ssl.mzstatic.com/image/thumb/Purple125/v4/8d/47/15/8d47153a-b3c1-9efe-3e47-064b725b11f7/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp" alt="Doge To Mars" class="w-20 h-20 mx-auto mb-4">
+                            <p class="text-gray-600 text-xs uppercase tracking-widest">Trailer Coming</p>
+                        </div>
+                    </div>
+                    <!-- Content -->
+                    <div>
+                        <div class="flex items-start gap-3 mb-4">
+                            <h3 class="text-xl md:text-2xl font-bold text-white uppercase">Doge To Mars</h3>
+                            <span class="tag-raw text-teal-400 border-teal-400">25K+ DL</span>
+                        </div>
+                        <div class="space-y-3 text-sm text-gray-400 mb-6">
+                            <p><span class="text-teal-400">></span> Challenge: Build a mobile game for the Dogecoin community with $0 marketing.</p>
+                            <p><span class="text-teal-400">></span> Result: 25,000 organic downloads, 4.9★ rating. Invited to Dogecoin Hackathon 2025.</p>
+                            <p class="text-gray-600">Solo dev · 2021-2025 · Unity + C#</p>
+                        </div>
+                        <div class="flex flex-wrap gap-3 text-xs">
+                            <a href="https://apps.apple.com/us/app/dogecoin-to-moon/id1574465636" target="_blank" class="raw-link">[App Store]</a>
+                            <a href="https://github.com/LaCreArthur/DogecoinToTheMoon" target="_blank" class="raw-link">[GitHub]</a>
+                            <a href="https://lacrearthur.itch.io/" target="_blank" class="raw-link">[itch.io]</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 2: Rody & Mastico -->
+            <article class="project-card p-6 md:p-8 mb-8 relative">
+                <span class="big-index">02</span>
+                <div class="grid md:grid-cols-2 gap-8 relative z-10">
+                    <!-- Video Container with YouTube embed placeholder -->
+                    <a href="https://www.youtube.com/watch?v=DEktCBMKopE" target="_blank" class="video-raw aspect-video flex items-center justify-center scanlines group">
                         <div class="text-center">
-                            <img src="https://is4-ssl.mzstatic.com/image/thumb/Purple125/v4/8d/47/15/8d47153a-b3c1-9efe-3e47-064b725b11f7/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp" alt="Doge To Mars" class="w-24 h-24 mx-auto rounded-2xl shadow-lg mb-4">
-                            <p class="text-gray-500 text-sm">Video coming soon</p>
+                            <div class="w-16 h-16 border-2 border-teal-400 flex items-center justify-center mb-3 group-hover:bg-teal-400 transition-colors">
+                                <svg class="w-8 h-8 text-teal-400 group-hover:text-black transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <p class="text-teal-400 text-xs uppercase tracking-widest group-hover:underline">Watch Trailer</p>
                         </div>
-                    </div>
+                    </a>
                     <!-- Content -->
                     <div>
-                        <div class="flex items-center gap-3 mb-3">
-                            <h3 class="text-2xl font-bold">Doge To Mars</h3>
-                            <span class="bg-teal-600 text-black text-xs px-3 py-1 rounded-full font-semibold glow-teal">25k+ Downloads</span>
+                        <div class="flex items-start gap-3 mb-4">
+                            <h3 class="text-xl md:text-2xl font-bold text-white uppercase">Rody & Mastico</h3>
+                            <span class="tag-raw text-gray-400">3 YRS DEV</span>
                         </div>
-                        <p class="text-gray-400 mb-4">
-                            <strong class="text-white">The Challenge:</strong> Build a mobile game for the Dogecoin community with zero marketing budget.
-                        </p>
-                        <p class="text-gray-400 mb-4">
-                            <strong class="text-white">The Result:</strong> 25,000 organic downloads, 4.9★ rating. The game's success led to a competitive scholarship invitation to the Dogecoin Hackathon (June 2025).
-                        </p>
-                        <p class="text-gray-500 text-sm mb-4">
-                            <strong>My Role:</strong> Solo developer · 2021-2025 (evolved from "Dogecoin To The Moon") · Unity + C#
-                        </p>
-                        <div class="flex flex-wrap gap-3">
-                            <a href="https://apps.apple.com/us/app/dogecoin-to-moon/id1574465636" target="_blank" class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded text-sm transition-colors">📱 App Store</a>
-                            <a href="https://github.com/LaCreArthur/DogecoinToTheMoon" target="_blank" class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded text-sm transition-colors">💻 GitHub</a>
-                            <a href="https://lacrearthur.itch.io/" target="_blank" class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded text-sm transition-colors">🎮 itch.io</a>
+                        <div class="space-y-3 text-sm text-gray-400 mb-6">
+                            <p><span class="text-teal-400">></span> Challenge: Recreate childhood Atari ST games with modern features.</p>
+                            <p><span class="text-teal-400">></span> Result: Complete remaster + Rody Maker level editor. YouTuber Bob Lennon collab.</p>
+                            <p class="text-gray-600">Solo dev · 3+ years · Unity + C# + Level Editor</p>
+                        </div>
+                        <div class="flex flex-wrap gap-3 text-xs">
+                            <a href="https://lacrearthur.itch.io/rody-mastico-collection" target="_blank" class="raw-link">[itch.io]</a>
+                            <a href="https://lacrearthur.github.io/RodyAIbiza/" target="_blank" class="raw-link">[Website]</a>
+                            <a href="https://www.youtube.com/watch?v=DEktCBMKopE" target="_blank" class="raw-link">[Trailer]</a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <!-- Case Study 2: Rody & Mastico Collection -->
-            <div class="case-study-card bg-gray-900/50 border border-gray-800 rounded-xl p-6 md:p-8 mb-8 reveal">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Video/Image placeholder -->
-                    <div class="video-placeholder rounded-lg aspect-video flex items-center justify-center">
-                        <div class="text-center">
-                            <a href="https://www.youtube.com/watch?v=DEktCBMKopE" target="_blank" class="block">
-                                <div class="w-24 h-24 mx-auto bg-gray-800 rounded-2xl shadow-lg mb-4 flex items-center justify-center">
-                                    <svg class="w-12 h-12 text-teal-400" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                                </div>
-                                <p class="text-teal-400 text-sm hover:underline">Watch Trailer →</p>
-                            </a>
-                        </div>
+            <!-- Project 3: CI/CD -->
+            <article class="project-card p-6 md:p-8 mb-8 relative">
+                <span class="big-index">03</span>
+                <div class="grid md:grid-cols-2 gap-8 relative z-10">
+                    <!-- Code block -->
+                    <div class="video-raw aspect-video p-4 text-xs text-left overflow-hidden">
+                        <p class="text-gray-600"># .github/workflows/build.yml</p>
+                        <p class="text-teal-400">name: Unity CI/CD</p>
+                        <p class="text-gray-500">on: [push]</p>
+                        <p class="text-gray-500">jobs:</p>
+                        <p class="text-gray-500">  build:</p>
+                        <p class="text-gray-400">    - uses: <span class="text-teal-400">game-ci/unity-builder</span></p>
+                        <p class="text-gray-400">    - uses: <span class="text-teal-400">fastlane/deliver</span></p>
+                        <p class="text-gray-600 mt-2"># Auto-deploy to stores ✓</p>
                     </div>
                     <!-- Content -->
                     <div>
-                        <div class="flex items-center gap-3 mb-3">
-                            <h3 class="text-2xl font-bold">Rody & Mastico Collection</h3>
-                            <span class="bg-purple-600 text-white text-xs px-2 py-1 rounded font-semibold">3 Years Dev</span>
+                        <div class="flex items-start gap-3 mb-4">
+                            <h3 class="text-xl md:text-2xl font-bold text-white uppercase">Unity CI/CD</h3>
+                            <span class="tag-raw text-teal-400 border-teal-400">OSS</span>
                         </div>
-                        <p class="text-gray-400 mb-4">
-                            <strong class="text-white">The Challenge:</strong> Recreate beloved childhood Atari ST games with modern features.
-                        </p>
-                        <p class="text-gray-400 mb-4">
-                            <strong class="text-white">The Result:</strong> Complete remaster with Rody Maker—a full level editor. Collaborated with French YouTuber Bob Lennon for launch, gaining significant community exposure.
-                        </p>
-                        <p class="text-gray-500 text-sm mb-4">
-                            <strong>My Role:</strong> Solo developer · 3+ years · Unity + C# + Custom Level Editor
-                        </p>
-                        <div class="flex flex-wrap gap-3">
-                            <a href="https://lacrearthur.itch.io/rody-mastico-collection" target="_blank" class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded text-sm transition-colors">🎮 Play on itch.io</a>
-                            <a href="https://lacrearthur.github.io/RodyAIbiza/" target="_blank" class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded text-sm transition-colors">🌐 Website</a>
-                            <a href="https://www.youtube.com/watch?v=DEktCBMKopE" target="_blank" class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded text-sm transition-colors">▶️ Trailer</a>
+                        <div class="space-y-3 text-sm text-gray-400 mb-6">
+                            <p><span class="text-teal-400">></span> Problem: Setting up Unity pipelines for mobile is painful.</p>
+                            <p><span class="text-teal-400">></span> Solution: Template for Android → Play Store, iOS → TestFlight. One click.</p>
+                            <p class="text-gray-600">GitHub Actions + Fastlane + GameCI + Firebase</p>
+                        </div>
+                        <div class="flex flex-wrap gap-3 text-xs">
+                            <a href="https://github.com/LaCreArthur/unity-fastlane-ci" target="_blank" class="raw-link">[GitHub]</a>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Case Study 3: Unity CI/CD Template -->
-            <div class="case-study-card bg-gray-900/50 border border-gray-800 rounded-xl p-6 md:p-8 mb-8 reveal">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Code preview placeholder -->
-                    <div class="video-placeholder rounded-lg aspect-video flex items-center justify-center font-mono text-sm text-gray-500">
-                        <div class="text-left p-4">
-                            <p class="text-green-400"># Unity CI/CD Pipeline</p>
-                            <p class="text-gray-400">- name: Build Android AAB</p>
-                            <p class="text-gray-400">  uses: game-ci/unity-builder</p>
-                            <p class="text-gray-400">- name: Deploy to Play Store</p>
-                            <p class="text-gray-400">  uses: fastlane/deliver</p>
-                        </div>
-                    </div>
-                    <!-- Content -->
-                    <div>
-                        <div class="flex items-center gap-3 mb-3">
-                            <h3 class="text-2xl font-bold">Unity CI/CD Template</h3>
-                            <span class="bg-green-600 text-white text-xs px-2 py-1 rounded font-semibold">Open Source</span>
-                        </div>
-                        <p class="text-gray-400 mb-4">
-                            <strong class="text-white">The Problem:</strong> Setting up Unity build pipelines for mobile is tedious and error-prone.
-                        </p>
-                        <p class="text-gray-400 mb-4">
-                            <strong class="text-white">The Solution:</strong> Production-ready template automating Android (AAB → Play Store) and iOS (IPA → TestFlight) builds using GameCI and Fastlane. Includes Firebase distribution for beta testing.
-                        </p>
-                        <p class="text-gray-500 text-sm mb-4">
-                            <strong>Stack:</strong> GitHub Actions + Fastlane + GameCI + Firebase
-                        </p>
-                        <div class="flex flex-wrap gap-3">
-                            <a href="https://github.com/LaCreArthur/unity-fastlane-ci" target="_blank" class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded text-sm transition-colors">💻 View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </article>
         </div>
     </section>
 
     <!-- More Work Section -->
-    <section class="py-16 px-4 border-t border-gray-800/50">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-8 text-center reveal">
-                <span class="gradient-text">More Work</span>
-            </h2>
+    <section class="py-16 px-4 md:px-8 border-t border-[#222]">
+        <div class="max-w-6xl mx-auto">
+            <div class="section-marker">Archive</div>
+            <h2 class="text-2xl font-bold text-white uppercase mb-12">More Work</h2>
 
             <!-- Mobile Games Grid -->
             <div class="mb-12">
-                <h3 class="text-lg font-semibold mb-4 text-gray-400">Mobile Games</h3>
+                <h3 class="text-xs text-gray-600 uppercase tracking-widest mb-4">Mobile Games @ Ketchapp/Ubisoft</h3>
                 <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
                     <a href="https://play.google.com/store/apps/details?id=com.bretzelstudio.farmrun" class="group text-center">
-                        <img src="https://play-lh.googleusercontent.com/FICrMRrxStHsEiVib7fiZFsapQqkflB_JWCzAn4wYegpfd7UjDP2eMzPr0cos8Oc3xlM=s256-rw" alt="Farm Land Run 3D" class="w-16 h-16 mx-auto rounded-xl shadow-lg group-hover:scale-110 transition-transform">
-                        <p class="mt-2 text-xs text-gray-500">Farm Run 3D</p>
+                        <img src="https://play-lh.googleusercontent.com/FICrMRrxStHsEiVib7fiZFsapQqkflB_JWCzAn4wYegpfd7UjDP2eMzPr0cos8Oc3xlM=s256-rw" alt="Farm Land Run 3D" class="w-14 h-14 mx-auto border border-[#333] group-hover:border-teal-400 transition-colors">
+                        <p class="mt-2 text-xs text-gray-600 group-hover:text-teal-400">Farm Run</p>
                     </a>
                     <a href="https://apps.apple.com/us/app/mine-block-tap/id1570215589" class="group text-center">
-                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/6e/f2/84/6ef284aa-7c28-17f0-2f4e-35c15b4f7b92/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp" alt="Mine Block Tap" class="w-16 h-16 mx-auto rounded-xl shadow-lg group-hover:scale-110 transition-transform">
-                        <p class="mt-2 text-xs text-gray-500">Mine Block Tap</p>
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/6e/f2/84/6ef284aa-7c28-17f0-2f4e-35c15b4f7b92/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp" alt="Mine Block Tap" class="w-14 h-14 mx-auto border border-[#333] group-hover:border-teal-400 transition-colors">
+                        <p class="mt-2 text-xs text-gray-600 group-hover:text-teal-400">Mine Block</p>
                     </a>
                     <a href="https://apps.apple.com/us/app/find-it-3d/id1566705591" class="group text-center">
-                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/de/91/c6/de91c6ed-835b-7138-ec1b-8d301f5b0e91/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp" alt="Find-it 3D" class="w-16 h-16 mx-auto rounded-xl shadow-lg group-hover:scale-110 transition-transform">
-                        <p class="mt-2 text-xs text-gray-500">Find-it 3D</p>
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/de/91/c6/de91c6ed-835b-7138-ec1b-8d301f5b0e91/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp" alt="Find-it 3D" class="w-14 h-14 mx-auto border border-[#333] group-hover:border-teal-400 transition-colors">
+                        <p class="mt-2 text-xs text-gray-600 group-hover:text-teal-400">Find-it 3D</p>
                     </a>
                     <a href="https://apps.apple.com/us/app/dont-fall-guys/id1563951588" class="group text-center">
-                        <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple115/v4/24/5f/d6/245fd693-0c59-7cb6-144c-119903475560/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp" alt="Don't Fall Guys" class="w-16 h-16 mx-auto rounded-xl shadow-lg group-hover:scale-110 transition-transform">
-                        <p class="mt-2 text-xs text-gray-500">Don't Fall Guys</p>
+                        <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple115/v4/24/5f/d6/245fd693-0c59-7cb6-144c-119903475560/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp" alt="Don't Fall Guys" class="w-14 h-14 mx-auto border border-[#333] group-hover:border-teal-400 transition-colors">
+                        <p class="mt-2 text-xs text-gray-600 group-hover:text-teal-400">Don't Fall</p>
                     </a>
                     <a href="https://apps.apple.com/us/app/snap-guys/id1542504605" class="group text-center">
-                        <img src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/62/53/ef/6253ef72-1286-51a6-9b47-b635e8920c45/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp" alt="Snap Guys" class="w-16 h-16 mx-auto rounded-xl shadow-lg group-hover:scale-110 transition-transform">
-                        <p class="mt-2 text-xs text-gray-500">Snap Guys</p>
+                        <img src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/62/53/ef/6253ef72-1286-51a6-9b47-b635e8920c45/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp" alt="Snap Guys" class="w-14 h-14 mx-auto border border-[#333] group-hover:border-teal-400 transition-colors">
+                        <p class="mt-2 text-xs text-gray-600 group-hover:text-teal-400">Snap Guys</p>
                     </a>
                 </div>
-                <p class="text-center mt-4">
-                    <a href="https://lacrearthur.itch.io/" class="text-teal-400 hover:underline text-sm">View all on itch.io →</a>
+                <p class="mt-4">
+                    <a href="https://lacrearthur.itch.io/" class="raw-link text-xs">[View all on itch.io]</a>
                 </p>
             </div>
 
-            <!-- Tools & Game Jams Grid -->
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- SDKs & Tools -->
+            <!-- Grid of other work -->
+            <div class="grid md:grid-cols-3 gap-8 text-sm">
+                <!-- SDKs -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4 text-gray-400">SDKs & Tools</h3>
-                    <div class="space-y-3">
-                        <a href="https://github.com/LaCreArthur/sorolla-palette-upm" target="_blank" class="work-card block bg-gray-900 border border-gray-800 rounded-lg p-3">
-                            <span class="font-medium">Sorolla Palette SDK</span>
-                            <span class="text-gray-500 text-sm ml-2">Unity mobile publishing SDK</span>
+                    <h3 class="text-xs text-gray-600 uppercase tracking-widest mb-4">SDKs & Tools</h3>
+                    <div class="space-y-2">
+                        <a href="https://github.com/LaCreArthur/sorolla-palette-upm" target="_blank" class="work-card block p-3">
+                            <span class="text-white">Sorolla Palette SDK</span>
+                            <span class="block text-gray-600 text-xs">Mobile publishing</span>
                         </a>
-                        <a href="https://github.com/LaCreArthur/facebook-unity-sdk-upm" target="_blank" class="work-card block bg-gray-900 border border-gray-800 rounded-lg p-3">
-                            <span class="font-medium">Facebook SDK for UPM</span>
-                            <span class="text-gray-500 text-sm ml-2">Repackaged for Package Manager</span>
+                        <a href="https://github.com/LaCreArthur/facebook-unity-sdk-upm" target="_blank" class="work-card block p-3">
+                            <span class="text-white">Facebook SDK UPM</span>
+                            <span class="block text-gray-600 text-xs">Package Manager</span>
                         </a>
                     </div>
                 </div>
 
                 <!-- Game Jams -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4 text-gray-400">Game Jams</h3>
-                    <div class="space-y-3">
-                        <a href="https://lacrearthur.itch.io/the-binding-of-euclide" target="_blank" class="work-card block bg-gray-900 border border-gray-800 rounded-lg p-3">
-                            <span class="font-medium">The Binding of Euclide</span>
-                            <span class="text-gray-500 text-sm ml-2">Math-themed roguelike</span>
+                    <h3 class="text-xs text-gray-600 uppercase tracking-widest mb-4">Game Jams</h3>
+                    <div class="space-y-2">
+                        <a href="https://lacrearthur.itch.io/the-binding-of-euclide" target="_blank" class="work-card block p-3">
+                            <span class="text-white">Binding of Euclide</span>
+                            <span class="block text-gray-600 text-xs">Math roguelike</span>
                         </a>
-                        <a href="https://lacrearthur.itch.io/plot-hole" target="_blank" class="work-card block bg-gray-900 border border-gray-800 rounded-lg p-3">
-                            <span class="font-medium">The Plot Hole: Little Red</span>
-                            <span class="text-gray-500 text-sm ml-2">Narrative game jam entry</span>
+                        <a href="https://lacrearthur.itch.io/plot-hole" target="_blank" class="work-card block p-3">
+                            <span class="text-white">Plot Hole: Little Red</span>
+                            <span class="block text-gray-600 text-xs">Narrative</span>
                         </a>
-                        <a href="https://lacrearthur.itch.io/univeria" target="_blank" class="work-card block bg-gray-900 border border-gray-800 rounded-lg p-3">
-                            <span class="font-medium">Univeria</span>
-                            <span class="text-gray-500 text-sm ml-2">Universe-scale puzzle game</span>
+                        <a href="https://lacrearthur.itch.io/univeria" target="_blank" class="work-card block p-3">
+                            <span class="text-white">Univeria</span>
+                            <span class="block text-gray-600 text-xs">Scale puzzle</span>
                         </a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Teaching -->
-            <div class="mt-8">
-                <h3 class="text-lg font-semibold mb-4 text-gray-400">Teaching Projects</h3>
-                <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
-                    <a href="https://github.com/LaCreArthur/FuturaeVampireSurvivor" target="_blank" class="work-card block bg-gray-900 border border-gray-800 rounded-lg p-3">
-                        <span class="font-medium">Vampire Survivor Clone</span>
-                        <span class="block text-gray-500 text-sm">20 students taught at Futurae</span>
-                    </a>
-                    <a href="https://github.com/LaCreArthur/FuturaeScifiTD" target="_blank" class="work-card block bg-gray-900 border border-gray-800 rounded-lg p-3">
-                        <span class="font-medium">Sci-Fi Tower Defense</span>
-                        <span class="block text-gray-500 text-sm">Game architecture patterns</span>
-                    </a>
-                    <a href="https://github.com/LaCreArthur/shortestPathGA" target="_blank" class="work-card block bg-gray-900 border border-gray-800 rounded-lg p-3">
-                        <span class="font-medium">Genetic Algorithm Pathfinder</span>
-                        <span class="block text-gray-500 text-sm">Master's degree project</span>
-                    </a>
+                <!-- Teaching -->
+                <div>
+                    <h3 class="text-xs text-gray-600 uppercase tracking-widest mb-4">Teaching</h3>
+                    <div class="space-y-2">
+                        <a href="https://github.com/LaCreArthur/FuturaeVampireSurvivor" target="_blank" class="work-card block p-3">
+                            <span class="text-white">Vampire Survivor Clone</span>
+                            <span class="block text-gray-600 text-xs">20 students @ Futurae</span>
+                        </a>
+                        <a href="https://github.com/LaCreArthur/FuturaeScifiTD" target="_blank" class="work-card block p-3">
+                            <span class="text-white">Sci-Fi Tower Defense</span>
+                            <span class="block text-gray-600 text-xs">Architecture patterns</span>
+                        </a>
+                        <a href="https://github.com/LaCreArthur/shortestPathGA" target="_blank" class="work-card block p-3">
+                            <span class="text-white">Genetic Pathfinder</span>
+                            <span class="block text-gray-600 text-xs">Master's thesis</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 px-4 bg-gray-900/30 section-glow">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-center reveal">
-                <span class="gradient-text">About</span>
-            </h2>
+    <section id="about" class="py-20 px-4 md:px-8 border-t border-[#222]">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <!-- Left: Terminal style bio -->
+                <div>
+                    <div class="section-marker">About</div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white uppercase mb-8">
+                        The Human<br>
+                        <span class="text-teal-400">Behind The Code</span>
+                    </h2>
 
-            <div class="grid md:grid-cols-3 gap-8 reveal">
-                <!-- Photo -->
-                <div class="flex justify-center md:justify-start">
-                    <div class="photo-glow">
-                        <img src="img/id2018.jpg" alt="Arthur Scheidel" class="w-48 h-48 rounded-full object-cover border-4 border-teal-600 relative z-10">
+                    <div class="terminal-box p-6 mb-6">
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Unity dev based in Paris. I love shipping games that people actually play. After 7+ years—from AAA at Ubisoft to scrappy Web3 startups—I've learned that <span class="text-teal-400">the best code is the code that ships.</span>
+                        </p>
+                        <p class="text-gray-600 text-sm">
+                            When not coding: skateboarding (2x French Championship qualifier) or teaching game dev at Futurae school.
+                        </p>
+                    </div>
+
+                    <!-- Photo -->
+                    <div class="flex items-center gap-4">
+                        <img src="img/id2018.jpg" alt="Arthur Scheidel" class="w-16 h-16 border-2 border-teal-400 object-cover">
+                        <div class="text-xs text-gray-600">
+                            <p class="text-white">Arthur Scheidel</p>
+                            <p>Paris, France</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Bio -->
-                <div class="md:col-span-2">
-                    <p class="text-lg text-gray-300 mb-6">
-                        I'm a Unity developer based in Paris who loves shipping games that people actually play. After 7+ years in the industry—from AAA at Ubisoft to scrappy Web3 startups—I've learned that the best code is the code that ships.
-                    </p>
-                    <p class="text-gray-400 mb-6">
-                        When I'm not coding, you'll find me skateboarding (2x French Championship qualifier) or teaching the next generation of game devs at Futurae school.
-                    </p>
-
-                    <!-- Timeline highlights -->
-                    <div class="space-y-3">
-                        <div class="flex items-center gap-3">
-                            <span class="text-teal-400 font-mono text-sm">2024-25</span>
-                            <span class="text-gray-300">CTO at Web3 startups (Stargaze, Sorolla)</span>
+                <!-- Right: Timeline -->
+                <div>
+                    <h3 class="text-xs text-gray-600 uppercase tracking-widest mb-6">Timeline</h3>
+                    <div class="space-y-4 text-sm">
+                        <div class="flex gap-4 border-l-2 border-teal-400 pl-4">
+                            <span class="text-teal-400 w-16 shrink-0">2024-25</span>
+                            <div>
+                                <p class="text-white">CTO</p>
+                                <p class="text-gray-600">Stargaze, Sorolla (Web3)</p>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <span class="text-teal-400 font-mono text-sm">2019-24</span>
-                            <span class="text-gray-300">Lead Unity Developer at Ketchapp/Ubisoft</span>
+                        <div class="flex gap-4 border-l border-[#333] pl-4">
+                            <span class="text-gray-600 w-16 shrink-0">2019-24</span>
+                            <div>
+                                <p class="text-white">Lead Unity Developer</p>
+                                <p class="text-gray-600">Ketchapp / Ubisoft</p>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <span class="text-teal-400 font-mono text-sm">2018</span>
-                            <span class="text-gray-300">Master's in Computer Science, Strasbourg</span>
+                        <div class="flex gap-4 border-l border-[#333] pl-4">
+                            <span class="text-gray-600 w-16 shrink-0">2018</span>
+                            <div>
+                                <p class="text-white">Master's in CS</p>
+                                <p class="text-gray-600">University of Strasbourg</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 border-l border-[#333] pl-4">
+                            <span class="text-gray-600 w-16 shrink-0">2015</span>
+                            <div>
+                                <p class="text-white">Started Game Dev</p>
+                                <p class="text-gray-600">First Unity project</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -668,59 +767,73 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4 section-glow">
-        <div class="max-w-2xl mx-auto text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-4 reveal">
-                <span class="gradient-text">Let's Build Something</span>
-            </h2>
-            <p class="text-gray-400 mb-8 reveal reveal-delay-1">Looking for a Unity developer? Have a project idea? Just want to chat about game dev?</p>
-
-            <form action="https://formspree.io/f/xblgjdky" method="POST" class="space-y-4 text-left reveal reveal-delay-2">
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div>
-                        <label for="email" class="block text-sm text-gray-400 mb-1">Your Email</label>
-                        <input type="email" id="email" name="_replyto" required class="input-glow w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-teal-500 transition-all">
-                    </div>
-                    <div>
-                        <label for="subject" class="block text-sm text-gray-400 mb-1">Subject</label>
-                        <input type="text" id="subject" name="_subject" required class="input-glow w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-teal-500 transition-all">
-                    </div>
-                </div>
+    <section id="contact" class="py-20 px-4 md:px-8 border-t border-[#222]">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Left: CTA -->
                 <div>
-                    <label for="message" class="block text-sm text-gray-400 mb-1">Message</label>
-                    <textarea id="message" name="body" rows="5" required class="input-glow w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-teal-500 transition-all"></textarea>
+                    <div class="section-marker">Contact</div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white uppercase mb-6">
+                        Let's Build<br>
+                        <span class="text-teal-400">Something</span>
+                    </h2>
+                    <p class="text-gray-600 text-sm mb-8">
+                        Looking for a Unity developer? Have a project idea? Just want to chat about game dev?
+                    </p>
+                    <div class="text-xs text-gray-600 space-y-2">
+                        <p><span class="text-teal-400">></span> Response time: ~24h</p>
+                        <p><span class="text-teal-400">></span> Available for: Freelance, Full-time</p>
+                        <p><span class="text-teal-400">></span> Location: Paris (remote OK)</p>
+                    </div>
                 </div>
-                <input type="hidden" name="_next" value="https://lacrearthur.github.io/" />
-                <input type="text" name="_gotcha" style="display:none" />
-                <button type="submit" class="btn-primary w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-4 rounded-lg text-lg">
-                    Send Message
-                </button>
-            </form>
+
+                <!-- Right: Form -->
+                <div>
+                    <form action="https://formspree.io/f/xblgjdky" method="POST" class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="email" class="block text-xs text-gray-600 uppercase tracking-widest mb-2">Email</label>
+                                <input type="email" id="email" name="_replyto" required placeholder="you@example.com" class="input-brutal w-full">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-xs text-gray-600 uppercase tracking-widest mb-2">Subject</label>
+                                <input type="text" id="subject" name="_subject" required placeholder="Project inquiry" class="input-brutal w-full">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-xs text-gray-600 uppercase tracking-widest mb-2">Message</label>
+                            <textarea id="message" name="body" rows="5" required placeholder="Tell me about your project..." class="input-brutal w-full"></textarea>
+                        </div>
+                        <input type="hidden" name="_next" value="https://lacrearthur.github.io/" />
+                        <input type="text" name="_gotcha" style="display:none" />
+                        <button type="submit" class="btn-brutal-filled w-full glitch-hover">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Scroll to Top Button -->
     <button id="scrollTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
-        class="fixed bottom-6 right-6 bg-teal-600 hover:bg-teal-700 hover:glow-teal text-white p-3 rounded-full shadow-lg transition-all opacity-0 translate-y-4 pointer-events-none z-50 hover:scale-110"
+        class="fixed bottom-6 right-6 border-2 border-teal-400 bg-black text-teal-400 w-12 h-12 flex items-center justify-center transition-all opacity-0 translate-y-4 pointer-events-none z-50 hover:bg-teal-400 hover:text-black"
         aria-label="Scroll to top">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-        </svg>
+        <span class="text-xl">↑</span>
     </button>
 
     <!-- Footer -->
-    <footer class="footer-gradient py-8">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex flex-wrap justify-center gap-6 mb-6">
-                <span class="text-xl font-semibold">Connect</span>
-                <a href="https://www.linkedin.com/in/arthur-scheidel/" class="hover:underline">LinkedIn</a>
-                <a href="https://x.com/LaCreArthur" class="hover:underline">Twitter/X</a>
-                <a href="https://facebook.com/lacrearthur" class="hover:underline">Facebook</a>
-                <a href="https://youtube.com/c/LaCreArthur" class="hover:underline">YouTube</a>
-                <a href="https://www.instagram.com/lacrearthur/" class="hover:underline">Instagram</a>
+    <footer class="footer-brutal py-8 px-4 md:px-8 bg-black">
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-4">
+            <div class="text-xs text-gray-600">
+                <span class="text-white">Arthur_Scheidel</span> © 2025
             </div>
-            <div class="text-center text-sm text-teal-100">
-                Made by LaCreArthur with Tailwind CSS · Last update: 12/2025
+            <div class="flex flex-wrap gap-4 text-xs">
+                <a href="https://github.com/LaCreArthur/" class="raw-link">[GitHub]</a>
+                <a href="https://www.linkedin.com/in/arthur-scheidel/" class="raw-link">[LinkedIn]</a>
+                <a href="https://x.com/LaCreArthur" class="raw-link">[X]</a>
+                <a href="https://youtube.com/c/LaCreArthur" class="raw-link">[YouTube]</a>
+                <a href="https://lacrearthur.itch.io/" class="raw-link">[itch.io]</a>
             </div>
         </div>
     </footer>
@@ -732,18 +845,9 @@
             document.getElementById('mobile-menu').classList.toggle('active');
         }
 
-        // Scroll event handler for parallax, scroll-to-top, and active nav
+        // Scroll event handler for scroll-to-top and active nav
         window.addEventListener('scroll', function() {
             const scrolled = window.pageYOffset;
-
-            // Parallax effect
-            const parallaxBgs = document.querySelectorAll('.parallax-bg');
-            parallaxBgs.forEach(bg => {
-                const section = bg.parentElement;
-                const rect = section.getBoundingClientRect();
-                const rate = (rect.top + scrolled) * 0.3;
-                bg.style.transform = `translateY(${scrolled * 0.3 - rate}px)`;
-            });
 
             // Scroll-to-top button visibility
             const scrollBtn = document.getElementById('scrollTop');
@@ -757,7 +861,7 @@
 
             // Active nav highlighting
             const sections = ['work', 'about', 'contact'];
-            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            const navLinks = document.querySelectorAll('.nav-brutal a[href^="#"]');
 
             let current = '';
             sections.forEach(id => {
@@ -774,62 +878,6 @@
                 }
             });
         });
-
-        // Scroll reveal animation using IntersectionObserver
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        document.querySelectorAll('.reveal').forEach(el => {
-            revealObserver.observe(el);
-        });
-
-        // Animated counter for metrics
-        function animateCounter(element, target, suffix = '') {
-            let current = 0;
-            const increment = target / 30;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = target + suffix;
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current) + suffix;
-                }
-            }, 40);
-        }
-
-        // Trigger counter animation when metrics come into view
-        const metricsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.dataset.animated) {
-                    entry.target.dataset.animated = 'true';
-                    const metrics = entry.target.querySelectorAll('.metric-value');
-                    metrics.forEach(metric => {
-                        const text = metric.textContent;
-                        if (text.includes('25k')) {
-                            animateCounter(metric, 25, 'k+');
-                        } else if (text.includes('4.9')) {
-                            metric.textContent = '4.9★';
-                        } else if (text.includes('10+')) {
-                            animateCounter(metric, 10, '+');
-                        } else if (text.includes('20+')) {
-                            animateCounter(metric, 20, '+');
-                        }
-                    });
-                }
-            });
-        }, { threshold: 0.5 });
-
-        const metricsBar = document.querySelector('.flex.flex-wrap.justify-center.gap-4.sm\\:gap-8');
-        if (metricsBar) metricsObserver.observe(metricsBar);
     </script>
 </body>
 
