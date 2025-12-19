@@ -100,28 +100,13 @@
             z-index: -1;
         }
 
-        /* Details/Summary styling */
-        details summary { cursor: pointer; list-style: none; }
-        details summary::-webkit-details-marker { display: none; }
-        details summary::before {
-            content: "▶";
-            font-size: 0.7rem;
-            color: #14b8a6;
-            margin-right: 0.5rem;
-            transition: transform 0.2s ease;
-            display: inline-block;
-        }
-        details[open] summary::before {
-            transform: rotate(90deg);
-        }
-
         /* Mobile menu */
         .mobile-menu { display: none; }
         .mobile-menu.active { display: block; }
     </style>
 </head>
 
-<body class="bg-black text-gray-200">
+<body class="bg-black text-gray-200 overflow-x-hidden">
     <!-- Navigation -->
     <nav id="Top" class="bg-black/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-gray-800">
         <div class="max-w-6xl mx-auto px-4">
@@ -164,30 +149,34 @@
     <section class="parallax-section min-h-[60vh]">
         <img src="img/background1.jpg" alt="Starry night sky with colorful nebula" class="parallax-bg">
         <div class="text-center z-10 px-4 pt-16">
-            <img src="img/title.png" alt="LaCreArthur du Net" class="max-w-md mx-auto mb-8 w-full">
-            <div class="flex flex-wrap justify-center gap-3">
+            <img src="img/title.png" alt="LaCreArthur du Net" class="max-w-xs sm:max-w-md mx-auto mb-8 w-full">
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3">
                 <a href="https://youtube.com/c/LaCreArthur" title="YouTube - Game dev tutorials & devlogs" class="hover:scale-110 transition-transform">
-                    <img src="img/s_yt.png" alt="YouTube channel" class="w-12 h-12 rounded-full shadow-lg">
+                    <img src="img/s_yt.png" alt="YouTube channel" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg">
                 </a>
                 <a href="https://github.com/LaCreArthur/" title="GitHub - Open source projects" class="hover:scale-110 transition-transform">
-                    <img src="img/s_gh.png" alt="GitHub profile" class="w-12 h-12 rounded-full shadow-lg">
+                    <img src="img/s_gh.png" alt="GitHub profile" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg">
                 </a>
                 <a href="https://facebook.com/lacrearthur" title="Facebook" class="hover:scale-110 transition-transform">
-                    <img src="img/s_fb.png" alt="Facebook page" class="w-12 h-12 rounded-full shadow-lg">
+                    <img src="img/s_fb.png" alt="Facebook page" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg">
                 </a>
                 <a href="https://www.linkedin.com/in/arthur-scheidel/" title="LinkedIn - Professional profile" class="hover:scale-110 transition-transform">
-                    <img src="img/s_lin.png" alt="LinkedIn profile" class="w-12 h-12 rounded-full shadow-lg">
+                    <img src="img/s_lin.png" alt="LinkedIn profile" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg">
                 </a>
                 <a href="https://twitter.com/LaCreArthur" title="Twitter/X - Updates & thoughts" class="hover:scale-110 transition-transform">
-                    <img src="img/s_tw.png" alt="Twitter profile" class="w-12 h-12 rounded-full shadow-lg">
+                    <img src="img/s_tw.png" alt="Twitter profile" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg">
                 </a>
                 <a href="https://www.instagram.com/lacrearthur/" title="Instagram - Behind the scenes" class="hover:scale-110 transition-transform">
-                    <img src="img/s_ig.jpg" alt="Instagram profile" class="w-12 h-12 rounded-full shadow-lg">
+                    <img src="img/s_ig.jpg" alt="Instagram profile" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg">
                 </a>
                 <a href="https://www.paypal.me/LaCreArthur" title="Support my work via PayPal" class="hover:scale-110 transition-transform">
-                    <img src="img/s_don.png" alt="Donate via PayPal" class="w-12 h-12 rounded-full shadow-lg">
+                    <img src="img/s_don.png" alt="Donate via PayPal" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg">
                 </a>
             </div>
+            <!-- CTA Button -->
+            <a href="#ContactMe" class="inline-block mt-6 sm:mt-8 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg transition-colors text-base sm:text-lg">
+                Let's Talk
+            </a>
         </div>
     </section>
 
@@ -280,79 +269,58 @@
                         <span class="text-teal-400">★</span> Featured Projects
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
-                            <details>
-                                <summary class="p-4">
-                                    <div class="flex justify-between items-start">
-                                        <span class="font-semibold">Doge To Mars</span>
-                                        <span class="text-gray-500 text-sm">2025</span>
-                                    </div>
-                                    <p class="text-gray-400 text-sm mt-1">Sequel to my 25k-download hit, embraced by the Dogecoin community</p>
-                                    <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Mobile</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Crypto</span>
-                                        <span class="bg-teal-600 text-black text-xs px-2 py-0.5 rounded font-semibold ml-auto">Community Featured</span>
-                                    </div>
-                                </summary>
-                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
-                                    <p class="text-gray-400 text-sm mb-3">Follow-up to Dogecoin To The Moon. Received extremely positive reception from the Dogecoin community, leading to a competitive scholarship invitation to the Dogecoin Hackathon (June 2025).</p>
-                                    <a href="https://lacrearthur.itch.io/" target="_blank" class="text-teal-400 hover:underline text-sm">🎮 itch.io</a>
-                                </div>
-                            </details>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="font-semibold">Doge To Mars</span>
+                                <span class="text-gray-500 text-sm">2025</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">Sequel to my 25k-download hit. Received extremely positive reception from the Dogecoin community, leading to a competitive scholarship invitation to the Dogecoin Hackathon (June 2025).</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Mobile</span>
+                                <span class="bg-teal-600 text-black text-xs px-2 py-0.5 rounded font-semibold">Community Featured</span>
+                            </div>
+                            <div class="flex flex-wrap gap-3 mt-3">
+                                <a href="https://lacrearthur.itch.io/" target="_blank" class="text-teal-400 hover:underline text-sm">🎮 itch.io</a>
+                            </div>
                         </div>
 
-                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
-                            <details>
-                                <summary class="p-4">
-                                    <div class="flex justify-between items-start">
-                                        <span class="font-semibold">Dogecoin To The Moon</span>
-                                        <span class="text-gray-500 text-sm">2021</span>
-                                    </div>
-                                    <p class="text-gray-400 text-sm mt-1">Crypto-themed mobile game with organic viral growth</p>
-                                    <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Mobile</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">NFT</span>
-                                        <span class="bg-teal-600 text-black text-xs px-2 py-0.5 rounded font-semibold ml-auto">25k downloads · 4.9★</span>
-                                    </div>
-                                </summary>
-                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
-                                    <p class="text-gray-400 text-sm mb-3">Mobile game targeting the Dogecoin community with NFT integration. Achieved 25,000 organic downloads with a 4.9-star rating — no marketing budget. Early example of successful crypto-gaming convergence.</p>
-                                    <div class="flex gap-4">
-                                        <a href="https://apps.apple.com/us/app/dogecoin-to-moon/id1574465636" target="_blank" class="text-teal-400 hover:underline text-sm">📱 App Store</a>
-                                        <a href="https://github.com/LaCreArthur/DogecoinToTheMoon" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
-                                    </div>
-                                </div>
-                            </details>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="font-semibold">Dogecoin To The Moon</span>
+                                <span class="text-gray-500 text-sm">2021</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">Mobile game targeting the Dogecoin community. Achieved 25,000 organic downloads with a 4.9-star rating — no marketing budget. Early example of successful crypto-gaming convergence.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Mobile</span>
+                                <span class="bg-teal-600 text-black text-xs px-2 py-0.5 rounded font-semibold">25k downloads · 4.9★</span>
+                            </div>
+                            <div class="flex flex-wrap gap-3 mt-3">
+                                <a href="https://apps.apple.com/us/app/dogecoin-to-moon/id1574465636" target="_blank" class="text-teal-400 hover:underline text-sm">📱 App Store</a>
+                                <a href="https://github.com/LaCreArthur/DogecoinToTheMoon" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
+                            </div>
                         </div>
 
-                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
-                            <details>
-                                <summary class="p-4">
-                                    <div class="flex justify-between items-start">
-                                        <span class="font-semibold">Rody & Mastico Collection</span>
-                                        <span class="text-gray-500 text-sm">2018</span>
-                                    </div>
-                                    <p class="text-gray-400 text-sm mt-1">Remastered Atari ST series with integrated level editor</p>
-                                    <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Level Editor</span>
-                                        <span class="bg-teal-600 text-black text-xs px-2 py-0.5 rounded font-semibold ml-auto">3 years dev · YouTuber collab</span>
-                                    </div>
-                                </summary>
-                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
-                                    <p class="text-gray-400 text-sm mb-3">3+ years of development recreating classic Atari ST games. Features Rody Maker, a full level editor allowing players to create and share custom stories. Collaborated with French YouTubers for launch, gaining significant exposure.</p>
-                                    <div class="flex flex-wrap gap-4">
-                                        <a href="https://lacrearthur.itch.io/rody-mastico-collection" target="_blank" class="text-teal-400 hover:underline text-sm">🎮 itch.io</a>
-                                        <a href="https://lacrearthur.github.io/RodyAIbiza/" target="_blank" class="text-teal-400 hover:underline text-sm">🌐 Website</a>
-                                        <a href="https://www.youtube.com/watch?v=DEktCBMKopE" target="_blank" class="text-teal-400 hover:underline text-sm">▶️ Trailer</a>
-                                    </div>
-                                </div>
-                            </details>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="font-semibold">Rody & Mastico Collection</span>
+                                <span class="text-gray-500 text-sm">2018</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">3+ years recreating classic Atari ST games. Features Rody Maker, a full level editor. Collaborated with French YouTubers for launch, gaining significant exposure.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Level Editor</span>
+                                <span class="bg-teal-600 text-black text-xs px-2 py-0.5 rounded font-semibold">3 years dev</span>
+                            </div>
+                            <div class="flex flex-wrap gap-3 mt-3">
+                                <a href="https://lacrearthur.itch.io/rody-mastico-collection" target="_blank" class="text-teal-400 hover:underline text-sm">🎮 itch.io</a>
+                                <a href="https://lacrearthur.github.io/RodyAIbiza/" target="_blank" class="text-teal-400 hover:underline text-sm">🌐 Website</a>
+                                <a href="https://www.youtube.com/watch?v=DEktCBMKopE" target="_blank" class="text-teal-400 hover:underline text-sm">▶️ Trailer</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -363,69 +331,52 @@
                         <span class="text-green-400">🔧</span> Tools & SDKs
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
-                            <details>
-                                <summary class="p-4">
-                                    <div class="flex justify-between items-start">
-                                        <span class="font-semibold">Unity CI/CD Template</span>
-                                        <span class="text-gray-500 text-sm">2025</span>
-                                    </div>
-                                    <p class="text-gray-400 text-sm mt-1">Complete automation pipeline for Unity mobile games</p>
-                                    <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">GitHub Actions</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Fastlane</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">CI/CD</span>
-                                    </div>
-                                </summary>
-                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
-                                    <p class="text-gray-400 text-sm mb-3">Production-ready template automating Unity builds for Android (AAB → Play Store) and iOS (IPA → TestFlight) using GameCI and Fastlane. Includes Firebase distribution for beta testing.</p>
-                                    <a href="https://github.com/LaCreArthur/unity-fastlane-ci" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
-                                </div>
-                            </details>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="font-semibold">Unity CI/CD Template</span>
+                                <span class="text-gray-500 text-sm">2025</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">Production-ready template automating Unity builds for Android (AAB → Play Store) and iOS (IPA → TestFlight) using GameCI and Fastlane.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">GitHub Actions</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Fastlane</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">CI/CD</span>
+                            </div>
+                            <div class="flex flex-wrap gap-3 mt-3">
+                                <a href="https://github.com/LaCreArthur/unity-fastlane-ci" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
+                            </div>
                         </div>
 
-                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
-                            <details>
-                                <summary class="p-4">
-                                    <div class="flex justify-between items-start">
-                                        <span class="font-semibold">Sorolla Palette SDK</span>
-                                        <span class="text-gray-500 text-sm">2025</span>
-                                    </div>
-                                    <p class="text-gray-400 text-sm mt-1">Zero-config mobile publisher SDK for Unity games</p>
-                                    <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">SDK</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Mobile</span>
-                                    </div>
-                                </summary>
-                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
-                                    <p class="text-gray-400 text-sm mb-3">Unity Package Manager SDK for mobile game publishing. Features automatic iOS ATT handling, ad network integration, and analytics setup with minimal configuration required.</p>
-                                    <a href="https://github.com/LaCreArthur/sorolla-palette-upm" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
-                                </div>
-                            </details>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="font-semibold">Sorolla Palette SDK</span>
+                                <span class="text-gray-500 text-sm">2025</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">Unity Package Manager SDK for mobile game publishing. Features automatic iOS ATT handling, ad network integration, and analytics setup.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">SDK</span>
+                            </div>
+                            <div class="flex flex-wrap gap-3 mt-3">
+                                <a href="https://github.com/LaCreArthur/sorolla-palette-upm" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
+                            </div>
                         </div>
 
-                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
-                            <details>
-                                <summary class="p-4">
-                                    <div class="flex justify-between items-start">
-                                        <span class="font-semibold">Facebook SDK for UPM</span>
-                                        <span class="text-gray-500 text-sm">2025</span>
-                                    </div>
-                                    <p class="text-gray-400 text-sm mt-1">Facebook SDK repackaged for Unity Package Manager</p>
-                                    <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Objective-C++</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">SDK</span>
-                                    </div>
-                                </summary>
-                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
-                                    <p class="text-gray-400 text-sm mb-3">Clean UPM-compatible package of the Facebook SDK for easier integration into Unity projects via Package Manager instead of manual import.</p>
-                                    <a href="https://github.com/LaCreArthur/facebook-unity-sdk-upm" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
-                                </div>
-                            </details>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="font-semibold">Facebook SDK for UPM</span>
+                                <span class="text-gray-500 text-sm">2025</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">Clean UPM-compatible package of the Facebook SDK for easier integration into Unity projects via Package Manager.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Objective-C++</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">SDK</span>
+                            </div>
+                            <div class="flex flex-wrap gap-3 mt-3">
+                                <a href="https://github.com/LaCreArthur/facebook-unity-sdk-upm" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -436,67 +387,52 @@
                         <span class="text-cyan-400">🎮</span> Game Jams & Indie
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
-                            <details>
-                                <summary class="p-4">
-                                    <div class="flex justify-between items-start">
-                                        <span class="font-semibold">The Binding of Euclide</span>
-                                        <span class="text-gray-500 text-sm">2021</span>
-                                    </div>
-                                    <p class="text-gray-400 text-sm mt-1">Geometry-themed roguelike dungeon crawler</p>
-                                    <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Roguelike</span>
-                                    </div>
-                                </summary>
-                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
-                                    <p class="text-gray-400 text-sm mb-3">A roguelike inspired by The Binding of Isaac but with geometric shapes and math-themed mechanics. Built for a game jam.</p>
-                                    <a href="https://lacrearthur.itch.io/the-binding-of-euclide" target="_blank" class="text-teal-400 hover:underline text-sm">🎮 Play on itch.io</a>
-                                </div>
-                            </details>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="font-semibold">The Binding of Euclide</span>
+                                <span class="text-gray-500 text-sm">2021</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">A roguelike inspired by The Binding of Isaac but with geometric shapes and math-themed mechanics.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Roguelike</span>
+                            </div>
+                            <div class="flex flex-wrap gap-3 mt-3">
+                                <a href="https://lacrearthur.itch.io/the-binding-of-euclide" target="_blank" class="text-teal-400 hover:underline text-sm">🎮 Play on itch.io</a>
+                            </div>
                         </div>
 
-                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
-                            <details>
-                                <summary class="p-4">
-                                    <div class="flex justify-between items-start">
-                                        <span class="font-semibold">The Plot Hole: Little Red</span>
-                                        <span class="text-gray-500 text-sm">2020</span>
-                                    </div>
-                                    <p class="text-gray-400 text-sm mt-1">Narrative game jam entry — team of 4</p>
-                                    <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Narrative</span>
-                                    </div>
-                                </summary>
-                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
-                                    <p class="text-gray-400 text-sm mb-3">Story-driven game created during a game jam with a team of 4 developers. Explores the concept of plot holes in fairy tales.</p>
-                                    <a href="https://lacrearthur.itch.io/plot-hole" target="_blank" class="text-teal-400 hover:underline text-sm">🎮 Play on itch.io</a>
-                                </div>
-                            </details>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="font-semibold">The Plot Hole: Little Red</span>
+                                <span class="text-gray-500 text-sm">2020</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">Story-driven game jam entry with a team of 4. Explores the concept of plot holes in fairy tales.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Narrative</span>
+                            </div>
+                            <div class="flex flex-wrap gap-3 mt-3">
+                                <a href="https://lacrearthur.itch.io/plot-hole" target="_blank" class="text-teal-400 hover:underline text-sm">🎮 Play on itch.io</a>
+                            </div>
                         </div>
 
-                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
-                            <details>
-                                <summary class="p-4">
-                                    <div class="flex justify-between items-start">
-                                        <span class="font-semibold">Univeria</span>
-                                        <span class="text-gray-500 text-sm">2021</span>
-                                    </div>
-                                    <p class="text-gray-400 text-sm mt-1">Universe-scale puzzle exploration game</p>
-                                    <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Puzzle</span>
-                                    </div>
-                                </summary>
-                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
-                                    <p class="text-gray-400 text-sm mb-3">Puzzle game exploring the scale of the universe, from atoms to galaxies.</p>
-                                    <a href="https://lacrearthur.itch.io/univeria" target="_blank" class="text-teal-400 hover:underline text-sm">🎮 Play on itch.io</a>
-                                </div>
-                            </details>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="font-semibold">Univeria</span>
+                                <span class="text-gray-500 text-sm">2021</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">Puzzle game exploring the scale of the universe, from atoms to galaxies.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Puzzle</span>
+                            </div>
+                            <div class="flex flex-wrap gap-3 mt-3">
+                                <a href="https://lacrearthur.itch.io/univeria" target="_blank" class="text-teal-400 hover:underline text-sm">🎮 Play on itch.io</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -507,68 +443,52 @@
                         <span class="text-purple-400">🎓</span> Teaching Projects
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
-                            <details>
-                                <summary class="p-4">
-                                    <div class="flex justify-between items-start">
-                                        <span class="font-semibold">Vampire Survivor Clone</span>
-                                        <span class="text-gray-500 text-sm">2025</span>
-                                    </div>
-                                    <p class="text-gray-400 text-sm mt-1">Educational project for Unity students</p>
-                                    <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Teaching</span>
-                                        <span class="bg-teal-600 text-black text-xs px-2 py-0.5 rounded font-semibold ml-auto">20 students taught</span>
-                                    </div>
-                                </summary>
-                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
-                                    <p class="text-gray-400 text-sm mb-3">Vampire Survivors-style game created as teaching material for my Unity courses at Futurae school. Used to teach 20 students (ages 20-22) game development fundamentals.</p>
-                                    <a href="https://github.com/LaCreArthur/FuturaeVampireSurvivor" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
-                                </div>
-                            </details>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="font-semibold">Vampire Survivor Clone</span>
+                                <span class="text-gray-500 text-sm">2025</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">Teaching material for Unity courses at Futurae school. Used to teach 20 students (ages 20-22) game development fundamentals.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
+                                <span class="bg-teal-600 text-black text-xs px-2 py-0.5 rounded font-semibold">20 students taught</span>
+                            </div>
+                            <div class="flex flex-wrap gap-3 mt-3">
+                                <a href="https://github.com/LaCreArthur/FuturaeVampireSurvivor" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
+                            </div>
                         </div>
 
-                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
-                            <details>
-                                <summary class="p-4">
-                                    <div class="flex justify-between items-start">
-                                        <span class="font-semibold">Sci-Fi Tower Defense</span>
-                                        <span class="text-gray-500 text-sm">2025</span>
-                                    </div>
-                                    <p class="text-gray-400 text-sm mt-1">Tower defense tutorial project</p>
-                                    <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Teaching</span>
-                                    </div>
-                                </summary>
-                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
-                                    <p class="text-gray-400 text-sm mb-3">Sci-fi themed tower defense game built as a teaching resource for Unity courses, demonstrating game architecture patterns.</p>
-                                    <a href="https://github.com/LaCreArthur/FuturaeScifiTD" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
-                                </div>
-                            </details>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="font-semibold">Sci-Fi Tower Defense</span>
+                                <span class="text-gray-500 text-sm">2025</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">Sci-fi themed tower defense game built as a teaching resource, demonstrating game architecture patterns.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Unity</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C#</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">Teaching</span>
+                            </div>
+                            <div class="flex flex-wrap gap-3 mt-3">
+                                <a href="https://github.com/LaCreArthur/FuturaeScifiTD" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
+                            </div>
                         </div>
 
-                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors">
-                            <details>
-                                <summary class="p-4">
-                                    <div class="flex justify-between items-start">
-                                        <span class="font-semibold">Genetic Algorithm Pathfinder</span>
-                                        <span class="text-gray-500 text-sm">2017</span>
-                                    </div>
-                                    <p class="text-gray-400 text-sm mt-1">Distributed genetic algorithm for pathfinding</p>
-                                    <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C++</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">OpenGL</span>
-                                        <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">AI</span>
-                                    </div>
-                                </summary>
-                                <div class="px-4 pb-4 pt-2 border-t border-gray-800">
-                                    <p class="text-gray-400 text-sm mb-3">C++ implementation of a genetic algorithm finding shortest paths on 2D maps with obstacles. Features distributed island model for parallel evolution. Master's degree project.</p>
-                                    <a href="https://github.com/LaCreArthur/shortestPathGA" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
-                                </div>
-                            </details>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg hover:border-teal-600 transition-colors p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="font-semibold">Genetic Algorithm Pathfinder</span>
+                                <span class="text-gray-500 text-sm">2017</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">C++ implementation finding shortest paths on 2D maps. Features distributed island model for parallel evolution. Master's degree project.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">C++</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">OpenGL</span>
+                                <span class="bg-gray-800 text-teal-400 text-xs px-2 py-0.5 rounded">AI</span>
+                            </div>
+                            <div class="flex flex-wrap gap-3 mt-3">
+                                <a href="https://github.com/LaCreArthur/shortestPathGA" target="_blank" class="text-teal-400 hover:underline text-sm">💻 GitHub</a>
+                            </div>
                         </div>
                     </div>
                 </div>
