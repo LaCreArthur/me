@@ -1,33 +1,36 @@
-# Arthur Scheidel - Lead Unity Developer & CTO
+# Arthur Scheidel - Game Developer & Founder
 
-> Lead Unity & Full-Stack Developer with 7+ years of experience in game development, Web3 integration, and technical leadership. Based in Paris, France.
+> Game developer, publisher, and indie creator. Founder of Sorolla (mobile game publishing). Based in Paris, France.
 
 ## Professional Summary
 
-Arthur Scheidel is a Lead Unity Developer and former CTO with extensive experience in the gaming industry. He has worked at Ubisoft (Ketchapp) developing hyper-casual mobile games, served as CTO at CARFT (a Web3 gaming startup), and led Unity development at Yumon. His indie game "Dogecoin To The Moon" achieved 25,000 organic downloads with a 4.9-star rating.
+Arthur Scheidel is a game developer and entrepreneur with 7+ years of experience across AAA hyper-casual development, Web3 gaming, and indie publishing. He founded Sorolla, a mobile game publishing company, where he built the Sorolla Palette SDK (a zero-config publisher SDK for Unity games) and Sorolla Intel (an in-house market intelligence platform for hypercasual game analysis). His indie game "Dogecoin To The Moon" achieved 25,000 organic downloads with a 4.9-star rating.
 
 ## Key Facts
 
-- **Current Role**: Lead Unity Developer & Indie Game Developer
-- **Location**: Paris, France
+- **Current Role**: Founder at Sorolla (mobile game publishing)
+- **Location**: Paris, France (open to Barcelona)
 - **Experience**: 7+ years in game development
 - **Education**: Master's in Computer Science (with honors) from University of Strasbourg
 - **Languages**: French (native), English (fluent)
 
 ## Technical Skills
 
-- **Game Development**: Unity (expert), Unreal Engine, C#, C++
+- **Game Development**: Unity (expert), Three.js, C#, C++
 - **Web Development**: React, Angular, Python, TypeScript, Firebase
 - **Blockchain/Web3**: NFT integration, Metamask, Play-to-Earn frameworks
-- **DevOps**: CI/CD pipelines, GitHub Actions, Fastlane, Firebase Distribution
+- **Mobile Publishing**: iOS ATT, ad network integration, ASO, CI/CD pipelines
+- **DevOps**: GitHub Actions, Fastlane, Firebase Distribution, GameCI
 - **AI**: Goal-Oriented Action Planning (GOAP), Genetic Algorithms, data mining
 
-## Notable Companies
+## Career Timeline
 
-- **Ubisoft (Ketchapp)** - Hyper-Casual Mobile Game Developer (2019)
-- **CARFT** - Chief Technology Officer (2022-2023)
-- **Yumon** - Lead Unity Developer (2023)
-- **YourArt** - Senior Unity and Full-Stack Engineer (2024)
+- **Sorolla** — Founder (2024–present): mobile game publisher; built SDK, analytics, market intelligence tools
+- **YourArt** — Senior Unity and Full-Stack Engineer (2024)
+- **Yumon** — Lead Unity Developer (2023)
+- **CARFT** — Chief Technology Officer (2022–2023): Web3 gaming startup
+- **Ubisoft (Ketchapp)** — Hyper-Casual Mobile Game Developer (2019–2021)
+- **University of Strasbourg** — Master's in CS (2018)
 
 ## Featured Projects
 
@@ -46,8 +49,15 @@ Arthur Scheidel is a Lead Unity Developer and former CTO with extensive experien
 ### Rody & Mastico Collection (2018)
 - 3+ years of development recreating classic Atari ST games
 - Features Rody Maker, a full integrated level editor
-- Collaboration with French YouTubers for launch
+- Collaboration with French YouTubers (Bob Lennon) for launch
 - Technologies: Unity, C#, Level Editor
+
+### Happy Snake 3D (2025)
+- Three.js playable ad game built for Sorolla's publishing pipeline
+- Self-contained single-file HTML output for ad network distribution
+- Served as architecture template for future playable ad production
+- Technologies: Three.js, JavaScript, Vite, MRAID
+- GitHub: https://github.com/LaCreArthur/happy-snake-3d
 
 ## Tools & SDKs
 
@@ -101,6 +111,7 @@ Arthur Scheidel is a Lead Unity Developer and former CTO with extensive experien
 - **Competitive Skateboard**: 2x French Championship Qualifier (2024, 2025)
 - **Teaching**: Unity instructor at private school (2025), mentored 20 students
 - **Community**: Active contributor to Dogecoin gaming community
+- **Content**: Runs arthur.scheidel brand across IG/TikTok/YouTube (game dev + skate content)
 
 ## Contact & Links
 

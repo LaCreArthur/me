@@ -1,28 +1,64 @@
-
 <div align="center">
 
-# CreArthur - Personal Portfolio
-[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/c/LaCreArthur)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/LaCreArthur/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arthur-scheidel-572952142/)
-[![ex ](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=x&logoColor=white)](https://x.com/LaCreArthur)
+# Arthur Scheidel — Personal Portfolio
 
-**🌐 Live Site:** [lacrearthur.github.io/me](https://lacrearthur.github.io/me)  
-**👨‍💻 Developer:** Arthur Scheidel (LaCreArthur) - Bretzel Studio
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/LaCreArthur/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arthur-scheidel/)
+[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/LaCreArthur)
+[![itch.io](https://img.shields.io/badge/itch.io-FA5C5C?style=for-the-badge&logo=itch.io&logoColor=white)](https://lacrearthur.itch.io/)
+
+**🌐 Live Site:** [lacrearthur.github.io](https://lacrearthur.github.io/)  
+**👨‍💻 Developer:** Arthur Scheidel (LaCreArthur) — Founder at Sorolla
 
 </div>
 
-## 📋 Repository Overview
+## 📋 Overview
 
-This repository contains the source code for my personal portfolio website, showcasing my journey as a Unity developer, game creator at Bretzel Studio and entrepreneur.
+Personal portfolio showcasing Arthur's work as a game developer and founder. Brutalist design, terminal aesthetic, fully static — no build step required.
 
 ## 🛠️ Tech Stack
 
-- **HTML5/CSS3/JavaScript** - Core web technologies
-- **Materialize CSS** - Material Design framework for responsive UI
-- **GitHub Pages** - Hosting platform
-- **Formspree** - Contact form handling solution
+- **HTML5 / CSS3 / JavaScript** — Static site, no framework
+- **Tailwind CSS** (CDN) — Utility styling
+- **JetBrains Mono** — Typography
+- **Formspree** — Contact form
+- **GitHub Pages** — Hosting
+
+## 📁 Structure
+
+```
+index.html          — Shell + meta tags + schema.org
+js/
+  data.js           — All content (edit this to update the site)
+  components.js     — Render functions (HTML generators)
+css/
+  style.css         — Custom styles (brutalist/terminal theme)
+data/
+  projects.json     — Project data (reference, not loaded at runtime)
+img/                — Static images
+llms.txt            — AI-readable site summary
+resume.pdf          — Downloadable resume
+```
+
+## ✏️ Editing Content
+
+All content lives in `js/data.js`. Edit that file to update:
+- Hero headline, subhead, metrics
+- Projects (featured work, archive, tools)
+- About section and timeline
+- Contact info
+
+No build step needed — push to `master` and GitHub Pages serves it.
+
+## 🚀 Local Preview
+
+```bash
+# Any static server works
+npx serve .
+# or
+python -m http.server 8080
+```
 
 ---
 
-**Note:** This README is for developers interested in the technical implementation. For portfolio content and professional information, please visit the [live website](https://lacrearthur.github.io/me).
+**Note:** `data/projects.json` is a content reference file. The actual runtime data is in `js/data.js`.

@@ -101,6 +101,18 @@
       }
     },
     {
+      "id": "happy-snake-3d",
+      "name": "Happy Snake 3D",
+      "category": "tools",
+      "year": 2025,
+      "tech": ["Three.js", "JavaScript", "Vite", "MRAID"],
+      "summary": "Three.js playable ad game for Sorolla's publishing pipeline",
+      "description": "Self-contained single-file HTML playable ad built with Three.js. Features a full 3D snake game with joystick controls, particles, and an end card CTA. Architecture serves as a reusable template for future playable ad production.",
+      "links": {
+        "github": "https://github.com/LaCreArthur/happy-snake-3d"
+      }
+    },
+    {
       "id": "binding-of-euclide",
       "name": "The Binding of Euclide",
       "category": "games",

@@ -5,8 +5,8 @@
 
 const DATA = {
     meta: {
-        title: "Arthur Scheidel - Lead Unity Developer & CTO | Paris",
-        description: "Arthur Scheidel - Lead Unity Developer & CTO based in Paris. 7+ years experience at Ubisoft, Web3 startups. 25k+ downloads on indie games.",
+        title: "Arthur Scheidel - Game Developer & Founder | Paris",
+        description: "Arthur Scheidel - Game developer & founder of Sorolla (mobile game publishing). 7+ years at Ubisoft, leading Web3 startups, shipping indie hits. 25k+ downloads.",
         ogImage: "https://lacrearthur.github.io/img/logo.png",
         url: "https://lacrearthur.github.io/"
     },
@@ -18,14 +18,14 @@ const DATA = {
             { href: "#about", label: "About" },
             { href: "#contact", label: "Contact" }
         ],
-        resumeUrl: "https://lacrearthur.github.io/resume/"
+        resumeUrl: "https://lacrearthur.github.io/resume.pdf"
     },
 
     hero: {
         terminal: "> LOADING PORTFOLIO...",
         headline: ["UNITY", "DEVELOPER", "WHO SHIPS"],
         highlightLine: 1, // 0-indexed, which line gets teal color
-        subhead: "7+ years building games at Ubisoft, leading Web3 startups as CTO, and shipping indie hits with real traction.",
+        subhead: "7+ years building games at Ubisoft, CTO at Web3 startups, now founder of Sorolla — a mobile game publisher. I ship things that work.",
         metrics: [
             { value: "25K+", label: "Downloads" },
             { value: "4.9★", label: "Rating" },
@@ -33,7 +33,7 @@ const DATA = {
             { value: "20+", label: "Students" }
         ],
         cta: {
-            primary: { href: "https://lacrearthur.github.io/resume/", label: "View Resume" },
+            primary: { href: "https://lacrearthur.github.io/resume.pdf", label: "View Resume" },
             secondary: { href: "#contact", label: "Contact Me" }
         },
         socials: [
@@ -148,8 +148,9 @@ const DATA = {
             {
                 title: "SDKs & Tools",
                 items: [
-                    { href: "https://github.com/LaCreArthur/sorolla-palette-upm", title: "Sorolla Palette SDK", subtitle: "Mobile publishing" },
-                    { href: "https://github.com/LaCreArthur/facebook-unity-sdk-upm", title: "Facebook SDK UPM", subtitle: "Package Manager" }
+                    { href: "https://github.com/LaCreArthur/sorolla-palette-upm", title: "Sorolla Palette SDK", subtitle: "Mobile publishing (iOS ATT + ads)" },
+                    { href: "https://github.com/LaCreArthur/facebook-unity-sdk-upm", title: "Facebook SDK UPM", subtitle: "Unity Package Manager port" },
+                    { href: "https://github.com/LaCreArthur/happy-snake-3d", title: "Happy Snake 3D", subtitle: "Three.js playable ad" }
                 ]
             },
             {
@@ -175,7 +176,7 @@ const DATA = {
         sectionMarker: "About",
         headline: ["The Human", "Behind The Code"],
         highlightLine: 1,
-        bio: "Unity dev based in Paris. I love shipping games that people actually play. After 7+ years—from AAA at Ubisoft to scrappy Web3 startups—I've learned that <span class=\"text-teal-400\">the best code is the code that ships.</span>",
+        bio: "Game developer & founder based in Paris. I love shipping games that people actually play. After 7+ years—from AAA at Ubisoft to founding Sorolla—I've learned that <span class=\"text-teal-400\">the best code is the code that ships.</span>",
         bioExtra: "When not coding: skateboarding (2x French Championship qualifier) or teaching game dev at Futurae school.",
         photo: {
             src: "img/id2018.jpg",
@@ -184,10 +185,12 @@ const DATA = {
         name: "Arthur Scheidel",
         location: "Paris, France",
         timeline: [
-            { years: "2024-25", role: "CTO", company: "Stargaze, Sorolla (Web3)", current: true },
-            { years: "2019-24", role: "Lead Unity Developer", company: "Ketchapp / Ubisoft", current: false },
-            { years: "2018", role: "Master's in CS", company: "University of Strasbourg", current: false },
-            { years: "2015", role: "Started Game Dev", company: "First Unity project", current: false }
+            { years: "2024-now", role: "Founder", company: "Sorolla (mobile game publishing)", current: true },
+            { years: "2024", role: "Senior Unity Engineer", company: "YourArt", current: false },
+            { years: "2023", role: "Lead Unity Developer", company: "Yumon", current: false },
+            { years: "2022-23", role: "CTO", company: "CARFT (Web3 gaming)", current: false },
+            { years: "2019-21", role: "Hyper-Casual Developer", company: "Ketchapp / Ubisoft", current: false },
+            { years: "2018", role: "Master's in CS", company: "University of Strasbourg", current: false }
         ]
     },
 
@@ -199,7 +202,7 @@ const DATA = {
         info: [
             "Response time: ~24h",
             "Available for: Freelance, Full-time",
-            "Location: Paris (remote OK)"
+            "Location: Paris / Barcelona (remote OK)"
         ],
         form: {
             action: "https://formspree.io/f/xblgjdky",
@@ -215,7 +218,7 @@ const DATA = {
 
     footer: {
         name: "Arthur_Scheidel",
-        year: 2025,
+        year: 2026,
         links: [
             { href: "https://github.com/LaCreArthur/", label: "GitHub" },
             { href: "https://www.linkedin.com/in/arthur-scheidel/", label: "LinkedIn" },
