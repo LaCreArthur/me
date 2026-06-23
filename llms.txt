@@ -1,122 +1,94 @@
-# Arthur Scheidel - Game Developer & Founder
+# Arthur Scheidel - Unity Developer and Tech Co-Founder
 
-> Game developer, publisher, and indie creator. Founder of Sorolla (mobile game publishing). Based in Paris, France.
+> Unity game developer, mobile publishing co-founder, SDK builder, and indie creator. Tech co-founder of Sorolla. Based in Paris, France. Also known as LaCreArthur.
 
 ## Professional Summary
 
-Arthur Scheidel is a game developer and entrepreneur with 7+ years of experience across AAA hyper-casual development, Web3 gaming, and indie publishing. He founded Sorolla, a mobile game publishing company, where he built the Sorolla Palette SDK (a zero-config publisher SDK for Unity games) and Sorolla Intel (an in-house market intelligence platform for hypercasual game analysis). His indie game "Dogecoin To The Moon" achieved 25,000 organic downloads with a 4.9-star rating.
+Arthur Scheidel is a Unity game developer and tech co-founder of Sorolla, a mobile game publishing effort focused on publisher SDKs, playable ads, release tooling, and publishing infrastructure. Self-taught in Unity and C#, he has shipped 20+ games. His background spans hyper-casual mobile work at Ubisoft/Ketchapp, Web3 gaming leadership, WebGL/full-stack engineering, independent games, and Unity teaching.
 
 ## Key Facts
 
-- **Current Role**: Founder at Sorolla (mobile game publishing)
-- **Location**: Paris, France (open to Barcelona)
-- **Experience**: 7+ years in game development
-- **Education**: Master's in Computer Science (with honors) from University of Strasbourg
-- **Languages**: French (native), English (fluent)
+- **Current Role**: Technical co-founder and game-tech lead at Sorolla
+- **Location**: Paris, France; remote friendly
+- **Experience**: 7+ years in game development and adjacent full-stack/product engineering
+- **Education**: Master's in Computer Science (Software and Knowledge Engineering), with honors, University of Strasbourg, 2017
+- **Languages**: French, English
 
 ## Technical Skills
 
-- **Game Development**: Unity (expert), Three.js, C#, C++
-- **Web Development**: React, Angular, Python, TypeScript, Firebase
-- **Blockchain/Web3**: NFT integration, Metamask, Play-to-Earn frameworks
-- **Mobile Publishing**: iOS ATT, ad network integration, ASO, CI/CD pipelines
-- **DevOps**: GitHub Actions, Fastlane, Firebase Distribution, GameCI
-- **AI**: Goal-Oriented Action Planning (GOAP), Genetic Algorithms, data mining
+- **Game Development**: Unity, C#, Three.js, C++, game architecture
+- **Mobile Publishing**: iOS ATT, ad network integration, analytics, ASO, release workflows
+- **Playable Ads**: Three.js playable ad prototypes, MRAID-style constraints, mobile-first interaction
+- **DevOps**: GitHub Actions, GameCI, Fastlane, Firebase Distribution
+- **Web / Full Stack**: React, Angular, TypeScript, Python, Firebase
+- **Historical Web3**: NFT integration, Web3 login, blockchain game prototypes
 
 ## Career Timeline
 
-- **Sorolla** — Founder (2024–present): mobile game publisher; built SDK, analytics, market intelligence tools
-- **YourArt** — Senior Unity and Full-Stack Engineer (2024)
-- **Yumon** — Lead Unity Developer (2023)
-- **CARFT** — Chief Technology Officer (2022–2023): Web3 gaming startup
-- **Ubisoft (Ketchapp)** — Hyper-Casual Mobile Game Developer (2019–2021)
-- **University of Strasbourg** — Master's in CS (2018)
+- **Sorolla** - Technical Co-Founder (2024-present): mobile game publishing, publisher SDK, analytics, playable ads, production tooling
+- **YourArt** - Senior Unity and Full-Stack Engineer (2024): Unity WebGL and platform engineering
+- **Yumon** - Lead Unity Developer (2023): play-to-earn/Web3 Unity game work
+- **CARFT** - Chief Technology Officer (2022-2023): Web3 gaming startup
+- **Bretzel Studio** - Independent Game Developer (2015-present): indie/mobile games, teaching material, prototypes
+- **Ubisoft / Ketchapp** - Gameplay Programmer (2019): hyper-casual mobile prototypes and SDK/ad integrations
+- **Celsius Online** - Game Developer (2018-2019): live mobile game work
+- **University of Strasbourg** - Master's in Computer Science, with honors (2017); Bachelor in Computer Science (2015)
 
-## Featured Projects
+## Featured Work
 
-### Doge To Mars (2025)
-- Sequel to the 25k-download hit Dogecoin To The Moon
-- Extremely positive reception from Dogecoin community
-- Led to competitive scholarship invitation to Dogecoin Hackathon (June 2025)
-- Technologies: Unity, C#, Mobile, Crypto
+### Sorolla Palette SDK
+- Publisher SDK for Unity mobile games
+- Focus: ATT, ads, analytics, low-friction publishing setup
+- Public repository: https://github.com/sorolla-studio/sorolla-palette
 
-### Dogecoin To The Moon (2021)
-- Mobile game with NFT integration targeting the Dogecoin community
-- 25,000 organic downloads with 4.9-star rating (no marketing budget)
-- Early example of successful crypto-gaming convergence
-- Technologies: Unity, C#, Mobile, NFT
+### Happy Snake 3D
+- Mobile game published by Sorolla, live on the App Store and Google Play
+- App Store: https://apps.apple.com/us/app/happy-snake-3d/id6755388400
+- Google Play: https://play.google.com/store/apps/details?id=com.sorolla.hungrysnake3d
 
-### Rody & Mastico Collection (2018)
-- 3+ years of development recreating classic Atari ST games
-- Features Rody Maker, a full integrated level editor
-- Collaboration with French YouTubers (Bob Lennon) for launch
-- Technologies: Unity, C#, Level Editor
+### Doge To Mars / Dogecoin To The Moon
+- Dogecoin-community mobile game, built and shipped solo with no paid marketing
+- 10K+ installs and a 4.5 rating on Google Play, grown organically
+- Google Play: https://play.google.com/store/apps/details?id=com.bretzelstudio.dogecointothemoon
+- GitHub/page: https://github.com/LaCreArthur/doge-to-mars-gh-page
+- itch.io: https://lacrearthur.itch.io/dogecoin-to-the-moon
 
-### Happy Snake 3D (2025)
-- Three.js playable ad game built for Sorolla's publishing pipeline
-- Self-contained single-file HTML output for ad network distribution
-- Served as architecture template for future playable ad production
-- Technologies: Three.js, JavaScript, Vite, MRAID
-- GitHub: https://github.com/LaCreArthur/happy-snake-3d
+### Rody & Mastico Collection
+- Unity remaster of the Atari ST Rody games with an integrated level editor (Rody Maker), built solo over ~3 years
+- Voice synthesis rebuilt from scratch using the original 1987 phoneme technique (playable demo)
+- Featured by French YouTubers Bob Lennon and Benzaie
+- itch.io: https://lacrearthur.itch.io/rody-mastico-collection
+- Website: https://lacrearthur.github.io/RodyAIbiza/
+- Voice synth demo: https://lacrearthur.github.io/RodyAIbiza/Synth/index.html
+- Trailer: https://www.youtube.com/watch?v=DEktCBMKopE
 
-## Tools & SDKs
-
-### Unity CI/CD Template (2025)
-- Production-ready automation pipeline for Unity mobile games
-- Android AAB → Play Store and iOS IPA → TestFlight
-- Uses GameCI and Fastlane with Firebase distribution
+### Unity CI/CD Template
+- GitHub Actions, GameCI, Fastlane, and Firebase Distribution template for Unity mobile releases
 - GitHub: https://github.com/LaCreArthur/unity-fastlane-ci
 
-### Sorolla Palette SDK (2025)
-- Zero-config mobile publisher SDK for Unity games
-- Automatic iOS ATT handling and ad network integration
-- GitHub: https://github.com/LaCreArthur/sorolla-palette-upm
+## Tools and CS Projects
 
-### Facebook SDK for UPM (2025)
-- Facebook SDK repackaged for Unity Package Manager
-- GitHub: https://github.com/LaCreArthur/facebook-unity-sdk-upm
+- Facebook SDK for UPM: https://github.com/LaCreArthur/facebook-unity-sdk-upm
+- Vampire Survivor Clone teaching project: https://github.com/LaCreArthur/FuturaeVampireSurvivor
+- Sci-Fi Tower Defense teaching project: https://github.com/LaCreArthur/FuturaeScifiTD
+- Mat-C Compiler (sub-C compiler in Lex & Yacc): https://github.com/LaCreArthur/MatC-Compiler
+- Shortest Path GA (C++ distributed-island genetic algorithm): https://github.com/LaCreArthur/shortestPathGA
+- GenBank Miner (Java genomic big-data statistics): https://github.com/LaCreArthur/GenBank-Miner
 
-## Game Jam Projects
+## Personal
 
-### The Binding of Euclide (2021)
-- Geometry-themed roguelike dungeon crawler
-- itch.io: https://lacrearthur.itch.io/the-binding-of-euclide
+- Self-taught Unity and C# developer
+- Competitive skateboarder, 2x French Championship qualifier (2024, 2025)
+- Unity instructor and mentor for student projects
+- Runs game-dev/skate content under Arthur Scheidel / LaCreArthur
 
-### The Plot Hole: Little Red (2020)
-- Narrative game jam entry with team of 4
-- itch.io: https://lacrearthur.itch.io/plot-hole
+## Contact and Links
 
-### Univeria (2021)
-- Universe-scale puzzle exploration game
-- itch.io: https://lacrearthur.itch.io/univeria
-
-## Teaching Projects
-
-### Vampire Survivor Clone (2025)
-- Educational project for Unity students at Futurae school
-- Used to teach 20 students game development fundamentals
-- GitHub: https://github.com/LaCreArthur/FuturaeVampireSurvivor
-
-### Sci-Fi Tower Defense (2025)
-- Tower defense tutorial demonstrating game architecture patterns
-- GitHub: https://github.com/LaCreArthur/FuturaeScifiTD
-
-### Genetic Algorithm Pathfinder (2017)
-- C++ distributed genetic algorithm for pathfinding
-- Master's degree project using OpenGL
-- GitHub: https://github.com/LaCreArthur/shortestPathGA
-
-## Personal Achievements
-
-- **Competitive Skateboard**: 2x French Championship Qualifier (2024, 2025)
-- **Teaching**: Unity instructor at private school (2025), mentored 20 students
-- **Community**: Active contributor to Dogecoin gaming community
-- **Content**: Runs arthur.scheidel brand across IG/TikTok/YouTube (game dev + skate content)
-
-## Contact & Links
-
-- Website: https://lacrearthur.github.io/
+- Website: https://lacrearthur.github.io/me/
+- Resume: https://lacrearthur.github.io/me/resume.pdf
 - GitHub: https://github.com/LaCreArthur
-- LinkedIn: https://linkedin.com/in/arthur-scheidel
+- LinkedIn: https://www.linkedin.com/in/arthur-scheidel/
 - itch.io: https://lacrearthur.itch.io/
+- YouTube: https://www.youtube.com/@arthur.scheidel/videos
+- Instagram: https://www.instagram.com/arthur.scheidel/
 - Email: arthur.scheidel@gmail.com

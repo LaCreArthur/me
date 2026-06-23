@@ -36,3 +36,8 @@ Thumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+# Internal review/build docs (never publish)
+docs/
+
+# Scratch
+*.local

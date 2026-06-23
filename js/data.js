@@ -1,127 +1,179 @@
 /**
- * Portfolio Data - All content separated from structure
- * Edit this file to update content without touching HTML/CSS
+ * Portfolio content - single source of truth.
+ *
+ * This file is the ONLY place to edit copy and facts. The site (index.html) is
+ * generated from it by `npm run build` (scripts/prerender.js). llms.txt, resume.md,
+ * resume.html and the PDF are synced by hand from the canonical facts below.
  */
 
+const SITE = {
+    url: "https://lacrearthur.github.io/me/",
+    resumeUrl: "https://lacrearthur.github.io/me/resume.pdf",
+    ogImage: "https://lacrearthur.github.io/me/img/og-image.png",
+    profileImage: "https://lacrearthur.github.io/me/img/id2018.jpg",
+    sorollaUrl: "https://github.com/sorolla-studio"
+};
+
 const DATA = {
-    meta: {
-        title: "Arthur Scheidel - Game Developer & Founder | Paris",
-        description: "Arthur Scheidel - Game developer & founder of Sorolla (mobile game publishing). 7+ years at Ubisoft, leading Web3 startups, shipping indie hits. 25k+ downloads.",
-        ogImage: "https://lacrearthur.github.io/img/logo.png",
-        url: "https://lacrearthur.github.io/"
+    site: SITE,
+
+    // SEO / head. Kept distinct so social previews don't repeat the same string.
+    seo: {
+        title: "Arthur Scheidel - Unity Developer & Tech Co-Founder | Paris",
+        description: "I'm a Unity developer and tech co-founder of Sorolla in Paris. I ship mobile games, build publishing SDKs and playable ads, and automate Unity release pipelines.",
+        ogTitle: "Arthur Scheidel - I make mobile games and the tools to ship them",
+        ogDescription: "Unity developer, 20+ games shipped, tech co-founder of Sorolla. SDKs, playable ads, and CI/CD for mobile game releases.",
+        keywords: ["Unity", "C#", "Game Development", "Playable Ads", "Mobile Games", "Game Publishing"],
+        alternateName: "LaCreArthur",
+        award: "2x French Skateboard Championship Qualifier (2024, 2025)",
+        education: {
+            degree: "Master's in Computer Science (Software and Knowledge Engineering)",
+            school: "University of Strasbourg",
+            year: "2017"
+        }
     },
 
     nav: {
-        logo: "Arthur_Scheidel",
+        logo: "Arthur Scheidel",
         links: [
             { href: "#work", label: "Work" },
+            { href: "#skills", label: "Skills" },
             { href: "#about", label: "About" },
             { href: "#contact", label: "Contact" }
         ],
-        resumeUrl: "https://lacrearthur.github.io/resume.pdf"
+        resumeUrl: SITE.resumeUrl
     },
 
     hero: {
-        terminal: "> LOADING PORTFOLIO...",
-        headline: ["UNITY", "DEVELOPER", "WHO SHIPS"],
-        highlightLine: 1, // 0-indexed, which line gets teal color
-        subhead: "7+ years building games at Ubisoft, CTO at Web3 startups, now founder of Sorolla — a mobile game publisher. I ship things that work.",
+        eyebrow: "Hi, I'm Arthur Scheidel",
+        headline: ["I make mobile games", "and the tools", "to ship them."],
+        highlightLine: 0,
+        subhead: "Unity developer and tech co-founder of Sorolla, based in Paris. I've shipped 20+ games, and I build the SDKs, playable ads, and release pipelines that get mobile games out the door.",
         metrics: [
-            { value: "25K+", label: "Downloads" },
-            { value: "4.9★", label: "Rating" },
-            { value: "10+", label: "Games" },
-            { value: "20+", label: "Students" }
+            { value: "20+", label: "games shipped" },
+            { value: "10K+", label: "Google Play installs" },
+            { value: "4.5/5", label: "Play Store rating" },
+            { value: "7+ yrs", label: "Unity & game dev" }
         ],
         cta: {
-            primary: { href: "https://lacrearthur.github.io/resume.pdf", label: "View Resume" },
-            secondary: { href: "#contact", label: "Contact Me" }
+            primary: { href: SITE.resumeUrl, label: "View Resume" },
+            secondary: { href: "#work", label: "See my work" }
         },
         socials: [
             { href: "https://github.com/LaCreArthur/", label: "GitHub" },
             { href: "https://www.linkedin.com/in/arthur-scheidel/", label: "LinkedIn" },
-            { href: "https://youtube.com/c/LaCreArthur", label: "YouTube" },
+            { href: "https://www.youtube.com/@arthur.scheidel/videos", label: "YouTube" },
             { href: "https://lacrearthur.itch.io/", label: "itch.io" }
-        ]
-    },
-
-    marquee: {
-        items: ["UNITY", "C#", "MOBILE", "WEB3", "REACT", "PYTHON", "CICD", "GAME DEV"]
+        ],
+        media: {
+            src: "img/background3.png",
+            alt: "Collage of Arthur Scheidel's game development work",
+            caption: "SDKs, playable ads, and shipped mobile games."
+        }
     },
 
     work: {
-        sectionMarker: "Featured Work",
-        headline: ["PROJECTS THAT", "SHIPPED"],
+        sectionMarker: "Work",
+        headline: ["Selected", "work"],
         highlightLine: 1
     },
 
     projects: [
         {
             id: "01",
-            title: "Doge To Mars",
+            title: "Sorolla Palette SDK",
             tags: [
-                { label: "25K+ DL", highlight: true }
+                { label: "Current", highlight: true },
+                { label: "Unity SDK", highlight: false }
             ],
             media: {
                 type: "image",
-                src: "https://is4-ssl.mzstatic.com/image/thumb/Purple125/v4/8d/47/15/8d47153a-b3c1-9efe-3e47-064b725b11f7/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp",
-                alt: "Doge To Mars",
-                placeholder: "Trailer Coming"
+                src: "img/logo.png",
+                alt: "Sorolla Palette SDK"
             },
             bullets: [
-                { prefix: "Challenge:", text: "Build a mobile game for the Dogecoin community with $0 marketing." },
-                { prefix: "Result:", text: "25,000 organic downloads, 4.9★ rating. Invited to Dogecoin Hackathon 2025." }
+                { prefix: "", text: "A publisher SDK that drops mobile-publishing setup (ATT, ad networks, analytics, release instrumentation) into any Unity game in one package." },
+                { prefix: "", text: "I design and build it as technical co-founder and lead engineer at Sorolla." },
+                { prefix: "", text: "Public Unity package under the Sorolla Studio GitHub organization." }
             ],
-            meta: "Solo dev · 2021-2025 · Unity + C#",
+            meta: "Sorolla, 2024-now, Unity + C#",
             links: [
-                { label: "App Store", href: "https://apps.apple.com/us/app/dogecoin-to-moon/id1574465636" },
-                { label: "GitHub", href: "https://github.com/LaCreArthur/DogecoinToTheMoon" },
-                { label: "itch.io", href: "https://lacrearthur.itch.io/" }
+                { label: "GitHub", href: "https://github.com/sorolla-studio/sorolla-palette" }
             ]
         },
         {
             id: "02",
-            title: "Rody & Mastico",
+            title: "Doge To Mars / Dogecoin To The Moon",
             tags: [
-                { label: "3 YRS DEV", highlight: false }
+                { label: "10K+ installs", highlight: true },
+                { label: "Indie", highlight: false }
             ],
             media: {
-                type: "video",
-                href: "https://www.youtube.com/watch?v=DEktCBMKopE",
-                placeholder: "Watch Trailer"
+                type: "image",
+                src: "img/background2.jpg",
+                alt: "Doge To Mars project artwork"
             },
             bullets: [
-                { prefix: "Challenge:", text: "Recreate childhood Atari ST games with modern features." },
-                { prefix: "Result:", text: "Complete remaster + Rody Maker level editor. YouTuber Bob Lennon collab." }
+                { prefix: "", text: "A Dogecoin-community mobile game I built and shipped solo, with no paid marketing." },
+                { prefix: "", text: "10K+ installs and a 4.5 rating on Google Play, grown purely through the community." },
+                { prefix: "", text: "Still live on Android, with itch.io and GitHub project pages." }
             ],
-            meta: "Solo dev · 3+ years · Unity + C# + Level Editor",
+            meta: "Solo dev, 2021, Unity + C#",
             links: [
-                { label: "itch.io", href: "https://lacrearthur.itch.io/rody-mastico-collection" },
-                { label: "Website", href: "https://lacrearthur.github.io/RodyAIbiza/" },
-                { label: "Trailer", href: "https://www.youtube.com/watch?v=DEktCBMKopE" }
+                { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.bretzelstudio.dogecointothemoon" },
+                { label: "GitHub", href: "https://github.com/LaCreArthur/doge-to-mars-gh-page" },
+                { label: "itch.io", href: "https://lacrearthur.itch.io/dogecoin-to-the-moon" }
             ]
         },
         {
             id: "03",
-            title: "Unity CI/CD",
+            title: "Rody & Mastico Collection",
             tags: [
-                { label: "OSS", highlight: true }
+                { label: "3 years", highlight: false },
+                { label: "Level editor", highlight: true }
+            ],
+            media: {
+                type: "image",
+                src: "img/RMCC.jpg",
+                alt: "Rody and Mastico Collection"
+            },
+            bullets: [
+                { prefix: "", text: "A Unity remaster of the Atari ST Rody games I grew up with, built solo over about three years. This is the project I taught myself Unity and C# on." },
+                { prefix: "", text: "I rebuilt the game's 1987-era voice synthesis from scratch using the original phoneme technique (there's a playable demo)." },
+                { prefix: "", text: "Added Rody Maker, an in-game level editor that shares the game's art style. Featured by French YouTubers Bob Lennon and Benzaie." }
+            ],
+            meta: "Solo dev, 2015-2018, Unity + C#",
+            links: [
+                { label: "itch.io", href: "https://lacrearthur.itch.io/rody-mastico-collection" },
+                { label: "Website", href: "https://lacrearthur.github.io/RodyAIbiza/" },
+                { label: "Voice synth demo", href: "https://lacrearthur.github.io/RodyAIbiza/Synth/index.html" },
+                { label: "Trailer", href: "https://www.youtube.com/watch?v=DEktCBMKopE" }
+            ]
+        },
+        {
+            id: "04",
+            title: "Unity CI/CD Template",
+            tags: [
+                { label: "Open source", highlight: true },
+                { label: "DevOps", highlight: false }
             ],
             media: {
                 type: "code",
                 lines: [
-                    { text: "# .github/workflows/build.yml", class: "text-gray-600" },
-                    { text: "name: Unity CI/CD", class: "text-teal-400" },
-                    { text: "on: [push]", class: "text-gray-500" },
-                    { text: "jobs:", class: "text-gray-500" },
-                    { text: "  build:", class: "text-gray-500" },
-                    { text: "    - uses: game-ci/unity-builder", class: "text-gray-400", highlight: "game-ci/unity-builder" },
-                    { text: "    - uses: fastlane/deliver", class: "text-gray-400", highlight: "fastlane/deliver" },
-                    { text: "# Auto-deploy to stores ✓", class: "text-gray-600 mt-2" }
+                    { text: "name: Unity mobile release" },
+                    { text: "on: [push]" },
+                    { text: "jobs:" },
+                    { text: "  build_android:" },
+                    { text: "    uses: game-ci/unity-builder", highlight: "game-ci/unity-builder" },
+                    { text: "  deploy_ios:" },
+                    { text: "    uses: fastlane/deliver", highlight: "fastlane/deliver" },
+                    { text: "  distribute: Firebase + stores" }
                 ]
             },
             bullets: [
-                { prefix: "Problem:", text: "Setting up Unity pipelines for mobile is painful." },
-                { prefix: "Solution:", text: "Template for Android → Play Store, iOS → TestFlight. One click." }
+                { prefix: "", text: "A reusable GitHub Actions pipeline for Unity mobile releases: build, test, deploy." },
+                { prefix: "", text: "GameCI for builds, Fastlane for store delivery, Firebase for test distribution." },
+                { prefix: "", text: "A practical base for TestFlight and Play Store automation." }
             ],
             meta: "GitHub Actions + Fastlane + GameCI + Firebase",
             links: [
@@ -130,43 +182,70 @@ const DATA = {
         }
     ],
 
+    skills: {
+        sectionMarker: "Capabilities",
+        headline: "What I build",
+        items: [
+            {
+                title: "Publisher SDKs",
+                text: "Unity packages for ATT, ad networks, analytics, and release instrumentation."
+            },
+            {
+                title: "Playable ads",
+                text: "Three.js and Unity ad prototypes built for network constraints and fast iteration."
+            },
+            {
+                title: "Mobile pipelines",
+                text: "CI/CD for Android, iOS, TestFlight, Firebase, and store releases."
+            },
+            {
+                title: "Game teams",
+                text: "Lead and CTO roles across WebGL, Web3, hyper-casual, and multiplayer."
+            }
+        ]
+    },
+
     archive: {
         sectionMarker: "Archive",
-        headline: "More Work",
-        mobileGames: {
-            title: "Mobile Games @ Ketchapp/Ubisoft",
-            items: [
-                { href: "https://play.google.com/store/apps/details?id=com.bretzelstudio.farmrun", img: "https://play-lh.googleusercontent.com/FICrMRrxStHsEiVib7fiZFsapQqkflB_JWCzAn4wYegpfd7UjDP2eMzPr0cos8Oc3xlM=s256-rw", alt: "Farm Land Run 3D", label: "Farm Run" },
-                { href: "https://apps.apple.com/us/app/mine-block-tap/id1570215589", img: "https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/6e/f2/84/6ef284aa-7c28-17f0-2f4e-35c15b4f7b92/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp", alt: "Mine Block Tap", label: "Mine Block" },
-                { href: "https://apps.apple.com/us/app/find-it-3d/id1566705591", img: "https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/de/91/c6/de91c6ed-835b-7138-ec1b-8d301f5b0e91/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp", alt: "Find-it 3D", label: "Find-it 3D" },
-                { href: "https://apps.apple.com/us/app/dont-fall-guys/id1563951588", img: "https://is5-ssl.mzstatic.com/image/thumb/Purple115/v4/24/5f/d6/245fd693-0c59-7cb6-144c-119903475560/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp", alt: "Don't Fall Guys", label: "Don't Fall" },
-                { href: "https://apps.apple.com/us/app/snap-guys/id1542504605", img: "https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/62/53/ef/6253ef72-1286-51a6-9b47-b635e8920c45/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/146x0w.webp", alt: "Snap Guys", label: "Snap Guys" }
-            ],
-            more: { href: "https://lacrearthur.itch.io/", label: "View all on itch.io" }
-        },
+        headline: "Shipped titles and older work",
+        shippedTitles: [
+            { title: "Happy Snake 3D", role: "Sorolla mobile game", note: "App Store + Google Play", href: "https://apps.apple.com/us/app/happy-snake-3d/id6755388400" },
+            { title: "Don't Fall Guys", role: "Hyper-casual mobile game", note: "Google Play", href: "https://play.google.com/store/apps/details?id=com.bretzelstudio.dontfallguys" },
+            { title: "Snap Guys", role: "Hyper-casual mobile game", note: "itch.io", href: "https://lacrearthur.itch.io/snap-guys" },
+            { title: "Mine Block", role: "Hyper-casual mobile game", note: "Trailer", href: "https://www.youtube.com/shorts/c0PTXM9esgA" },
+            { title: "Farm Run", role: "Ketchapp / Ubisoft prototype", note: "Hyper-casual" },
+            { title: "Find-it 3D", role: "Hyper-casual mobile game", note: "iOS / Android" }
+        ],
         categories: [
             {
                 title: "SDKs & Tools",
                 items: [
-                    { href: "https://github.com/LaCreArthur/sorolla-palette-upm", title: "Sorolla Palette SDK", subtitle: "Mobile publishing (iOS ATT + ads)" },
+                    { href: "https://github.com/sorolla-studio/sorolla-palette", title: "Sorolla Palette SDK", subtitle: "Mobile publishing SDK" },
                     { href: "https://github.com/LaCreArthur/facebook-unity-sdk-upm", title: "Facebook SDK UPM", subtitle: "Unity Package Manager port" },
-                    { href: "https://github.com/LaCreArthur/happy-snake-3d", title: "Happy Snake 3D", subtitle: "Three.js playable ad" }
+                    { href: "https://github.com/LaCreArthur/unity-fastlane-ci", title: "Unity CI/CD Template", subtitle: "GitHub Actions + Fastlane" }
                 ]
             },
             {
                 title: "Game Jams",
                 items: [
                     { href: "https://lacrearthur.itch.io/the-binding-of-euclide", title: "Binding of Euclide", subtitle: "Math roguelike" },
-                    { href: "https://lacrearthur.itch.io/plot-hole", title: "Plot Hole: Little Red", subtitle: "Narrative" },
-                    { href: "https://lacrearthur.itch.io/univeria", title: "Univeria", subtitle: "Scale puzzle" }
+                    { href: "https://lacrearthur.itch.io/plot-hole", title: "Plot Hole: Little Red", subtitle: "Narrative jam, team" },
+                    { href: "https://lacrearthur.itch.io/univeria", title: "Univeria", subtitle: "Scale-shift puzzle" }
                 ]
             },
             {
                 title: "Teaching",
                 items: [
-                    { href: "https://github.com/LaCreArthur/FuturaeVampireSurvivor", title: "Vampire Survivor Clone", subtitle: "20 students @ Futurae" },
-                    { href: "https://github.com/LaCreArthur/FuturaeScifiTD", title: "Sci-Fi Tower Defense", subtitle: "Architecture patterns" },
-                    { href: "https://github.com/LaCreArthur/shortestPathGA", title: "Genetic Pathfinder", subtitle: "Master's thesis" }
+                    { href: "https://github.com/LaCreArthur/FuturaeVampireSurvivor", title: "Vampire Survivor Clone", subtitle: "Unity course material" },
+                    { href: "https://github.com/LaCreArthur/FuturaeScifiTD", title: "Sci-Fi Tower Defense", subtitle: "Architecture patterns" }
+                ]
+            },
+            {
+                title: "CS fundamentals",
+                items: [
+                    { href: "https://github.com/LaCreArthur/MatC-Compiler", title: "Mat-C Compiler", subtitle: "Sub-C compiler (Lex & Yacc)" },
+                    { href: "https://github.com/LaCreArthur/shortestPathGA", title: "Shortest Path GA", subtitle: "C++ distributed-island genetic algorithm" },
+                    { href: "https://github.com/LaCreArthur/GenBank-Miner", title: "GenBank Miner", subtitle: "Java genomic big-data stats" }
                 ]
             }
         ]
@@ -174,10 +253,10 @@ const DATA = {
 
     about: {
         sectionMarker: "About",
-        headline: ["The Human", "Behind The Code"],
-        highlightLine: 1,
-        bio: "Game developer & founder based in Paris. I love shipping games that people actually play. After 7+ years—from AAA at Ubisoft to founding Sorolla—I've learned that <span class=\"text-teal-400\">the best code is the code that ships.</span>",
-        bioExtra: "When not coding: skateboarding (2x French Championship qualifier) or teaching game dev at Futurae school.",
+        headline: ["Builder, co-founder,", "and teacher."],
+        highlightLine: 0,
+        bio: "I'm a game developer and studio co-founder based in Paris. I started out teaching myself Unity and C# to remake the Atari ST games I grew up with, and I've since shipped 20+ titles, from indie passion projects to hyper-casual games at Ubisoft/Ketchapp. Today I'm the technical co-founder of Sorolla, building the SDKs, playable ads, and release pipelines that get mobile games shipped.",
+        bioExtra: "Outside code, I skate competitively (2x French Championship qualifier, 2024 and 2025) and teach Unity to students. Same loop as shipping games: practice, fail, adjust, repeat.",
         photo: {
             src: "img/id2018.jpg",
             alt: "Arthur Scheidel"
@@ -185,46 +264,53 @@ const DATA = {
         name: "Arthur Scheidel",
         location: "Paris, France",
         timeline: [
-            { years: "2024-now", role: "Founder", company: "Sorolla (mobile game publishing)", current: true },
-            { years: "2024", role: "Senior Unity Engineer", company: "YourArt", current: false },
+            { years: "2024-now", role: "Technical Co-Founder", company: "Sorolla - mobile game publishing", current: true },
+            { years: "2024", role: "Senior Unity & Full-Stack Engineer", company: "YourArt", current: false },
             { years: "2023", role: "Lead Unity Developer", company: "Yumon", current: false },
-            { years: "2022-23", role: "CTO", company: "CARFT (Web3 gaming)", current: false },
-            { years: "2019-21", role: "Hyper-Casual Developer", company: "Ketchapp / Ubisoft", current: false },
-            { years: "2018", role: "Master's in CS", company: "University of Strasbourg", current: false }
+            { years: "2022-23", role: "Chief Technology Officer", company: "CARFT - Web3 gaming", current: false },
+            { years: "2015-now", role: "Independent Game Developer", company: "Bretzel Studio", current: true },
+            { years: "2019", role: "Gameplay Programmer", company: "Ubisoft / Ketchapp", current: false },
+            { years: "2018-19", role: "Game Developer", company: "Celsius Online", current: false },
+            { years: "2017", role: "Master's in Computer Science", company: "University of Strasbourg (with honors)", current: false }
         ]
     },
 
     contact: {
         sectionMarker: "Contact",
-        headline: ["Let's Build", "Something"],
+        headline: ["Let's build", "something"],
         highlightLine: 1,
-        description: "Looking for a Unity developer? Have a project idea? Just want to chat about game dev?",
+        description: "Best fit: Unity SDK work, mobile-publishing consulting, playable-ad production, or focused freelance engineering with a clear shipping target.",
         info: [
-            "Response time: ~24h",
-            "Available for: Freelance, Full-time",
-            "Location: Paris / Barcelona (remote OK)"
+            "Response time: about 24h",
+            "Available for: selected consulting and publishing partnerships",
+            "Based in Paris, France, remote friendly"
         ],
+        email: "arthur.scheidel@gmail.com",
         form: {
             action: "https://formspree.io/f/xblgjdky",
-            redirect: "https://lacrearthur.github.io/",
+            redirect: SITE.url,
             fields: {
                 email: { label: "Email", placeholder: "you@example.com", type: "email" },
-                subject: { label: "Subject", placeholder: "Project inquiry", type: "text" },
-                message: { label: "Message", placeholder: "Tell me about your project...", type: "textarea", rows: 5 }
+                subject: { label: "Subject", placeholder: "Unity SDK / publishing inquiry", type: "text" },
+                message: { label: "Message", placeholder: "What are you trying to ship?", type: "textarea", rows: 5 }
             },
             submitLabel: "Send Message"
         }
     },
 
     footer: {
-        name: "Arthur_Scheidel",
+        name: "Arthur Scheidel",
         year: 2026,
         links: [
             { href: "https://github.com/LaCreArthur/", label: "GitHub" },
             { href: "https://www.linkedin.com/in/arthur-scheidel/", label: "LinkedIn" },
-            { href: "https://x.com/LaCreArthur", label: "X" },
-            { href: "https://youtube.com/c/LaCreArthur", label: "YouTube" },
+            { href: "https://www.instagram.com/arthur.scheidel/", label: "Instagram" },
+            { href: "https://www.youtube.com/@arthur.scheidel/videos", label: "YouTube" },
             { href: "https://lacrearthur.itch.io/", label: "itch.io" }
         ]
     }
 };
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { DATA };
+}
