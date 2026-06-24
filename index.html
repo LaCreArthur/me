@@ -201,19 +201,23 @@
 
   <!-- more work: games banner toggles a grouped foldout index -->
   <section id="more" style="border-top:1px solid #2a2a2f; border-bottom:1px solid #2a2a2f; background:#1d1d20; overflow:hidden;">
-    <button class="fold-toggle" aria-expanded="false" aria-controls="fold-panel">
-      <div style="position:relative; height:clamp(150px,20vw,220px); overflow:hidden;">
-        <img src="img/games-banner.jpg" alt="A selection of Arthur's mobile games" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(29,29,32,.5), rgba(29,29,32,.9));"></div>
-        <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding:0 6vw;">
-          <div>
-            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.18em; color:#9fe0c2; margin-bottom:8px;">// THE FULL INDEX</div>
-            <div style="font-size:clamp(20px,2.6vw,30px); font-weight:700; color:#fff; letter-spacing:-.01em;">+ 20 more games, jams &amp; experiments</div>
-          </div>
-          <span class="fold-cue" style="font-family:'JetBrains Mono',monospace; font-size:13px; color:#9fe0c2; letter-spacing:.04em; border:1px solid #2f3a35; border-radius:30px; padding:9px 17px; background:rgba(26,26,29,.55); white-space:nowrap;">VIEW ALL <span class="chev">▾</span></span>
+    <div style="position:relative; height:clamp(150px,20vw,220px); overflow:hidden;">
+      <img src="img/games-banner.jpg" alt="A selection of Arthur's mobile games" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;">
+      <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(29,29,32,.5), rgba(29,29,32,.9));"></div>
+      <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding:0 6vw;">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.18em; color:#9fe0c2; margin-bottom:8px;">// THE FULL INDEX</div>
+          <div style="font-size:clamp(20px,2.6vw,30px); font-weight:700; color:#fff; letter-spacing:-.01em;">+ 20 more games, jams &amp; experiments</div>
         </div>
+        <button class="fold-toggle" aria-expanded="false" aria-controls="fold-panel">VIEW ALL <span class="chev">▾</span></button>
       </div>
-    </button>
+    </div>
+    <div class="marquee" style="padding:14px 0 20px; -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent); mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);">
+      <div class="marquee-track" style="display:flex; gap:30px; white-space:nowrap; width:max-content; animation:marquee 32s linear infinite; font-family:'JetBrains Mono',monospace; font-size:clamp(15px,1.7vw,23px); font-weight:700; letter-spacing:.005em; color:#b0b0ba;">
+        <span style="display:flex; gap:30px; align-items:center; padding-right:30px;">HAPPY SNAKE 3D <span style="color:#9fe0c2;">✦</span> DOGE TO MARS <span style="color:#a7cdf2;">✦</span> DON'T FALL GUYS <span style="color:#c9b8f2;">✦</span> SNAP GUYS <span style="color:#f4b59e;">✦</span> MINE BLOCK <span style="color:#f1d99b;">✦</span> FARM RUN <span style="color:#f4abce;">✦</span> RODY &amp; MASTICO <span style="color:#9fe0c2;">✦</span> FIND-IT 3D <span style="color:#a7cdf2;">✦</span> BINDING OF EUCLIDE <span style="color:#c9b8f2;">✦</span> UNITY CI/CD <span style="color:#f4b59e;">✦</span></span>
+        <span style="display:flex; gap:30px; align-items:center; padding-right:30px;">HAPPY SNAKE 3D <span style="color:#9fe0c2;">✦</span> DOGE TO MARS <span style="color:#a7cdf2;">✦</span> DON'T FALL GUYS <span style="color:#c9b8f2;">✦</span> SNAP GUYS <span style="color:#f4b59e;">✦</span> MINE BLOCK <span style="color:#f1d99b;">✦</span> FARM RUN <span style="color:#f4abce;">✦</span> RODY &amp; MASTICO <span style="color:#9fe0c2;">✦</span> FIND-IT 3D <span style="color:#a7cdf2;">✦</span> BINDING OF EUCLIDE <span style="color:#c9b8f2;">✦</span> UNITY CI/CD <span style="color:#f4b59e;">✦</span></span>
+      </div>
+    </div>
     <div id="fold-panel" class="fold-panel">
       <div class="fold-inner" style="padding:14px 6vw 44px;">
 

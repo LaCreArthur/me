@@ -22,8 +22,12 @@ img { max-width: 100%; }
 a { color: inherit; }
 
 /* === Keyframes (lifted from the design's helmet block) === */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
 @keyframes scrollcue { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(7px); opacity: .25; } 100% { transform: translateY(0); opacity: 1; } }
+
+/* Pause the scrolling game band when the pointer is over it. */
+.marquee:hover .marquee-track { animation-play-state: paused; }
 
 /* === Responsive: the design uses fixed multi-column grids with no breakpoints === */
 @media (max-width: 860px) {
@@ -46,6 +50,7 @@ a { color: inherit; }
 /* === Reduced motion === */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .marquee-track,
   [style*="floaty"],
   [style*="scrollcue"] { animation: none !important; }
   .fold-panel { transition: none !important; }
@@ -66,9 +71,10 @@ a { color: inherit; }
 .cform .alt a { color: #9fe0c2; text-decoration: none; }
 
 /* === More-work foldout === */
-.fold-toggle { display: block; width: 100%; border: none; padding: 0; margin: 0; background: transparent; cursor: pointer; text-align: left; }
-.fold-cue .chev { display: inline-block; transition: transform .3s ease; }
-.fold-toggle[aria-expanded="true"] .fold-cue .chev { transform: rotate(180deg); }
+.fold-toggle { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: .04em; color: #9fe0c2; background: rgba(26,26,29,.55); border: 1px solid #2f3a35; border-radius: 30px; padding: 9px 17px; cursor: pointer; white-space: nowrap; transition: background-color .15s ease, color .15s ease; }
+.fold-toggle:hover { background: #9fe0c2; color: #1a1a1d; }
+.fold-toggle .chev { display: inline-block; transition: transform .3s ease; }
+.fold-toggle[aria-expanded="true"] .chev { transform: rotate(180deg); }
 .fold-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s ease; }
 .fold-panel.open { grid-template-rows: 1fr; }
 .fold-panel > .fold-inner { overflow: hidden; min-height: 0; }
