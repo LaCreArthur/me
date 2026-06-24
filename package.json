@@ -1,11 +1,5 @@
 {
   "scripts": {
-    "prerender": "node scripts/prerender.js",
-    "build:css": "tailwindcss -i ./css/tailwind-input.css -o ./css/tailwind.css --minify",
-    "build": "npm run prerender && npm run build:css",
     "check:links": "node scripts/check-links.js"
-  },
-  "devDependencies": {
-    "tailwindcss": "3.4.17"
   }
 }

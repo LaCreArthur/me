@@ -9,7 +9,6 @@ const ROOT = path.resolve(__dirname, '..');
 const SITE_PREFIX = 'https://lacrearthur.github.io/me/';
 const FILES = [
     'index.html',
-    'js/data.js',
     'README.md',
     'llms.txt',
     'resume.md',

@@ -1,192 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arthur Scheidel - Resume</title>
-    <style>
-        @page {
-            size: A4;
-            margin: 13mm;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arthur Scheidel - Résumé</title>
+<meta name="description" content="Résumé of Arthur Scheidel - Unity developer and tech co-founder of Sorolla, Paris. 20+ games shipped, mobile-publishing SDKs, playable ads, and CI/CD.">
+<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sheet:#f6f4ee; --ink:#1b1a17; --muted:#6a6456; --faint:#928b7b; --rule:#e3ddcf;
+    --mint:#2f9e79; --sky:#3f6fc0; --lilac:#7a5cc0; --peach:#c2703f;
+    --sans:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{
+    background:#bcbab2; color:var(--ink); font-family:var(--sans);
+    -webkit-font-smoothing:antialiased; -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  .toolbar{
+    position:fixed; left:50%; top:16px; transform:translateX(-50%); z-index:10;
+    display:flex; gap:10px; align-items:center;
+  }
+  .printbtn,.backbtn{
+    font-family:var(--mono); font-size:12px; font-weight:700; letter-spacing:.02em;
+    padding:10px 20px; border-radius:30px; box-shadow:0 4px 16px rgba(0,0,0,.3);
+    cursor:pointer; text-decoration:none; line-height:1;
+    transition:background-color .15s ease, color .15s ease;
+  }
+  .printbtn{color:#f6f4ee; background:#1b1a17; border:none;}
+  .printbtn:hover{background:#2f9e79;}
+  .backbtn{color:#1b1a17; background:#f6f4ee; border:1px solid #1b1a17;}
+  .backbtn:hover{background:#1b1a17; color:#f6f4ee;}
 
-        * {
-            box-sizing: border-box;
-        }
+  .sheet{
+    width:210mm; min-height:297mm; margin:60px auto 40px; padding:13mm 13mm 11mm;
+    background:var(--sheet); box-shadow:0 10px 40px rgba(0,0,0,.28);
+  }
 
-        body {
-            margin: 0;
-            color: #17202a;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 9.4px;
-            line-height: 1.34;
-        }
+  /* header */
+  header{display:flex; justify-content:space-between; align-items:flex-start; gap:16px;}
+  h1{font-size:27pt; font-weight:700; letter-spacing:-.02em; margin:0 0 3px; line-height:1;}
+  .role{font-size:11pt; color:var(--muted); font-weight:500;}
+  .tags{display:flex; gap:6px; margin-top:9px;}
+  .tags span{
+    font-family:var(--mono); font-size:7.4pt; font-weight:700; letter-spacing:.04em;
+    text-transform:uppercase; padding:3px 9px; border-radius:20px; border:1px solid;
+  }
+  .t-mint{color:var(--mint); border-color:var(--mint); background:rgba(47,158,121,.07);}
+  .t-sky{color:var(--sky); border-color:var(--sky); background:rgba(63,111,192,.07);}
+  .t-lilac{color:var(--lilac); border-color:var(--lilac); background:rgba(122,92,192,.07);}
+  .contact{font-family:var(--mono); font-size:8pt; line-height:1.7; color:var(--muted); text-align:right; white-space:nowrap;}
+  .contact a{color:var(--muted); text-decoration:none;}
+  .contact a:hover{text-decoration:underline;}
+  .work-item .u a{color:inherit; text-decoration:none;}
+  .work-item .u a:hover{text-decoration:underline;}
 
-        h1,
-        h2,
-        h3,
-        p,
-        ul {
-            margin-top: 0;
-        }
+  .divider{height:1px; background:var(--ink); margin:11px 0 0;}
 
-        h1 {
-            color: #0f172a;
-            font-size: 25px;
-            line-height: 1;
-            margin-bottom: 4px;
-        }
+  /* body grid */
+  .body{display:grid; grid-template-columns:1.55fr 1fr; gap:11mm; margin-top:11px;}
 
-        .role {
-            color: #0f766e;
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
+  .marker{
+    font-family:var(--mono); font-size:8pt; font-weight:700; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--ink); margin:0 0 8px; padding-bottom:5px;
+    border-bottom:1px solid var(--rule);
+  }
+  .marker::before{content:"// "; }
+  .m-mint::before{color:var(--mint);} .m-sky::before{color:var(--sky);}
+  .m-lilac::before{color:var(--lilac);} .m-peach::before{color:var(--peach);}
 
-        .contact {
-            color: #475569;
-            font-size: 9px;
-            margin-bottom: 11px;
-        }
+  section{margin-bottom:13px;}
+  .summary{font-size:9.3pt; line-height:1.5; color:#33312b; margin:0;}
 
-        h2 {
-            border-bottom: 1px solid #0f766e;
-            color: #0f172a;
-            font-size: 11px;
-            letter-spacing: 0;
-            margin: 9px 0 5px;
-            padding-bottom: 2px;
-            text-transform: uppercase;
-        }
+  .job{margin-bottom:9px; page-break-inside:avoid;}
+  .job-head{display:flex; justify-content:space-between; align-items:baseline; gap:8px;}
+  .job-title{font-size:9.6pt; font-weight:700; line-height:1.2;}
+  .job-title .co{color:var(--sky);}
+  .years{font-family:var(--mono); font-size:7.6pt; color:var(--faint); white-space:nowrap; font-weight:500;}
+  .job p{font-size:8.7pt; line-height:1.42; color:var(--muted); margin:2px 0 0;}
 
-        h3 {
-            color: #0f172a;
-            font-size: 10px;
-            margin-bottom: 2px;
-        }
+  .work-item{margin-bottom:7px;}
+  .work-item .n{font-size:9pt; font-weight:700;}
+  .work-item .d{font-size:8.2pt; color:var(--muted); line-height:1.4;}
+  .work-item .u{font-family:var(--mono); font-size:7.2pt; color:var(--sky); word-break:break-all;}
 
-        .date {
-            color: #0f766e;
-            float: right;
-            font-weight: 700;
-        }
+  .skill-group{margin-bottom:7px;}
+  .skill-group .h{font-size:8.4pt; font-weight:700; margin-bottom:1px;}
+  .skill-group .l{font-size:8.4pt; color:var(--muted); line-height:1.45;}
 
-        ul {
-            margin-bottom: 5px;
-            padding-left: 15px;
-        }
+  .chips{display:flex; flex-wrap:wrap; gap:5px;}
+  .chips span{
+    font-family:var(--mono); font-size:7.4pt; color:#43403a;
+    border:1px solid var(--rule); border-radius:20px; padding:3px 9px; background:#fff;
+  }
 
-        li {
-            margin-bottom: 2px;
-        }
+  .mini{font-size:8.5pt; line-height:1.5; color:var(--muted); margin:0;}
+  .mini b{color:var(--ink); font-weight:600;}
 
-        a {
-            color: #0f766e;
-            text-decoration: none;
-        }
+  .foot{margin-top:8px; padding-top:7px; border-top:1px solid var(--rule); display:flex; justify-content:space-between;
+        font-family:var(--mono); font-size:7pt; color:var(--faint); letter-spacing:.03em;}
 
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0 18px;
-        }
-
-        .summary {
-            font-size: 9.7px;
-            margin-bottom: 6px;
-        }
-
-        .compact p {
-            margin-bottom: 4px;
-        }
-
-        .footer {
-            color: #64748b;
-            font-size: 8px;
-            margin-top: 7px;
-            text-align: center;
-        }
-    </style>
+  @media print{
+    @page{size:A4; margin:0;}
+    html,body{background:#fff !important;}
+    .toolbar{display:none !important;}
+    .sheet{margin:0; box-shadow:none; width:auto; min-height:auto; background:#fff !important;}
+  }
+</style>
 </head>
 <body>
-    <h1>Arthur Scheidel</h1>
-    <p class="role">Unity Developer and Tech Co-Founder</p>
-    <p class="contact">Paris, France | arthur.scheidel@gmail.com | https://lacrearthur.github.io/me/ | GitHub: LaCreArthur</p>
+  <div class="toolbar">
+    <a class="backbtn" href="index.html">← Portfolio</a>
+    <button class="printbtn" onclick="window.print()">Print / Save as PDF · A4</button>
+  </div>
 
-    <h2>Summary</h2>
-    <p class="summary">Unity game developer and tech co-founder of Sorolla, focused on mobile publishing infrastructure, Unity SDKs, playable ads, and shipped game systems. Self-taught in Unity and C#, with 20+ games shipped. Background spans hyper-casual mobile work at Ubisoft/Ketchapp, live game development at Celsius Online, Web3 gaming leadership, WebGL/full-stack engineering, independent games, and Unity teaching.</p>
+  <div class="sheet">
+    <header>
+      <div>
+        <h1>Arthur Scheidel</h1>
+        <div class="role">Unity Developer &amp; Tech Co-Founder · Paris</div>
+        <div class="tags">
+          <span class="t-mint">Game dev</span>
+          <span class="t-sky">Founder</span>
+          <span class="t-lilac">Skater</span>
+        </div>
+      </div>
+      <div class="contact">
+        Paris, France<br>
+        <a href="mailto:arthur.scheidel@gmail.com">arthur.scheidel@gmail.com</a><br>
+        <a href="https://lacrearthur.github.io/me/">lacrearthur.github.io/me</a><br>
+        <a href="https://github.com/LaCreArthur">github.com/LaCreArthur</a><br>
+        <a href="https://www.linkedin.com/in/arthur-scheidel/">linkedin.com/in/arthur-scheidel</a>
+      </div>
+    </header>
+    <div class="divider"></div>
 
-    <h2>Experience</h2>
-
-    <h3>Technical Co-Founder - Sorolla <span class="date">2024-present</span></h3>
-    <ul>
-        <li>Building mobile publishing infrastructure for Unity games: publisher SDK work, analytics, iOS ATT handling, ad-network integration, and playable ad pipelines.</li>
-        <li>Maintains Sorolla Palette SDK as a public Unity package under the Sorolla Studio GitHub organization.</li>
-        <li>Shipped Happy Snake 3D to the App Store and Google Play.</li>
-    </ul>
-
-    <h3>Senior Unity and Full-Stack Engineer - YourArt <span class="date">Feb 2024-Jun 2024</span></h3>
-    <ul>
-        <li>Optimized Unity WebGL virtual galleries, reducing build size and improving load performance.</li>
-        <li>Refactored frontend and Unity integration paths to speed feature delivery.</li>
-        <li>Added backend/API and JavaScript/TypeScript features across authentication, search, admin, and artwork pages.</li>
-    </ul>
-
-    <h3>Lead Unity Developer - Yumon <span class="date">Apr 2023-Sep 2023</span></h3>
-    <ul>
-        <li>Led Unity development for a play-to-earn multiplayer startup game with NFT avatars.</li>
-        <li>Shipped gameplay, leaderboard, third-party SDK integration work, and mobile login workflows.</li>
-    </ul>
-
-    <h3>Chief Technology Officer - CARFT <span class="date">Mar 2022-Apr 2023</span></h3>
-    <ul>
-        <li>Built and led the technical stack for an NFT car collectibles game with multiplayer features and real-world prize incentives.</li>
-        <li>Rebuilt a Unity prototype into a robust full-stack, multiplayer, and Web3 system; mentored junior Unity developers.</li>
-    </ul>
-
-    <h3>Gameplay Programmer - Ubisoft / Ketchapp <span class="date">Feb 2019-Nov 2019</span></h3>
-    <ul>
-        <li>Built hyper-casual Unity prototypes and production integrations for mobile publishing tests.</li>
-        <li>Integrated SDKs, ad networks, analytics, and reusable tooling for rapid soft-launch cycles.</li>
-    </ul>
-
-    <h3>Game Developer - Celsius Online <span class="date">Apr 2018-Jan 2019</span></h3>
-    <ul>
-        <li>Added features and fixed production issues on live mobile games with large installed user bases.</li>
-        <li>Worked across C++, ActionScript, C#, NodeJS, and platform-specific mobile fixes.</li>
-    </ul>
-
-    <h3>Independent Game Developer - Bretzel Studio <span class="date">2015-present</span></h3>
-    <ul>
-        <li>Built Rody & Mastico Collection, a Unity remaster with an integrated level editor; rebuilt the game's voice synthesis from scratch using the original 1987 phoneme technique. Featured by French YouTubers Bob Lennon and Benzaie.</li>
-        <li>Created Dogecoin To The Moon / Doge To Mars: 10K+ Google Play installs at a 4.5 rating, grown solo with no paid marketing.</li>
-        <li>Teaches Unity through practical course projects, including Vampire Survivors-style and tower defense repositories.</li>
-    </ul>
-
-    <div class="grid">
-        <section class="compact">
-            <h2>Selected Work</h2>
-            <p><strong>Sorolla Palette SDK</strong> - Unity mobile publisher SDK. github.com/sorolla-studio/sorolla-palette</p>
-            <p><strong>Happy Snake 3D</strong> - Sorolla mobile game, live on App Store and Google Play.</p>
-            <p><strong>Unity CI/CD Template</strong> - GitHub Actions, GameCI, Fastlane, Firebase Distribution. github.com/LaCreArthur/unity-fastlane-ci</p>
-            <p><strong>Rody & Mastico Collection</strong> - Unity remaster and level editor. lacrearthur.itch.io/rody-mastico-collection</p>
+    <div class="body">
+      <main>
+        <section>
+          <p class="summary">Unity developer and tech co-founder of Sorolla. 20+ games shipped - I build the mobile-publishing SDKs, playable ads, and CI/CD pipelines that get games out the door. Self-taught in Unity &amp; C#, from indie passion projects to hyper-casual work at Ubisoft/Ketchapp.</p>
         </section>
 
-        <section class="compact">
-            <h2>Skills</h2>
-            <p>Unity, C#, C++, Three.js, WebGL, mobile game development</p>
-            <p>Mobile SDKs, ATT, ad networks, analytics, ASO, publishing workflows</p>
-            <p>GitHub Actions, GameCI, Fastlane, Firebase Distribution</p>
-            <p>React, Angular, TypeScript, Python, Firebase</p>
-            <p>Game architecture, playable ads, teaching, technical leadership</p>
+        <section>
+          <p class="marker m-sky">Experience</p>
 
-            <h2>Education</h2>
-            <p>Master's in Computer Science (Software and Knowledge Engineering), with honors, University of Strasbourg - 2017</p>
-            <p>Bachelor's in Computer Science, University of Strasbourg - 2015</p>
+          <div class="job">
+            <div class="job-head"><span class="job-title">Technical Co-Founder · <span class="co">Sorolla</span></span><span class="years">2024–now</span></div>
+            <p>Mobile-publishing infrastructure for Unity: publisher SDK, analytics, iOS ATT, ad-network and playable-ad pipelines. Maintain the public Sorolla Palette SDK; shipped Happy Snake 3D to App Store &amp; Google Play.</p>
+          </div>
+
+          <div class="job">
+            <div class="job-head"><span class="job-title">Senior Unity &amp; Full-Stack Engineer · <span class="co">YourArt</span></span><span class="years">2024</span></div>
+            <p>Optimized Unity WebGL galleries (smaller builds, faster loads); shipped frontend, backend/API and Unity-integration features across auth, search and admin.</p>
+          </div>
+
+          <div class="job">
+            <div class="job-head"><span class="job-title">Lead Unity Developer · <span class="co">Yumon</span></span><span class="years">2023</span></div>
+            <p>Led Unity for a play-to-earn multiplayer game with NFT avatars - gameplay, leaderboards and third-party SDK integration under App Store constraints.</p>
+          </div>
+
+          <div class="job">
+            <div class="job-head"><span class="job-title">Chief Technology Officer · <span class="co">CARFT</span></span><span class="years">2022–23</span></div>
+            <p>Built and led the stack for a Web3 NFT car-collectibles game; rebuilt a Unity prototype into a full-stack multiplayer system; mentored junior developers.</p>
+          </div>
+
+          <div class="job">
+            <div class="job-head"><span class="job-title">Gameplay Programmer · <span class="co">Ubisoft / Ketchapp</span></span><span class="years">2019</span></div>
+            <p>Hyper-casual Unity prototypes and production integrations; SDKs, ad networks, analytics and reusable tooling for rapid soft-launch cycles.</p>
+          </div>
+
+          <div class="job">
+            <div class="job-head"><span class="job-title">Game Developer · <span class="co">Celsius Online</span></span><span class="years">2018–19</span></div>
+            <p>Features and production fixes on live mobile games with large user bases; C++, ActionScript, C#, NodeJS and platform-specific work.</p>
+          </div>
+
+          <div class="job">
+            <div class="job-head"><span class="job-title">Independent Game Developer · <span class="co">Bretzel Studio</span></span><span class="years">2015–now</span></div>
+            <p>Rody &amp; Mastico remaster + level editor with a rebuilt 1987 voice-synth (featured by Bob Lennon &amp; Benzaie). Doge To Mars - 10K+ installs, 4.5★, solo. Teach Unity through course projects.</p>
+          </div>
         </section>
+      </main>
+
+      <aside>
+        <section>
+          <p class="marker m-lilac">Selected work</p>
+          <div class="work-item"><div class="n">Sorolla Palette SDK</div><div class="d">Unity mobile-publisher SDK.</div><div class="u"><a href="https://github.com/sorolla-studio/sorolla-palette">github.com/sorolla-studio/sorolla-palette</a></div></div>
+          <div class="work-item"><div class="n">Happy Snake 3D</div><div class="d">Sorolla mobile game - App Store &amp; Google Play.</div></div>
+          <div class="work-item"><div class="n">Unity CI/CD Template</div><div class="d">GitHub Actions · GameCI · Fastlane · Firebase.</div><div class="u"><a href="https://github.com/LaCreArthur/unity-fastlane-ci">github.com/LaCreArthur/unity-fastlane-ci</a></div></div>
+          <div class="work-item"><div class="n">Rody &amp; Mastico Collection</div><div class="d">Unity remaster + level editor.</div><div class="u"><a href="https://lacrearthur.itch.io/rody-mastico-collection">lacrearthur.itch.io/rody-mastico-collection</a></div></div>
+        </section>
+
+        <section>
+          <p class="marker m-mint">Skills</p>
+          <div class="skill-group"><div class="h">Games &amp; engines</div><div class="l">Unity, C#, C++, Three.js, WebGL, game architecture, playable ads</div></div>
+          <div class="skill-group"><div class="h">Mobile publishing</div><div class="l">SDKs, iOS ATT, ad networks, analytics, ASO, release workflows</div></div>
+          <div class="skill-group"><div class="h">CI/CD &amp; web</div><div class="l">GitHub Actions, GameCI, Fastlane, Firebase · React, Angular, TypeScript, Python</div></div>
+        </section>
+
+        <section>
+          <p class="marker m-peach">Stack</p>
+          <div class="chips">
+            <span>Unity</span><span>C#</span><span>C++</span><span>Three.js</span><span>WebGL</span><span>React</span><span>TypeScript</span><span>Python</span><span>Firebase</span><span>GitHub Actions</span><span>Fastlane</span><span>GameCI</span>
+          </div>
+        </section>
+
+        <section>
+          <p class="marker m-sky">Education</p>
+          <p class="mini"><b>MSc Computer Science</b> - Software &amp; Knowledge Engineering, with honors. University of Strasbourg, 2017.<br><b>BSc Computer Science</b> - University of Strasbourg, 2015.</p>
+        </section>
+
+        <section>
+          <p class="marker m-lilac">Also</p>
+          <p class="mini">French (native) · English (fluent). 2× French skateboard championship qualifier (2024, 2025). Unity instructor and mentor for student projects.</p>
+        </section>
+      </aside>
     </div>
 
-    <p class="footer">French and English. Self-taught Unity/C# developer. Competitive skateboarder, 2x French Championship qualifier (2024, 2025). Updated: June 23, 2026.</p>
+    <div class="foot">
+      <span>ARTHUR SCHEIDEL - RÉSUMÉ</span>
+      <span>lacrearthur.github.io/me · UPDATED JUN 2026</span>
+    </div>
+  </div>
 </body>
 </html>

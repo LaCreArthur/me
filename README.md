@@ -13,55 +13,50 @@
 
 ## Overview
 
-Static personal portfolio for Arthur Scheidel: Unity game developer, mobile publishing founder, SDK/playable-ad builder, and indie game creator.
+Static personal portfolio for Arthur Scheidel: Unity game developer, mobile publishing founder, SDK/playable-ad builder, and indie game creator. Single animated page, dark-mode portfolio that flips to a light-mode "off the screen" skate coda.
 
 ## Tech Stack
 
-- **HTML5 / CSS3 / JavaScript** - static site, no framework, no runtime rendering
-- **Pre-rendered** - `index.html` is generated from `js/data.js` at build time
-- **Tailwind CSS** compiled locally - no runtime CDN dependency
-- **Roboto** (body, bundled locally) + **JetBrains Mono** (code/metadata accents)
-- **Formspree** - contact form
+- **HTML5 / CSS3 / vanilla JavaScript** - static site, no framework, no build step
+- **Self-contained `index.html`** - design markup ships as-is, edited by hand
+- **Space Grotesk + JetBrains Mono** (Google Fonts) - display and mono accents
+- **Canvas dot-field hero + scroll-driven animations** (`js/portfolio.js`)
 - **GitHub Pages** - static hosting under `/me/` (`.nojekyll`, no Jekyll processing)
 
 ## Structure
 
 ```text
-index.html          - GENERATED static page (do not edit by hand; run the build)
+index.html          - The site: full SEO head + the animated page markup
 .nojekyll           - serve files as-is, bypass Jekyll
-js/
-  data.js           - Single source of truth for content, facts, and SEO strings
-  components.js      - Pure render functions (used at build time)
-  interactive.js     - Client-side progressive enhancement (menu, scroll-spy)
 css/
-  tailwind-input.css - Tailwind source CSS
-  tailwind.css       - Generated utility CSS (committed for GitHub Pages)
-  style.css          - Custom visual system, typography, accessibility polish
-fonts/roboto/       - Locally bundled body font
+  style.css         - Global reset, keyframes, responsive breakpoints
+js/
+  portfolio.js      - Hero letters, scroll reveals, counters, role cycle,
+                      nav light/dark flip, skate-panel transition, dot field
 img/                - Static images and social preview image
+fonts/              - Bundled fonts (legacy; current page uses Google Fonts)
 docs/               - Internal review/build notes (git-ignored, never published)
-llms.txt            - AI-readable site summary, hand-synced from js/data.js
+llms.txt            - AI-readable site summary, hand-synced from the page
 resume.md           - Resume source
 resume.html         - Printable resume source (PDF is generated from it)
 resume.pdf          - Downloadable resume
 scripts/
-  prerender.js      - Generates index.html from data.js + components.js
   check-links.js    - Lightweight public URL checker
-package.json        - Build and link-check scripts
-tailwind.config.js  - Tailwind content scan config
+package.json        - Link-check script
 robots.txt
 sitemap.xml
 ```
 
+The page was designed in Claude Design and implemented here off the design runtime:
+the `<x-dc>` wrapper and `DCLogic` component were converted to plain HTML + vanilla JS.
+
 ## Editing Content
 
-`js/data.js` is the single source of truth. Edit it, then run `npm run build` to
-regenerate `index.html` and `css/tailwind.css`. Never edit `index.html` by hand.
-
-When canonical facts change, also hand-sync the surfaces that are not generated:
+`index.html` is hand-edited; there is no generator. Copy and facts live inline in the
+markup. When canonical facts change, also hand-sync the surfaces that live outside it:
 
 - `llms.txt` for AI-readable profile facts
-- `resume.md`, `resume.html`, and regenerated `resume.pdf` for CV changes
+- `resume.md`, `resume.html`, and a regenerated `resume.pdf` for CV changes
 
 Regenerate the PDF from `resume.html` with headless Chrome:
 
@@ -71,13 +66,9 @@ Regenerate the PDF from `resume.html` with headless Chrome:
   --print-to-pdf=resume.pdf "file://$PWD/resume.html"
 ```
 
-`data/projects.json` was removed because it was unused duplicate content.
-
 ## Local Preview
 
 ```bash
-npm install
-npm run build
 python3 -m http.server 8080
 ```
 
