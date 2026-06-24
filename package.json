@@ -1,5 +1,7 @@
 {
   "scripts": {
-    "check:links": "node scripts/check-links.js"
+    "check:links": "node scripts/check-links.js",
+    "check:facts": "node scripts/check-facts.js",
+    "check": "npm run check:links && npm run check:facts"
   }
 }

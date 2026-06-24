@@ -37,12 +37,12 @@ img/                - Static images and social preview image
 fonts/              - Bundled fonts (legacy; current page uses Google Fonts)
 docs/               - Internal review/build notes (git-ignored, never published)
 llms.txt            - AI-readable site summary, hand-synced from the page
-resume.md           - Resume source
 resume.html         - Printable resume source (PDF is generated from it)
-resume.pdf          - Downloadable resume
+resume.pdf          - Downloadable resume (regenerated from resume.html)
 scripts/
   check-links.js    - Lightweight public URL checker
-package.json        - Link-check script
+  check-facts.js    - Canonical-fact drift guard across the content surfaces
+package.json        - check:links / check:facts scripts
 robots.txt
 sitemap.xml
 ```
@@ -56,7 +56,10 @@ the `<x-dc>` wrapper and `DCLogic` component were converted to plain HTML + vani
 markup. When canonical facts change, also hand-sync the surfaces that live outside it:
 
 - `llms.txt` for AI-readable profile facts
-- `resume.md`, `resume.html`, and a regenerated `resume.pdf` for CV changes
+- `resume.html`, then a regenerated `resume.pdf`, for CV changes
+
+After a fact change, run `npm run check:facts` to confirm the surfaces still agree (it
+guards the facts that have drifted before, e.g. the skate count and the education year).
 
 Regenerate the PDF from `resume.html` with headless Chrome:
 
@@ -77,10 +80,15 @@ Open `http://127.0.0.1:8080/`.
 ## Checks
 
 ```bash
-npm run check:links
+npm run check:links   # public URL checker
+npm run check:facts   # canonical-fact drift guard
+npm run check         # both
 ```
 
-The checker extracts public URLs from the source files and reports real broken links separately from expected third-party responses such as Formspree GET `405` and LinkedIn bot blocking.
+`check:links` extracts public URLs from the source files and reports real broken links
+separately from expected third-party responses such as Formspree GET `405` and LinkedIn
+bot blocking. `check:facts` asserts the shared facts (games shipped, education, role, skate
+count/seasons) stay in agreement across `index.html`, `resume.html`, and `llms.txt`.
 
 ## Deployment
 

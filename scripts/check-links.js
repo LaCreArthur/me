@@ -11,7 +11,6 @@ const FILES = [
     'index.html',
     'README.md',
     'llms.txt',
-    'resume.md',
     'resume.html',
     'robots.txt',
     'sitemap.xml'
@@ -27,6 +26,11 @@ const EXPECTED = [
         test: url => url.includes('linkedin.com/in/arthur-scheidel'),
         ok: status => status === 999 || (status >= 200 && status < 400),
         note: 'LinkedIn often bot-blocks automated checks.'
+    },
+    {
+        test: url => url === 'https://fonts.googleapis.com' || url === 'https://fonts.gstatic.com',
+        ok: () => true,
+        note: 'Bare preconnect/dns-prefetch origin; only the css2 stylesheet URL needs to resolve.'
     }
 ];
 

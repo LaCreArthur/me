@@ -78,14 +78,14 @@ Arthur Scheidel is a Unity game developer and tech co-founder of Sorolla, a mobi
 ## Personal
 
 - Self-taught Unity and C# developer
-- Competitive skateboarder, 2x French Championship qualifier (2024, 2025)
+- Competitive skateboarder, 3x French Championship qualifier (2024, 2025, 2026)
 - Unity instructor and mentor for student projects
 - Runs game-dev/skate content under Arthur Scheidel / LaCreArthur
 
 ## Contact and Links
 
 - Website: https://lacrearthur.github.io/me/
-- Resume: https://lacrearthur.github.io/me/resume.pdf
+- Resume: https://lacrearthur.github.io/me/resume.html
 - GitHub: https://github.com/LaCreArthur
 - LinkedIn: https://www.linkedin.com/in/arthur-scheidel/
 - itch.io: https://lacrearthur.itch.io/

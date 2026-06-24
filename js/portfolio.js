@@ -74,6 +74,8 @@
     var fmt = function (el, v) { return (el.getAttribute('data-prefix') || '') + v + (el.getAttribute('data-suffix') || ''); };
     var finalVal = function (el) { return fmt(el, parseFloat(el.getAttribute('data-count')).toFixed(parseInt(el.getAttribute('data-dec') || '0', 10))); };
     if (reduce) { els.forEach(function (el) { el.textContent = finalVal(el); }); return; }
+    // HTML ships the real values as a no-JS fallback; once JS owns them, start from zero.
+    els.forEach(function (el) { el.textContent = fmt(el, (0).toFixed(parseInt(el.getAttribute('data-dec') || '0', 10))); });
     var poll = null;
     var run = function (el) {
       if (el.__counted) return; el.__counted = true;

@@ -3,6 +3,23 @@
    is the source of truth). This file holds the global reset, keyframes, and the
    responsive behaviour the single-column phone layout needs. */
 
+/* === Design tokens ===
+   Single source for the palette. Accents are referenced as var(--name) in the
+   inline styles of index.html, so a colour change is one edit here, not a sweep.
+   (theme-color meta + canvas hsla stay literal; var() is not valid in those.) */
+:root {
+  --bg: #1a1a1d;
+  --text: #e8e8ec;
+  --muted: #9a9aa3;
+  --faint: #8a8a93;        /* lifted from the old sub-AA greys (7a7a84 / 7c7c84 / 6c6c75) */
+  --teal: #9fe0c2;         /* primary / actions */
+  --blue: #a7cdf2;         /* games / installs */
+  --violet: #c9b8f2;       /* about / SDK / teaching */
+  --peach: #f4b59e;        /* contact */
+  --gold: #f1d99b;         /* awards / ratings */
+  --pink: #f4abce;         /* skate / jams (used sparingly) */
+}
+
 /* === Base === */
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -20,6 +37,11 @@ body {
 
 img { max-width: 100%; }
 a { color: inherit; }
+
+/* Visible keyboard focus on the dark theme (the contact inputs set outline:none). */
+:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 2px; }
+/* Light-mode coda (skate + footer) needs a dark ring to stay visible on the cream bg. */
+#skate :focus-visible, #siteFooter :focus-visible { outline-color: #1a1a1d; }
 
 /* === Keyframes (lifted from the design's helmet block) === */
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -62,17 +84,17 @@ a { color: inherit; }
 .cform .field { margin-bottom: 16px; }
 .cform label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #9a9aa3; margin: 0 0 7px; }
 .cform input, .cform textarea { width: 100%; background: #202024; border: 1px solid #34343a; border-radius: 8px; padding: 12px 14px; color: #e8e8ec; font-family: 'Space Grotesk', sans-serif; font-size: 15px; outline: none; transition: border-color .15s ease, box-shadow .15s ease; }
-.cform input::placeholder, .cform textarea::placeholder { color: #6c6c75; }
-.cform input:focus, .cform textarea:focus { border-color: #9fe0c2; box-shadow: 0 0 0 3px rgba(159,224,194,.12); }
+.cform input::placeholder, .cform textarea::placeholder { color: var(--faint); }
+.cform input:focus, .cform textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(159,224,194,.12); }
 .cform textarea { resize: vertical; min-height: 120px; }
-.cform button { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 13px; letter-spacing: .04em; background: #9fe0c2; color: #1a1a1d; border: none; cursor: pointer; padding: 14px 28px; border-radius: 6px; transition: background-color .15s ease; }
+.cform button { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 13px; letter-spacing: .04em; background: var(--teal); color: #1a1a1d; border: none; cursor: pointer; padding: 14px 28px; border-radius: 6px; transition: background-color .15s ease; }
 .cform button:hover { background: #b8ecd3; }
 .cform .alt { margin-top: 18px; font-size: 13.5px; color: #9a9aa3; }
-.cform .alt a { color: #9fe0c2; text-decoration: none; }
+.cform .alt a { color: var(--teal); text-decoration: none; }
 
 /* === More-work foldout === */
-.fold-toggle { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: .04em; color: #9fe0c2; background: rgba(26,26,29,.55); border: 1px solid #2f3a35; border-radius: 30px; padding: 9px 17px; cursor: pointer; white-space: nowrap; transition: background-color .15s ease, color .15s ease; }
-.fold-toggle:hover { background: #9fe0c2; color: #1a1a1d; }
+.fold-toggle { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: .04em; color: var(--teal); background: rgba(26,26,29,.55); border: 1px solid #2f3a35; border-radius: 30px; padding: 9px 17px; cursor: pointer; white-space: nowrap; transition: background-color .15s ease, color .15s ease; }
+.fold-toggle:hover { background: var(--teal); color: #1a1a1d; }
 .fold-toggle .chev { display: inline-block; transition: transform .3s ease; }
 .fold-toggle[aria-expanded="true"] .chev { transform: rotate(180deg); }
 .fold-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s ease; }
@@ -80,7 +102,7 @@ a { color: inherit; }
 .fold-panel > .fold-inner { overflow: hidden; min-height: 0; }
 
 .arch-group { margin-top: 26px; }
-.arch-head { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #7a7a84; margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid #2a2a2f; }
+.arch-head { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid #2a2a2f; }
 .arch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .arch-card { display: flex; gap: 12px; align-items: flex-start; border: 1px solid #2a2a2f; border-radius: 11px; background: #202024; padding: 12px; }
 .arch-thumb { flex: 0 0 auto; width: 44px; height: 44px; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 17px; }
@@ -89,9 +111,9 @@ a { color: inherit; }
 .arch-desc { font-size: 12px; color: #9a9aa3; line-height: 1.4; margin: 3px 0 7px; }
 .arch-links { display: flex; flex-wrap: wrap; gap: 6px; }
 .arch-links a, .arch-links .muted { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .03em; border-radius: 20px; padding: 3px 9px; text-decoration: none; }
-.arch-links a { color: #9fe0c2; border: 1px solid #2f3a35; }
-.arch-links a:hover { background: #9fe0c2; color: #1a1a1d; }
-.arch-links .muted { color: #7a7a84; border: 1px solid #34343a; }
+.arch-links a { color: var(--teal); border: 1px solid #2f3a35; }
+.arch-links a:hover { background: var(--teal); color: #1a1a1d; }
+.arch-links .muted { color: var(--faint); border: 1px solid #34343a; }
 
 @media (max-width: 860px) { .arch-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .arch-grid { grid-template-columns: 1fr; } .cform .row { grid-template-columns: 1fr; } }
