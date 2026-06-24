@@ -41,3 +41,6 @@ docs/
 
 # Scratch
 *.local
+
+# Local agent working rules (not published)
+CLAUDE.md

@@ -17,6 +17,7 @@
     initReveals(reduce);
     initCounters(reduce);
     initRoles(reduce);
+    initFoldout();
     initNavFlip();
     initTransition();
     if (!reduce) initDots();
@@ -121,6 +122,17 @@
     if (reduce) return;
     var i = 0;
     setInterval(function () { i = (i + 1) % els.length; set(i); }, 1700);
+  }
+
+  function initFoldout() {
+    var btn = document.querySelector('.fold-toggle');
+    var panel = document.getElementById('fold-panel');
+    if (!btn || !panel) return;
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      panel.classList.toggle('open', !open);
+    });
   }
 
   function initNavFlip() {

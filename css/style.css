@@ -22,17 +22,15 @@ img { max-width: 100%; }
 a { color: inherit; }
 
 /* === Keyframes (lifted from the design's helmet block) === */
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
 @keyframes scrollcue { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(7px); opacity: .25; } 100% { transform: translateY(0); opacity: 1; } }
-
-/* Pause the scrolling game band when the pointer is over it. */
-.marquee:hover .marquee-track { animation-play-state: paused; }
 
 /* === Responsive: the design uses fixed multi-column grids with no breakpoints === */
 @media (max-width: 860px) {
   .cards-3, .cards-2, .split-2 { grid-template-columns: 1fr !important; }
   .split-2 { gap: 32px !important; }
+  .hero-grid { grid-template-columns: 1fr !important; padding-top: 104px !important; }
+  .hero-visual { display: none !important; }
 }
 
 @media (max-width: 680px) {
@@ -48,7 +46,46 @@ a { color: inherit; }
 /* === Reduced motion === */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .marquee-track,
   [style*="floaty"],
   [style*="scrollcue"] { animation: none !important; }
+  .fold-panel { transition: none !important; }
 }
+
+/* === Contact form === */
+.cform { max-width: 540px; margin: 34px auto 0; text-align: left; }
+.cform .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.cform .field { margin-bottom: 16px; }
+.cform label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #9a9aa3; margin: 0 0 7px; }
+.cform input, .cform textarea { width: 100%; background: #202024; border: 1px solid #34343a; border-radius: 8px; padding: 12px 14px; color: #e8e8ec; font-family: 'Space Grotesk', sans-serif; font-size: 15px; outline: none; transition: border-color .15s ease, box-shadow .15s ease; }
+.cform input::placeholder, .cform textarea::placeholder { color: #6c6c75; }
+.cform input:focus, .cform textarea:focus { border-color: #9fe0c2; box-shadow: 0 0 0 3px rgba(159,224,194,.12); }
+.cform textarea { resize: vertical; min-height: 120px; }
+.cform button { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 13px; letter-spacing: .04em; background: #9fe0c2; color: #1a1a1d; border: none; cursor: pointer; padding: 14px 28px; border-radius: 6px; transition: background-color .15s ease; }
+.cform button:hover { background: #b8ecd3; }
+.cform .alt { margin-top: 18px; font-size: 13.5px; color: #9a9aa3; }
+.cform .alt a { color: #9fe0c2; text-decoration: none; }
+
+/* === More-work foldout === */
+.fold-toggle { display: block; width: 100%; border: none; padding: 0; margin: 0; background: transparent; cursor: pointer; text-align: left; }
+.fold-cue .chev { display: inline-block; transition: transform .3s ease; }
+.fold-toggle[aria-expanded="true"] .fold-cue .chev { transform: rotate(180deg); }
+.fold-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s ease; }
+.fold-panel.open { grid-template-rows: 1fr; }
+.fold-panel > .fold-inner { overflow: hidden; min-height: 0; }
+
+.arch-group { margin-top: 26px; }
+.arch-head { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #7a7a84; margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid #2a2a2f; }
+.arch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.arch-card { display: flex; gap: 12px; align-items: flex-start; border: 1px solid #2a2a2f; border-radius: 11px; background: #202024; padding: 12px; }
+.arch-thumb { flex: 0 0 auto; width: 44px; height: 44px; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 17px; }
+.arch-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.arch-title { font-size: 14px; font-weight: 700; color: #e8e8ec; line-height: 1.2; }
+.arch-desc { font-size: 12px; color: #9a9aa3; line-height: 1.4; margin: 3px 0 7px; }
+.arch-links { display: flex; flex-wrap: wrap; gap: 6px; }
+.arch-links a, .arch-links .muted { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .03em; border-radius: 20px; padding: 3px 9px; text-decoration: none; }
+.arch-links a { color: #9fe0c2; border: 1px solid #2f3a35; }
+.arch-links a:hover { background: #9fe0c2; color: #1a1a1d; }
+.arch-links .muted { color: #7a7a84; border: 1px solid #34343a; }
+
+@media (max-width: 860px) { .arch-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .arch-grid { grid-template-columns: 1fr; } .cform .row { grid-template-columns: 1fr; } }

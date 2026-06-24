@@ -107,23 +107,29 @@
   <section style="position:relative; min-height:100vh; display:flex; flex-direction:column; padding:0 6vw; overflow:hidden;">
     <canvas id="dotfield" style="position:absolute; inset:0; width:100%; height:100%; mask-image:radial-gradient(120% 78% at 50% 36%, transparent 1%, #000 54%); -webkit-mask-image:radial-gradient(120% 78% at 50% 36%, transparent 1%, #000 54%);"></canvas>
 
-    <div style="flex:1 1 auto; position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:88px 0 12px;">
-      <div style="max-width:980px;">
+    <div class="hero-grid" style="flex:1 1 auto; position:relative; z-index:2; display:grid; grid-template-columns:1.05fr .92fr; gap:clamp(28px,4vw,56px); align-items:center; padding:96px 0 16px;">
+      <div class="hero-copy">
         <div data-reveal style="font-family:'JetBrains Mono',monospace; font-size:clamp(11px,1.2vw,13px); letter-spacing:.22em; color:#9fe0c2; margin-bottom:18px;">// PARIS · UNITY DEV · FOUNDER · SKATER</div>
         <h1 style="font-size:clamp(40px,7vw,94px); line-height:.9; font-weight:700; margin:0; letter-spacing:-.03em;">
           <span style="display:block;"><span data-letter style="color:#9fe0c2;">A</span><span data-letter style="color:#a7cdf2;">R</span><span data-letter style="color:#c9b8f2;">T</span><span data-letter style="color:#f4b59e;">H</span><span data-letter style="color:#f1d99b;">U</span><span data-letter style="color:#f4abce;">R</span></span>
           <span style="display:block;"><span data-letter style="color:#a7cdf2;">S</span><span data-letter style="color:#c9b8f2;">C</span><span data-letter style="color:#f4b59e;">H</span><span data-letter style="color:#f1d99b;">E</span><span data-letter style="color:#f4abce;">I</span><span data-letter style="color:#9fe0c2;">D</span><span data-letter style="color:#a7cdf2;">E</span><span data-letter style="color:#c9b8f2;">L</span></span>
         </h1>
-        <p data-reveal data-delay="650" style="font-size:clamp(15px,1.5vw,19px); line-height:1.55; color:#9a9aa3; max-width:540px; margin:20px auto 0;">I make mobile games <span style="color:#e8e8ec;">and the tools to ship them</span> - 20+ titles, a publishing SDK, and the pipelines behind Sorolla.</p>
-        <div data-reveal data-delay="820" style="display:flex; gap:9px; justify-content:center; flex-wrap:wrap; margin:20px 0 22px;">
+        <p data-reveal data-delay="650" style="font-size:clamp(15px,1.5vw,19px); line-height:1.55; color:#9a9aa3; max-width:520px; margin:22px 0 0;">I make mobile games <span style="color:#e8e8ec;">and the tools to ship them</span> - 20+ titles, a publishing SDK, and the pipelines behind Sorolla.</p>
+        <div data-reveal data-delay="820" style="display:flex; gap:9px; justify-content:flex-start; flex-wrap:wrap; margin:22px 0 24px;">
           <span data-role style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; letter-spacing:.06em; padding:7px 14px; border:1px solid #34343a; border-radius:30px;">GAME DEV</span>
           <span data-role style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; letter-spacing:.06em; padding:7px 14px; border:1px solid #34343a; border-radius:30px;">FOUNDER</span>
           <span data-role style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; letter-spacing:.06em; padding:7px 14px; border:1px solid #34343a; border-radius:30px;">SKATER</span>
         </div>
-        <div data-reveal data-delay="950" style="display:flex; gap:13px; justify-content:center; flex-wrap:wrap;">
+        <div data-reveal data-delay="950" style="display:flex; gap:13px; justify-content:flex-start; flex-wrap:wrap;">
           <a href="#work" style="font-family:'JetBrains Mono',monospace; font-weight:700; font-size:13px; letter-spacing:.04em; background:#9fe0c2; color:#1a1a1d; padding:13px 24px; border-radius:6px; text-decoration:none;">▶ SEE MY WORK</a>
           <a href="resume.html" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace; font-weight:500; font-size:13px; letter-spacing:.04em; border:1.5px solid #38383f; color:#e8e8ec; padding:13px 24px; border-radius:6px; text-decoration:none;">VIEW RESUME</a>
         </div>
+      </div>
+      <div class="hero-visual" data-reveal data-delay="500" style="position:relative; align-self:stretch; min-height:clamp(320px,50vh,540px); border:1.5px solid rgba(159,224,194,.32); border-radius:20px; overflow:hidden; background:rgba(32,32,36,.45); box-shadow:0 0 60px -20px rgba(159,224,194,.16), 0 40px 90px -55px rgba(0,0,0,.9);">
+        <img src="img/portrait.jpg" alt="Arthur Scheidel" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 22%; display:block;">
+        <span style="position:absolute; left:0; right:0; bottom:0; height:38%; background:linear-gradient(to top, rgba(20,20,23,.55), transparent); pointer-events:none;"></span>
+        <span style="position:absolute; right:16px; top:16px; font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:.1em; color:#1a1a1d; background:#9fe0c2; padding:5px 11px; border-radius:6px;">● ONLINE</span>
+        <span style="position:absolute; left:16px; bottom:16px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; letter-spacing:.05em; color:#efe9dd;">PARIS · FR</span>
       </div>
     </div>
 
@@ -193,16 +199,70 @@
 
   </section>
 
-  <!-- more games band -->
+  <!-- more work: games banner toggles a grouped foldout index -->
   <section id="more" style="border-top:1px solid #2a2a2f; border-bottom:1px solid #2a2a2f; background:#1d1d20; overflow:hidden;">
-    <a data-reveal href="https://lacrearthur.itch.io/" target="_blank" rel="noopener" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding:30px 6vw 18px; text-decoration:none;">
-      <span style="font-size:clamp(18px,2.4vw,28px); font-weight:700; color:#e8e8ec; letter-spacing:-.01em;">+ 20 more games, jams &amp; experiments</span>
-      <span style="font-family:'JetBrains Mono',monospace; font-size:13px; color:#9fe0c2; letter-spacing:.04em; border:1px solid #2f3a35; border-radius:30px; padding:9px 17px;">VIEW FULL INDEX →</span>
-    </a>
-    <div class="marquee" style="padding:8px 0 28px; -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent); mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);">
-      <div class="marquee-track" style="display:flex; gap:30px; white-space:nowrap; width:max-content; animation:marquee 32s linear infinite; font-family:'JetBrains Mono',monospace; font-size:clamp(15px,1.7vw,23px); font-weight:700; letter-spacing:.005em; color:#b0b0ba;">
-        <span style="display:flex; gap:30px; align-items:center; padding-right:30px;">HAPPY SNAKE 3D <span style="color:#9fe0c2;">✦</span> DOGE TO MARS <span style="color:#a7cdf2;">✦</span> DON'T FALL GUYS <span style="color:#c9b8f2;">✦</span> SNAP GUYS <span style="color:#f4b59e;">✦</span> MINE BLOCK <span style="color:#f1d99b;">✦</span> FARM RUN <span style="color:#f4abce;">✦</span> RODY &amp; MASTICO <span style="color:#9fe0c2;">✦</span> FIND-IT 3D <span style="color:#a7cdf2;">✦</span> BINDING OF EUCLIDE <span style="color:#c9b8f2;">✦</span> UNITY CI/CD <span style="color:#f4b59e;">✦</span></span>
-        <span style="display:flex; gap:30px; align-items:center; padding-right:30px;">HAPPY SNAKE 3D <span style="color:#9fe0c2;">✦</span> DOGE TO MARS <span style="color:#a7cdf2;">✦</span> DON'T FALL GUYS <span style="color:#c9b8f2;">✦</span> SNAP GUYS <span style="color:#f4b59e;">✦</span> MINE BLOCK <span style="color:#f1d99b;">✦</span> FARM RUN <span style="color:#f4abce;">✦</span> RODY &amp; MASTICO <span style="color:#9fe0c2;">✦</span> FIND-IT 3D <span style="color:#a7cdf2;">✦</span> BINDING OF EUCLIDE <span style="color:#c9b8f2;">✦</span> UNITY CI/CD <span style="color:#f4b59e;">✦</span></span>
+    <button class="fold-toggle" aria-expanded="false" aria-controls="fold-panel">
+      <div style="position:relative; height:clamp(150px,20vw,220px); overflow:hidden;">
+        <img src="img/games-banner.jpg" alt="A selection of Arthur's mobile games" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(29,29,32,.5), rgba(29,29,32,.9));"></div>
+        <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding:0 6vw;">
+          <div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.18em; color:#9fe0c2; margin-bottom:8px;">// THE FULL INDEX</div>
+            <div style="font-size:clamp(20px,2.6vw,30px); font-weight:700; color:#fff; letter-spacing:-.01em;">+ 20 more games, jams &amp; experiments</div>
+          </div>
+          <span class="fold-cue" style="font-family:'JetBrains Mono',monospace; font-size:13px; color:#9fe0c2; letter-spacing:.04em; border:1px solid #2f3a35; border-radius:30px; padding:9px 17px; background:rgba(26,26,29,.55); white-space:nowrap;">VIEW ALL <span class="chev">▾</span></span>
+        </div>
+      </div>
+    </button>
+    <div id="fold-panel" class="fold-panel">
+      <div class="fold-inner" style="padding:14px 6vw 44px;">
+
+        <div class="arch-group">
+          <div class="arch-head">Shipped games</div>
+          <div class="arch-grid">
+            <div class="arch-card"><div class="arch-thumb" style="background:rgba(159,224,194,.16); color:#9fe0c2;">H</div><div class="arch-body"><div class="arch-title">Happy Snake 3D</div><div class="arch-desc">Sorolla mobile game.</div><div class="arch-links"><a href="https://apps.apple.com/us/app/happy-snake-3d/id6755388400" target="_blank" rel="noopener">App Store</a></div></div></div>
+            <div class="arch-card"><div class="arch-thumb" style="background:rgba(159,224,194,.16); color:#9fe0c2;">D</div><div class="arch-body"><div class="arch-title">Don't Fall Guys</div><div class="arch-desc">Hyper-casual runner.</div><div class="arch-links"><a href="https://play.google.com/store/apps/details?id=com.bretzelstudio.dontfallguys" target="_blank" rel="noopener">Google Play</a></div></div></div>
+            <div class="arch-card"><div class="arch-thumb"><img src="img/snapguys.png" alt="Snap Guys"></div><div class="arch-body"><div class="arch-title">Snap Guys</div><div class="arch-desc">Hyper-casual party game.</div><div class="arch-links"><a href="https://lacrearthur.itch.io/snap-guys" target="_blank" rel="noopener">itch.io</a></div></div></div>
+            <div class="arch-card"><div class="arch-thumb" style="background:rgba(159,224,194,.16); color:#9fe0c2;">M</div><div class="arch-body"><div class="arch-title">Mine Block</div><div class="arch-desc">Hyper-casual miner.</div><div class="arch-links"><a href="https://www.youtube.com/shorts/c0PTXM9esgA" target="_blank" rel="noopener">Trailer</a></div></div></div>
+            <div class="arch-card"><div class="arch-thumb" style="background:rgba(159,224,194,.16); color:#9fe0c2;">F</div><div class="arch-body"><div class="arch-title">Farm Run</div><div class="arch-desc">Ketchapp / Ubisoft prototype.</div><div class="arch-links"><span class="muted">Prototype</span></div></div></div>
+            <div class="arch-card"><div class="arch-thumb" style="background:rgba(159,224,194,.16); color:#9fe0c2;">F</div><div class="arch-body"><div class="arch-title">Find-it 3D</div><div class="arch-desc">Hidden-object hyper-casual.</div><div class="arch-links"><span class="muted">iOS · Android</span></div></div></div>
+          </div>
+        </div>
+
+        <div class="arch-group">
+          <div class="arch-head">SDKs &amp; tools</div>
+          <div class="arch-grid">
+            <div class="arch-card"><div class="arch-thumb" style="background:rgba(167,205,242,.16); color:#a7cdf2;">F</div><div class="arch-body"><div class="arch-title">Facebook SDK UPM</div><div class="arch-desc">Unity Package Manager port.</div><div class="arch-links"><a href="https://github.com/LaCreArthur/facebook-unity-sdk-upm" target="_blank" rel="noopener">GitHub</a></div></div></div>
+            <div class="arch-card"><div class="arch-thumb" style="background:rgba(167,205,242,.16); color:#a7cdf2;">C</div><div class="arch-body"><div class="arch-title">Unity CI/CD Template</div><div class="arch-desc">GitHub Actions + Fastlane.</div><div class="arch-links"><a href="https://github.com/LaCreArthur/unity-fastlane-ci" target="_blank" rel="noopener">GitHub</a></div></div></div>
+          </div>
+        </div>
+
+        <div class="arch-group">
+          <div class="arch-head">Game jams</div>
+          <div class="arch-grid">
+            <div class="arch-card"><div class="arch-thumb" style="background:rgba(201,184,242,.16); color:#c9b8f2;">B</div><div class="arch-body"><div class="arch-title">Binding of Euclide</div><div class="arch-desc">Math roguelike.</div><div class="arch-links"><a href="https://lacrearthur.itch.io/the-binding-of-euclide" target="_blank" rel="noopener">itch.io</a></div></div></div>
+            <div class="arch-card"><div class="arch-thumb" style="background:rgba(201,184,242,.16); color:#c9b8f2;">P</div><div class="arch-body"><div class="arch-title">Plot Hole: Little Red</div><div class="arch-desc">Narrative jam (team).</div><div class="arch-links"><a href="https://lacrearthur.itch.io/plot-hole" target="_blank" rel="noopener">itch.io</a></div></div></div>
+            <div class="arch-card"><div class="arch-thumb" style="background:rgba(201,184,242,.16); color:#c9b8f2;">U</div><div class="arch-body"><div class="arch-title">Univeria</div><div class="arch-desc">Scale-shift puzzle.</div><div class="arch-links"><a href="https://lacrearthur.itch.io/univeria" target="_blank" rel="noopener">itch.io</a></div></div></div>
+          </div>
+        </div>
+
+        <div class="arch-group">
+          <div class="arch-head">Teaching</div>
+          <div class="arch-grid">
+            <div class="arch-card"><div class="arch-thumb" style="background:rgba(244,181,158,.16); color:#f4b59e;">V</div><div class="arch-body"><div class="arch-title">Vampire Survivor Clone</div><div class="arch-desc">Unity course project.</div><div class="arch-links"><a href="https://github.com/LaCreArthur/FuturaeVampireSurvivor" target="_blank" rel="noopener">GitHub</a></div></div></div>
+            <div class="arch-card"><div class="arch-thumb" style="background:rgba(244,181,158,.16); color:#f4b59e;">T</div><div class="arch-body"><div class="arch-title">Sci-Fi Tower Defense</div><div class="arch-desc">Architecture patterns.</div><div class="arch-links"><a href="https://github.com/LaCreArthur/FuturaeScifiTD" target="_blank" rel="noopener">GitHub</a></div></div></div>
+          </div>
+        </div>
+
+        <div class="arch-group">
+          <div class="arch-head">CS fundamentals</div>
+          <div class="arch-grid">
+            <div class="arch-card"><div class="arch-thumb" style="background:rgba(241,217,155,.16); color:#f1d99b;">M</div><div class="arch-body"><div class="arch-title">Mat-C Compiler</div><div class="arch-desc">Sub-C compiler (Lex &amp; Yacc).</div><div class="arch-links"><a href="https://github.com/LaCreArthur/MatC-Compiler" target="_blank" rel="noopener">GitHub</a></div></div></div>
+            <div class="arch-card"><div class="arch-thumb" style="background:rgba(241,217,155,.16); color:#f1d99b;">S</div><div class="arch-body"><div class="arch-title">Shortest Path GA</div><div class="arch-desc">C++ genetic algorithm.</div><div class="arch-links"><a href="https://github.com/LaCreArthur/shortestPathGA" target="_blank" rel="noopener">GitHub</a></div></div></div>
+            <div class="arch-card"><div class="arch-thumb" style="background:rgba(241,217,155,.16); color:#f1d99b;">G</div><div class="arch-body"><div class="arch-title">GenBank Miner</div><div class="arch-desc">Java genomic big-data.</div><div class="arch-links"><a href="https://github.com/LaCreArthur/GenBank-Miner" target="_blank" rel="noopener">GitHub</a></div></div></div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -237,7 +297,17 @@
       <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.16em; color:#f4b59e; margin-bottom:20px;">// LET'S BUILD</div>
       <h2 style="font-size:clamp(36px,6vw,80px); font-weight:700; color:#e8e8ec; margin:0; letter-spacing:-.03em; line-height:.95;">Got something<br>to <span style="color:#9fe0c2;">ship?</span></h2>
       <p style="font-size:15.5px; line-height:1.6; color:#9a9aa3; max-width:460px; margin:24px auto 30px;">Best fit: Unity SDK work, mobile-publishing consulting, playable-ad production, or focused freelance with a clear shipping target. ~24h reply.</p>
-      <a href="mailto:arthur.scheidel@gmail.com" style="font-family:'JetBrains Mono',monospace; font-weight:700; font-size:14px; letter-spacing:.04em; background:#9fe0c2; color:#1a1a1d; padding:16px 30px; border-radius:6px; text-decoration:none; display:inline-block;">arthur.scheidel@gmail.com →</a>
+      <form class="cform" action="https://formspree.io/f/xblgjdky" method="POST">
+        <input type="hidden" name="_next" value="https://lacrearthur.github.io/me/">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none;">
+        <div class="row">
+          <div class="field"><label for="cf-email">Email</label><input id="cf-email" type="email" name="email" placeholder="you@example.com" required></div>
+          <div class="field"><label for="cf-subject">Subject</label><input id="cf-subject" type="text" name="subject" placeholder="Unity SDK / publishing inquiry"></div>
+        </div>
+        <div class="field"><label for="cf-message">Message</label><textarea id="cf-message" name="message" rows="5" placeholder="What are you trying to ship?" required></textarea></div>
+        <button type="submit">Send message →</button>
+        <p class="alt">Or email me directly: <a href="mailto:arthur.scheidel@gmail.com">arthur.scheidel@gmail.com</a></p>
+      </form>
     </div>
   </section>
 
