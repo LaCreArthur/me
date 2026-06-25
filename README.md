@@ -26,40 +26,55 @@ Static personal portfolio for Arthur Scheidel: Unity game developer, mobile publ
 ## Structure
 
 ```text
-index.html          - The site: full SEO head + the animated page markup
+content.json        - SINGLE SOURCE OF TRUTH for atomic facts (metrics, dates,
+                      skate count, education, role tenures, links, head copy)
+templates/          - Design + prose with {{token}} placeholders
+  index.html        - homepage template
+  resume.html       - resume template
+  llms.txt          - AI-summary template
+index.html          - GENERATED from templates/index.html + content.json
+resume.html         - GENERATED; printable resume (PDF is rendered from it)
+llms.txt            - GENERATED AI-readable summary
+resume.pdf          - Downloadable resume (rendered from generated resume.html)
 .nojekyll           - serve files as-is, bypass Jekyll
 css/
-  style.css         - Global reset, keyframes, responsive breakpoints
+  style.css         - Design tokens (:root palette), reset, keyframes, breakpoints
 js/
   portfolio.js      - Hero letters, scroll reveals, counters, role cycle,
                       nav light/dark flip, skate-panel transition, dot field
 img/                - Static images and social preview image
 fonts/              - Bundled fonts (legacy; current page uses Google Fonts)
 docs/               - Internal review/build notes (git-ignored, never published)
-llms.txt            - AI-readable site summary, hand-synced from the page
-resume.html         - Printable resume source (PDF is generated from it)
-resume.pdf          - Downloadable resume (regenerated from resume.html)
 scripts/
+  build.js          - Renders templates + content.json -> the generated surfaces
   check-links.js    - Lightweight public URL checker
   check-facts.js    - Canonical-fact drift guard across the content surfaces
-package.json        - check:links / check:facts scripts
+package.json        - build / check:* scripts
 robots.txt
 sitemap.xml
 ```
 
-The page was designed in Claude Design and implemented here off the design runtime:
-the `<x-dc>` wrapper and `DCLogic` component were converted to plain HTML + vanilla JS.
+The shipped site is still plain static HTML/CSS/vanilla JS with no runtime step; the
+build runs once on your machine before commit. The page was designed in Claude Design and
+implemented here off the design runtime as plain HTML + vanilla JS.
 
 ## Editing Content
 
-`index.html` is hand-edited; there is no generator. Copy and facts live inline in the
-markup. When canonical facts change, also hand-sync the surfaces that live outside it:
+Atomic facts (numbers, dates, skate count, education, role tenures, links, head/SEO copy)
+live ONCE in `content.json`. Design and prose live in `templates/`. The root
+`index.html` / `resume.html` / `llms.txt` are GENERATED - do not hand-edit them.
 
-- `llms.txt` for AI-readable profile facts
-- `resume.html`, then a regenerated `resume.pdf`, for CV changes
+- Change a fact: edit `content.json`, then `npm run build`.
+- Change design or prose: edit the matching file in `templates/`, then `npm run build`.
+- One canonical value derives every surface form (e.g. `skate: {count, seasons}` yields
+  `3x` / `3&times;` / `Three-time` / `'24-'26` / the JSON-LD award string).
 
-After a fact change, run `npm run check:facts` to confirm the surfaces still agree (it
-guards the facts that have drifted before, e.g. the skate count and the education year).
+A few facts that still live inline in templates as prose (the hero paragraph, bio, job
+bullets, the long-tail catalogue links) are covered by `npm run check:facts`.
+
+After any change, run `npm run check` (it runs `check:build` to catch a forgotten rebuild,
+`check:facts` for prose drift, and `check:links`). Regenerate `resume.pdf` when the résumé
+changed.
 
 Regenerate the PDF from `resume.html` with headless Chrome:
 
@@ -80,15 +95,19 @@ Open `http://127.0.0.1:8080/`.
 ## Checks
 
 ```bash
+npm run build         # render templates + content.json -> generated surfaces
+npm run check:build   # fail if a generated surface is stale (forgot to rebuild)
 npm run check:links   # public URL checker
 npm run check:facts   # canonical-fact drift guard
-npm run check         # both
+npm run check         # all three checks
 ```
 
-`check:links` extracts public URLs from the source files and reports real broken links
-separately from expected third-party responses such as Formspree GET `405` and LinkedIn
-bot blocking. `check:facts` asserts the shared facts (games shipped, education, role, skate
-count/seasons) stay in agreement across `index.html`, `resume.html`, and `llms.txt`.
+`check:build` re-renders the surfaces and fails if they differ from the committed files,
+so a hand-edited generated file or a missed rebuild is caught before push. `check:links`
+extracts public URLs and reports real broken links separately from expected third-party
+responses such as Formspree GET `405` and LinkedIn bot blocking. `check:facts` asserts the
+prose facts that still live inline (games shipped, education, role, skate count/seasons)
+stay in agreement across `index.html`, `resume.html`, and `llms.txt`.
 
 ## Deployment
 

@@ -1,0 +1,61 @@
+{
+  "_comment": "Single source of truth for atomic facts. Edit here, then run: npm run build. Prose lives in templates/ and is guarded by check:facts.",
+  "person": {
+    "name": "Arthur Scheidel",
+    "alternateName": "LaCreArthur",
+    "jobTitle": "Unity Game Developer and Technical Co-Founder",
+    "roleShortHtml": "Unity Developer &amp; Tech Co-Founder",
+    "location": "Paris, France",
+    "city": "Paris",
+    "country": "France",
+    "email": "arthur.scheidel@gmail.com",
+    "site": "https://lacrearthur.github.io/me/",
+    "siteLabel": "lacrearthur.github.io/me",
+    "copyrightYear": "2026"
+  },
+  "metrics": {
+    "games":    { "count": "20",  "suffix": "+",  "label": "games shipped" },
+    "installs": { "count": "10",  "suffix": "K+", "label": "Google Play installs" },
+    "rating":   { "count": "4.5", "suffix": "",   "dec": "1", "label": "Play Store rating" },
+    "years":    { "count": "7",   "suffix": "+",  "label": "Unity &amp; game dev" }
+  },
+  "skate": {
+    "count": 3,
+    "seasons": [2024, 2025, 2026]
+  },
+  "education": {
+    "school": "University of Strasbourg",
+    "mscYear": "2017",
+    "bscYear": "2015",
+    "timelineTitle": "MSc Computer Science",
+    "timelineSub": "University of Strasbourg, honors",
+    "jsonldName": "Master's in Computer Science (Software and Knowledge Engineering)"
+  },
+  "roles": {
+    "sorolla": { "title": "Technical Co-Founder", "org": "Sorolla", "start": 2025, "startMonth": 8, "end": "now" },
+    "yourart": { "title": "Senior Unity &amp; Full-Stack Engineer", "org": "YourArt", "start": 2024, "end": 2024 },
+    "yumon":   { "title": "Lead Unity Developer", "org": "Yumon", "start": 2023, "end": 2023 },
+    "carft":   { "title": "Chief Technology Officer", "org": "CARFT", "start": 2022, "end": 2023 },
+    "celsius": { "title": "Game Developer", "org": "Celsius Online", "start": 2018, "end": 2019 },
+    "ubisoft": { "title": "Gameplay Programmer", "org": "Ubisoft / Ketchapp", "start": 2019, "end": 2019 },
+    "bretzel": { "title": "Independent Game Developer", "org": "Bretzel Studio", "start": 2015, "end": "now" }
+  },
+  "links": {
+    "sdk": "https://github.com/sorolla-studio/sorolla-palette",
+    "worksForUrl": "https://github.com/sorolla-studio",
+    "github": "https://github.com/LaCreArthur",
+    "githubSlash": "https://github.com/LaCreArthur/",
+    "linkedin": "https://www.linkedin.com/in/arthur-scheidel/",
+    "itch": "https://lacrearthur.itch.io/",
+    "youtube": "https://www.youtube.com/@arthur.scheidel/videos",
+    "instagram": "https://www.instagram.com/arthur.scheidel/"
+  },
+  "head": {
+    "title": "Arthur Scheidel - Unity Developer &amp; Tech Co-Founder | Paris",
+    "metaDescription": "I'm a Unity developer and tech co-founder of Sorolla in Paris. I ship mobile games, build publishing SDKs and playable ads, and automate Unity release pipelines.",
+    "ogTitle": "Arthur Scheidel - I make mobile games and the tools to ship them",
+    "ogDescription": "Unity developer, 20+ games shipped, tech co-founder of Sorolla. SDKs, playable ads, and CI/CD for mobile game releases.",
+    "ogImage": "https://lacrearthur.github.io/me/img/og-image.png",
+    "profileImage": "https://lacrearthur.github.io/me/img/id2018.jpg"
+  }
+}

@@ -11,7 +11,7 @@ Arthur Scheidel is a Unity game developer and tech co-founder of Sorolla, a mobi
 - **Current Role**: Technical co-founder and game-tech lead at Sorolla
 - **Location**: Paris, France; remote friendly
 - **Experience**: 7+ years in game development and adjacent full-stack/product engineering
-- **Education**: Master's in Computer Science (Software and Knowledge Engineering), with honors, University of Strasbourg, 2017
+- **Education**: Master's in Computer Science (Software and Knowledge Engineering), with honors, University of Strasbourg, {{education.mscYear}}
 - **Languages**: French, English
 
 ## Technical Skills
@@ -25,21 +25,21 @@ Arthur Scheidel is a Unity game developer and tech co-founder of Sorolla, a mobi
 
 ## Career Timeline
 
-- **Sorolla** - Technical Co-Founder (2025-present): mobile game publishing, publisher SDK, analytics, playable ads, production tooling
-- **YourArt** - Senior Unity and Full-Stack Engineer (2024): Unity WebGL and platform engineering
-- **Yumon** - Lead Unity Developer (2023): play-to-earn/Web3 Unity game work
-- **CARFT** - Chief Technology Officer (2022-2023): Web3 gaming startup
-- **Bretzel Studio** - Independent Game Developer (2015-present): indie/mobile games, teaching material, prototypes
-- **Ubisoft / Ketchapp** - Gameplay Programmer (2019): hyper-casual mobile prototypes and SDK/ad integrations
-- **Celsius Online** - Game Developer (2018-2019): live mobile game work
-- **University of Strasbourg** - Master's in Computer Science, with honors (2017); Bachelor in Computer Science (2015)
+- **Sorolla** - Technical Co-Founder ({{role.sorolla.present}}): mobile game publishing, publisher SDK, analytics, playable ads, production tooling
+- **YourArt** - Senior Unity and Full-Stack Engineer ({{role.yourart.present}}): Unity WebGL and platform engineering
+- **Yumon** - Lead Unity Developer ({{role.yumon.present}}): play-to-earn/Web3 Unity game work
+- **CARFT** - Chief Technology Officer ({{role.carft.present}}): Web3 gaming startup
+- **Bretzel Studio** - Independent Game Developer ({{role.bretzel.present}}): indie/mobile games, teaching material, prototypes
+- **Ubisoft / Ketchapp** - Gameplay Programmer ({{role.ubisoft.present}}): hyper-casual mobile prototypes and SDK/ad integrations
+- **Celsius Online** - Game Developer ({{role.celsius.present}}): live mobile game work
+- **University of Strasbourg** - Master's in Computer Science, with honors ({{education.mscYear}}); Bachelor in Computer Science ({{education.bscYear}})
 
 ## Featured Work
 
 ### Sorolla Palette SDK
 - Publisher SDK for Unity mobile games
 - Focus: ATT, ads, analytics, low-friction publishing setup
-- Public repository: https://github.com/sorolla-studio/sorolla-palette
+- Public repository: {{links.sdk}}
 
 ### Happy Snake 3D
 - Mobile game published by Sorolla, live on the App Store and Google Play
@@ -78,17 +78,17 @@ Arthur Scheidel is a Unity game developer and tech co-founder of Sorolla, a mobi
 ## Personal
 
 - Self-taught Unity and C# developer
-- Competitive skateboarder, 3x French Championship qualifier (2024, 2025, 2026)
+- Competitive skateboarder, {{skate.x}} French Championship qualifier ({{skate.seasons}})
 - Unity instructor and mentor for student projects
 - Runs game-dev/skate content under Arthur Scheidel / LaCreArthur
 
 ## Contact and Links
 
-- Website: https://lacrearthur.github.io/me/
-- Resume: https://lacrearthur.github.io/me/resume.html
-- GitHub: https://github.com/LaCreArthur
-- LinkedIn: https://www.linkedin.com/in/arthur-scheidel/
-- itch.io: https://lacrearthur.itch.io/
-- YouTube: https://www.youtube.com/@arthur.scheidel/videos
-- Instagram: https://www.instagram.com/arthur.scheidel/
-- Email: arthur.scheidel@gmail.com
+- Website: {{person.site}}
+- Resume: {{person.site}}resume.html
+- GitHub: {{links.github}}
+- LinkedIn: {{links.linkedin}}
+- itch.io: {{links.itch}}
+- YouTube: {{links.youtube}}
+- Instagram: {{links.instagram}}
+- Email: {{person.email}}

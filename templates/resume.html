@@ -122,8 +122,8 @@
   <div class="sheet">
     <header>
       <div>
-        <h1>Arthur Scheidel</h1>
-        <div class="role">Unity Developer &amp; Tech Co-Founder · Paris</div>
+        <h1>{{person.name}}</h1>
+        <div class="role">{{person.roleShortHtml}} · {{person.city}}</div>
         <div class="tags">
           <span class="t-mint">Game dev</span>
           <span class="t-sky">Founder</span>
@@ -131,11 +131,11 @@
         </div>
       </div>
       <div class="contact">
-        Paris, France<br>
-        <a href="mailto:arthur.scheidel@gmail.com">arthur.scheidel@gmail.com</a><br>
-        <a href="https://lacrearthur.github.io/me/">lacrearthur.github.io/me</a><br>
-        <a href="https://github.com/LaCreArthur">github.com/LaCreArthur</a><br>
-        <a href="https://www.linkedin.com/in/arthur-scheidel/">linkedin.com/in/arthur-scheidel</a>
+        {{person.location}}<br>
+        <a href="mailto:{{person.email}}">{{person.email}}</a><br>
+        <a href="{{person.site}}">{{person.siteLabel}}</a><br>
+        <a href="{{links.github}}">github.com/LaCreArthur</a><br>
+        <a href="{{links.linkedin}}">linkedin.com/in/arthur-scheidel</a>
       </div>
     </header>
     <div class="divider"></div>
@@ -150,37 +150,37 @@
           <p class="marker m-sky">Experience</p>
 
           <div class="job">
-            <div class="job-head"><span class="job-title">Technical Co-Founder · <span class="co">Sorolla</span></span><span class="years">2025–now</span></div>
+            <div class="job-head"><span class="job-title">{{role.sorolla.title}} · <span class="co">{{role.sorolla.org}}</span></span><span class="years">{{role.sorolla.range}}</span></div>
             <p>Mobile-publishing infrastructure for Unity: publisher SDK, analytics, iOS ATT, ad-network and playable-ad pipelines. Maintain the public Sorolla Palette SDK; shipped Happy Snake 3D to App Store &amp; Google Play.</p>
           </div>
 
           <div class="job">
-            <div class="job-head"><span class="job-title">Senior Unity &amp; Full-Stack Engineer · <span class="co">YourArt</span></span><span class="years">2024</span></div>
+            <div class="job-head"><span class="job-title">{{role.yourart.title}} · <span class="co">{{role.yourart.org}}</span></span><span class="years">{{role.yourart.range}}</span></div>
             <p>Optimized Unity WebGL galleries (smaller builds, faster loads); shipped frontend, backend/API and Unity-integration features across auth, search and admin.</p>
           </div>
 
           <div class="job">
-            <div class="job-head"><span class="job-title">Lead Unity Developer · <span class="co">Yumon</span></span><span class="years">2023</span></div>
+            <div class="job-head"><span class="job-title">{{role.yumon.title}} · <span class="co">{{role.yumon.org}}</span></span><span class="years">{{role.yumon.range}}</span></div>
             <p>Led Unity for a play-to-earn multiplayer game with NFT avatars - gameplay, leaderboards and third-party SDK integration under App Store constraints.</p>
           </div>
 
           <div class="job">
-            <div class="job-head"><span class="job-title">Chief Technology Officer · <span class="co">CARFT</span></span><span class="years">2022–23</span></div>
+            <div class="job-head"><span class="job-title">{{role.carft.title}} · <span class="co">{{role.carft.org}}</span></span><span class="years">{{role.carft.range}}</span></div>
             <p>Built and led the stack for a Web3 NFT car-collectibles game; rebuilt a Unity prototype into a full-stack multiplayer system; mentored junior developers.</p>
           </div>
 
           <div class="job">
-            <div class="job-head"><span class="job-title">Gameplay Programmer · <span class="co">Ubisoft / Ketchapp</span></span><span class="years">2019</span></div>
+            <div class="job-head"><span class="job-title">{{role.ubisoft.title}} · <span class="co">{{role.ubisoft.org}}</span></span><span class="years">{{role.ubisoft.range}}</span></div>
             <p>Hyper-casual Unity prototypes and production integrations; SDKs, ad networks, analytics and reusable tooling for rapid soft-launch cycles.</p>
           </div>
 
           <div class="job">
-            <div class="job-head"><span class="job-title">Game Developer · <span class="co">Celsius Online</span></span><span class="years">2018–19</span></div>
+            <div class="job-head"><span class="job-title">{{role.celsius.title}} · <span class="co">{{role.celsius.org}}</span></span><span class="years">{{role.celsius.range}}</span></div>
             <p>Features and production fixes on live mobile games with large user bases; C++, ActionScript, C#, NodeJS and platform-specific work.</p>
           </div>
 
           <div class="job">
-            <div class="job-head"><span class="job-title">Independent Game Developer · <span class="co">Bretzel Studio</span></span><span class="years">2015–now</span></div>
+            <div class="job-head"><span class="job-title">{{role.bretzel.title}} · <span class="co">{{role.bretzel.org}}</span></span><span class="years">{{role.bretzel.range}}</span></div>
             <p>Rody &amp; Mastico remaster + level editor with a rebuilt 1987 voice-synth (featured by Bob Lennon &amp; Benzaie). Doge To Mars - 10K+ installs, 4.5★, solo. Teach Unity through course projects.</p>
           </div>
         </section>
@@ -189,7 +189,7 @@
       <aside>
         <section>
           <p class="marker m-lilac">Selected work</p>
-          <div class="work-item"><div class="n">Sorolla Palette SDK</div><div class="d">Unity mobile-publisher SDK.</div><div class="u"><a href="https://github.com/sorolla-studio/sorolla-palette">github.com/sorolla-studio/sorolla-palette</a></div></div>
+          <div class="work-item"><div class="n">Sorolla Palette SDK</div><div class="d">Unity mobile-publisher SDK.</div><div class="u"><a href="{{links.sdk}}">github.com/sorolla-studio/sorolla-palette</a></div></div>
           <div class="work-item"><div class="n">Happy Snake 3D</div><div class="d">Sorolla mobile game - App Store &amp; Google Play.</div></div>
           <div class="work-item"><div class="n">Unity CI/CD Template</div><div class="d">GitHub Actions · GameCI · Fastlane · Firebase.</div><div class="u"><a href="https://github.com/LaCreArthur/unity-fastlane-ci">github.com/LaCreArthur/unity-fastlane-ci</a></div></div>
           <div class="work-item"><div class="n">Rody &amp; Mastico Collection</div><div class="d">Unity remaster + level editor.</div><div class="u"><a href="https://lacrearthur.itch.io/rody-mastico-collection">lacrearthur.itch.io/rody-mastico-collection</a></div></div>
@@ -211,19 +211,19 @@
 
         <section>
           <p class="marker m-sky">Education</p>
-          <p class="mini"><b>MSc Computer Science</b> - Software &amp; Knowledge Engineering, with honors. University of Strasbourg, 2017.<br><b>BSc Computer Science</b> - University of Strasbourg, 2015.</p>
+          <p class="mini"><b>MSc Computer Science</b> - Software &amp; Knowledge Engineering, with honors. University of Strasbourg, {{education.mscYear}}.<br><b>BSc Computer Science</b> - University of Strasbourg, {{education.bscYear}}.</p>
         </section>
 
         <section>
           <p class="marker m-lilac">Also</p>
-          <p class="mini">French (native) · English (fluent). 3× French skateboard championship qualifier (2024, 2025, 2026). Unity instructor and mentor for student projects.</p>
+          <p class="mini">French (native) · English (fluent). {{skate.glyph}} French skateboard championship qualifier ({{skate.seasons}}). Unity instructor and mentor for student projects.</p>
         </section>
       </aside>
     </div>
 
     <div class="foot">
       <span>ARTHUR SCHEIDEL - RÉSUMÉ</span>
-      <span>lacrearthur.github.io/me · UPDATED JUN 2026</span>
+      <span>{{person.siteLabel}} · UPDATED JUN 2026</span>
     </div>
   </div>
 </body>

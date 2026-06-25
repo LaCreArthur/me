@@ -4,23 +4,23 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="I'm a Unity developer and tech co-founder of Sorolla in Paris. I ship mobile games, build publishing SDKs and playable ads, and automate Unity release pipelines." />
+    <meta name="description" content="{{head.metaDescription}}" />
     <meta name="keywords" content="Unity, C#, Game Development, Playable Ads, Mobile Games, Game Publishing" />
-    <meta property="og:title" content="Arthur Scheidel - I make mobile games and the tools to ship them" />
-    <meta property="og:description" content="Unity developer, 20+ games shipped, tech co-founder of Sorolla. SDKs, playable ads, and CI/CD for mobile game releases." />
-    <meta property="og:image" content="https://lacrearthur.github.io/me/img/og-image.png" />
+    <meta property="og:title" content="{{head.ogTitle}}" />
+    <meta property="og:description" content="{{head.ogDescription}}" />
+    <meta property="og:image" content="{{head.ogImage}}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:url" content="https://lacrearthur.github.io/me/" />
+    <meta property="og:url" content="{{person.site}}" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Arthur Scheidel - I make mobile games and the tools to ship them" />
-    <meta name="twitter:description" content="Unity developer, 20+ games shipped, tech co-founder of Sorolla. SDKs, playable ads, and CI/CD for mobile game releases." />
-    <meta name="twitter:image" content="https://lacrearthur.github.io/me/img/og-image.png" />
+    <meta name="twitter:title" content="{{head.ogTitle}}" />
+    <meta name="twitter:description" content="{{head.ogDescription}}" />
+    <meta name="twitter:image" content="{{head.ogImage}}" />
     <meta name="theme-color" content="#1a1a1d" />
-    <link rel="canonical" href="https://lacrearthur.github.io/me/" />
+    <link rel="canonical" href="{{person.site}}" />
     <link rel="icon" type="image/png" href="img/logo.png" />
-    <title>Arthur Scheidel - Unity Developer &amp; Tech Co-Founder | Paris</title>
+    <title>{{head.title}}</title>
 
     <script type="application/ld+json">
 {
@@ -28,27 +28,27 @@
     "@type": "ProfilePage",
     "mainEntity": {
         "@type": "Person",
-        "@id": "https://lacrearthur.github.io/me/#arthur-scheidel",
-        "name": "Arthur Scheidel",
-        "alternateName": "LaCreArthur",
-        "jobTitle": "Unity Game Developer and Technical Co-Founder",
-        "description": "I'm a Unity developer and tech co-founder of Sorolla in Paris. I ship mobile games, build publishing SDKs and playable ads, and automate Unity release pipelines.",
-        "url": "https://lacrearthur.github.io/me/",
-        "image": "https://lacrearthur.github.io/me/img/id2018.jpg",
+        "@id": "{{person.site}}#arthur-scheidel",
+        "name": "{{person.name}}",
+        "alternateName": "{{person.alternateName}}",
+        "jobTitle": "{{person.jobTitle}}",
+        "description": "{{head.metaDescription}}",
+        "url": "{{person.site}}",
+        "image": "{{head.profileImage}}",
         "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Paris",
-            "addressCountry": "France"
+            "addressLocality": "{{person.city}}",
+            "addressCountry": "{{person.country}}"
         },
         "alumniOf": {
             "@type": "CollegeOrUniversity",
-            "name": "University of Strasbourg"
+            "name": "{{education.school}}"
         },
         "hasCredential": {
             "@type": "EducationalOccupationalCredential",
             "credentialCategory": "degree",
-            "name": "Master's in Computer Science (Software and Knowledge Engineering)",
-            "dateCreated": "2017"
+            "name": "{{education.jsonldName}}",
+            "dateCreated": "{{education.mscYear}}"
         },
         "knowsAbout": [
             "Unity",
@@ -63,22 +63,22 @@
             "English"
         ],
         "sameAs": [
-            "https://github.com/LaCreArthur",
-            "https://www.linkedin.com/in/arthur-scheidel/",
-            "https://lacrearthur.itch.io/",
-            "https://www.youtube.com/@arthur.scheidel/videos",
-            "https://www.instagram.com/arthur.scheidel/"
+            "{{links.github}}",
+            "{{links.linkedin}}",
+            "{{links.itch}}",
+            "{{links.youtube}}",
+            "{{links.instagram}}"
         ],
         "worksFor": {
             "@type": "Organization",
-            "name": "Sorolla",
-            "url": "https://github.com/sorolla-studio"
+            "name": "{{roles.sorolla.org}}",
+            "url": "{{links.worksForUrl}}"
         },
-        "award": "3x French Skateboard Championship Qualifier (2024, 2025, 2026)"
+        "award": "{{skate.jsonld}}"
     },
     "about": {
         "@type": "Person",
-        "@id": "https://lacrearthur.github.io/me/#arthur-scheidel"
+        "@id": "{{person.site}}#arthur-scheidel"
     }
 }
     </script>
@@ -137,10 +137,10 @@
     <!-- metrics + scroll cue, kept inside the first screen -->
     <div style="position:relative; z-index:2; flex:0 0 auto; padding-bottom:18px;">
       <div class="metrics" style="display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid #2a2a2f;">
-        <div data-reveal style="padding:18px 14px; border-right:1px solid #2a2a2f; border-top:2px solid var(--teal); margin-top:-1px;"><div style="font-family:'JetBrains Mono',monospace; font-size:clamp(26px,3.4vw,44px); font-weight:700; color:#e8e8ec; line-height:1;"><span data-count="20" data-suffix="+">20+</span></div><div style="font-size:12px; color:#9a9aa3; margin-top:6px; letter-spacing:.03em;">games shipped</div></div>
-        <div data-reveal data-delay="100" style="padding:18px 14px; border-right:1px solid #2a2a2f; border-top:2px solid var(--blue); margin-top:-1px;"><div style="font-family:'JetBrains Mono',monospace; font-size:clamp(26px,3.4vw,44px); font-weight:700; color:#e8e8ec; line-height:1;"><span data-count="10" data-suffix="K+">10K+</span></div><div style="font-size:12px; color:#9a9aa3; margin-top:6px; letter-spacing:.03em;">Google Play installs</div></div>
-        <div data-reveal data-delay="200" style="padding:18px 14px; border-right:1px solid #2a2a2f; border-top:2px solid var(--violet); margin-top:-1px;"><div style="font-family:'JetBrains Mono',monospace; font-size:clamp(26px,3.4vw,44px); font-weight:700; color:#e8e8ec; line-height:1;"><span data-count="4.5" data-dec="1">4.5</span><span style="color:var(--gold);">★</span></div><div style="font-size:12px; color:#9a9aa3; margin-top:6px; letter-spacing:.03em;">Play Store rating</div></div>
-        <div data-reveal data-delay="300" style="padding:18px 14px; border-top:2px solid var(--peach); margin-top:-1px;"><div style="font-family:'JetBrains Mono',monospace; font-size:clamp(26px,3.4vw,44px); font-weight:700; color:#e8e8ec; line-height:1;"><span data-count="7" data-suffix="+">7+</span><span style="font-size:.5em; color:#9a9aa3;">yrs</span></div><div style="font-size:12px; color:#9a9aa3; margin-top:6px; letter-spacing:.03em;">Unity &amp; game dev</div></div>
+        <div data-reveal style="padding:18px 14px; border-right:1px solid #2a2a2f; border-top:2px solid var(--teal); margin-top:-1px;"><div style="font-family:'JetBrains Mono',monospace; font-size:clamp(26px,3.4vw,44px); font-weight:700; color:#e8e8ec; line-height:1;"><span data-count="{{metrics.games.count}}" data-suffix="{{metrics.games.suffix}}">{{metrics.games.display}}</span></div><div style="font-size:12px; color:#9a9aa3; margin-top:6px; letter-spacing:.03em;">{{metrics.games.label}}</div></div>
+        <div data-reveal data-delay="100" style="padding:18px 14px; border-right:1px solid #2a2a2f; border-top:2px solid var(--blue); margin-top:-1px;"><div style="font-family:'JetBrains Mono',monospace; font-size:clamp(26px,3.4vw,44px); font-weight:700; color:#e8e8ec; line-height:1;"><span data-count="{{metrics.installs.count}}" data-suffix="{{metrics.installs.suffix}}">{{metrics.installs.display}}</span></div><div style="font-size:12px; color:#9a9aa3; margin-top:6px; letter-spacing:.03em;">{{metrics.installs.label}}</div></div>
+        <div data-reveal data-delay="200" style="padding:18px 14px; border-right:1px solid #2a2a2f; border-top:2px solid var(--violet); margin-top:-1px;"><div style="font-family:'JetBrains Mono',monospace; font-size:clamp(26px,3.4vw,44px); font-weight:700; color:#e8e8ec; line-height:1;"><span data-count="{{metrics.rating.count}}" data-dec="{{metrics.rating.dec}}">{{metrics.rating.display}}</span><span style="color:var(--gold);">★</span></div><div style="font-size:12px; color:#9a9aa3; margin-top:6px; letter-spacing:.03em;">{{metrics.rating.label}}</div></div>
+        <div data-reveal data-delay="300" style="padding:18px 14px; border-top:2px solid var(--peach); margin-top:-1px;"><div style="font-family:'JetBrains Mono',monospace; font-size:clamp(26px,3.4vw,44px); font-weight:700; color:#e8e8ec; line-height:1;"><span data-count="{{metrics.years.count}}" data-suffix="{{metrics.years.suffix}}">{{metrics.years.display}}</span><span style="font-size:.5em; color:#9a9aa3;">yrs</span></div><div style="font-size:12px; color:#9a9aa3; margin-top:6px; letter-spacing:.03em;">{{metrics.years.label}}</div></div>
       </div>
       <div style="display:flex; justify-content:center; margin-top:14px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:.1em;">
         <span style="display:flex; flex-direction:column; align-items:center; gap:5px;"><span>SCROLL</span><span style="font-size:15px; animation:scrollcue 1.6s ease-in-out infinite;">↓</span></span>
@@ -165,7 +165,7 @@
       </div>
       <div data-reveal data-delay="260" style="border:1px solid #2a2a2f; border-top:3px solid var(--violet); border-radius:14px; overflow:hidden; background:#202024;">
         <div style="aspect-ratio:16/11; background:repeating-linear-gradient(135deg,#242429,#242429 11px,#2a2a30 11px,#2a2a30 22px); display:flex; align-items:flex-end; padding:14px;"><span style="font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--faint);">[ SKATE CLIP ]</span></div>
-        <div style="padding:20px;"><div style="font-size:21px; font-weight:700; color:#e8e8ec; margin-bottom:8px;"><span aria-hidden="true">🛹</span> Skater</div><p style="font-size:13.5px; line-height:1.6; color:#9a9aa3; margin:0;">3&times; French Championship qualifier (2024, 2025, 2026). The off-screen version of the same practice loop.</p></div>
+        <div style="padding:20px;"><div style="font-size:21px; font-weight:700; color:#e8e8ec; margin-bottom:8px;"><span aria-hidden="true">🛹</span> Skater</div><p style="font-size:13.5px; line-height:1.6; color:#9a9aa3; margin:0;">{{skate.times}} French Championship qualifier ({{skate.seasons}}). The off-screen version of the same practice loop.</p></div>
       </div>
     </div>
   </section>
@@ -283,17 +283,17 @@
       <p style="font-size:15px; line-height:1.75; color:var(--faint); margin:0;">Outside code I skate competitively and teach Unity to students. Same loop as shipping games: practice, fail, adjust, repeat.</p>
       <div style="display:flex; align-items:center; gap:14px; margin-top:26px;">
         <div style="width:54px; height:54px; border-radius:50%; border:1.5px solid var(--teal); overflow:hidden; flex:0 0 auto;"><img src="img/id2018.jpg" alt="Arthur Scheidel" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#9a9aa3; line-height:1.6;"><span style="color:#e8e8ec;">Arthur Scheidel</span><br>Paris, France</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#9a9aa3; line-height:1.6;"><span style="color:#e8e8ec;">{{person.name}}</span><br>{{person.location}}</div>
       </div>
     </div>
     <div data-reveal data-delay="140">
       <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.16em; color:#9a9aa3; margin-bottom:22px;">// TIMELINE</div>
       <div style="display:flex; flex-direction:column;">
-        <div style="display:grid; grid-template-columns:88px 1fr; gap:14px; padding:14px 0; border-bottom:1px solid #242429;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--teal);">2025–now</span><div><div style="color:#e8e8ec; font-size:14.5px;">Technical Co-Founder</div><div style="color:#9a9aa3; font-size:13px;">Sorolla, mobile game publishing</div></div></div>
-        <div style="display:grid; grid-template-columns:88px 1fr; gap:14px; padding:14px 0; border-bottom:1px solid #242429;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--faint);">2022–23</span><div><div style="color:#e8e8ec; font-size:14.5px;">Chief Technology Officer</div><div style="color:#9a9aa3; font-size:13px;">CARFT, Web3 gaming</div></div></div>
-        <div style="display:grid; grid-template-columns:88px 1fr; gap:14px; padding:14px 0; border-bottom:1px solid #242429;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--faint);">2019</span><div><div style="color:#e8e8ec; font-size:14.5px;">Gameplay Programmer</div><div style="color:#9a9aa3; font-size:13px;">Ubisoft / Ketchapp</div></div></div>
-        <div style="display:grid; grid-template-columns:88px 1fr; gap:14px; padding:14px 0; border-bottom:1px solid #242429;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--blue);">2015–now</span><div><div style="color:#e8e8ec; font-size:14.5px;">Independent Game Developer</div><div style="color:#9a9aa3; font-size:13px;">Bretzel Studio</div></div></div>
-        <div style="display:grid; grid-template-columns:88px 1fr; gap:14px; padding:14px 0;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--faint);">2017</span><div><div style="color:#e8e8ec; font-size:14.5px;">MSc Computer Science</div><div style="color:#9a9aa3; font-size:13px;">University of Strasbourg, honors</div></div></div>
+        <div style="display:grid; grid-template-columns:88px 1fr; gap:14px; padding:14px 0; border-bottom:1px solid #242429;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--teal);">{{role.sorolla.range}}</span><div><div style="color:#e8e8ec; font-size:14.5px;">{{role.sorolla.title}}</div><div style="color:#9a9aa3; font-size:13px;">Sorolla, mobile game publishing</div></div></div>
+        <div style="display:grid; grid-template-columns:88px 1fr; gap:14px; padding:14px 0; border-bottom:1px solid #242429;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--faint);">{{role.carft.range}}</span><div><div style="color:#e8e8ec; font-size:14.5px;">{{role.carft.title}}</div><div style="color:#9a9aa3; font-size:13px;">CARFT, Web3 gaming</div></div></div>
+        <div style="display:grid; grid-template-columns:88px 1fr; gap:14px; padding:14px 0; border-bottom:1px solid #242429;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--faint);">{{role.ubisoft.range}}</span><div><div style="color:#e8e8ec; font-size:14.5px;">{{role.ubisoft.title}}</div><div style="color:#9a9aa3; font-size:13px;">Ubisoft / Ketchapp</div></div></div>
+        <div style="display:grid; grid-template-columns:88px 1fr; gap:14px; padding:14px 0; border-bottom:1px solid #242429;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--blue);">{{role.bretzel.range}}</span><div><div style="color:#e8e8ec; font-size:14.5px;">{{role.bretzel.title}}</div><div style="color:#9a9aa3; font-size:13px;">Bretzel Studio</div></div></div>
+        <div style="display:grid; grid-template-columns:88px 1fr; gap:14px; padding:14px 0;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--faint);">{{education.mscYear}}</span><div><div style="color:#e8e8ec; font-size:14.5px;">{{education.timelineTitle}}</div><div style="color:#9a9aa3; font-size:13px;">{{education.timelineSub}}</div></div></div>
       </div>
     </div>
   </section>
@@ -305,7 +305,7 @@
       <h2 style="font-size:clamp(36px,6vw,80px); font-weight:700; color:#e8e8ec; margin:0; letter-spacing:-.03em; line-height:.95;">Got something<br>to <span style="color:var(--teal);">ship?</span></h2>
       <p style="font-size:15.5px; line-height:1.6; color:#9a9aa3; max-width:460px; margin:24px auto 30px;">Best fit: Unity SDK work, mobile-publishing consulting, playable-ad production, or focused freelance with a clear shipping target. ~24h reply.</p>
       <form class="cform" action="https://formspree.io/f/xblgjdky" method="POST">
-        <input type="hidden" name="_next" value="https://lacrearthur.github.io/me/">
+        <input type="hidden" name="_next" value="{{person.site}}">
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none;">
         <div class="row">
           <div class="field"><label for="cf-email">Email</label><input id="cf-email" type="email" name="email" placeholder="you@example.com" required></div>
@@ -313,7 +313,7 @@
         </div>
         <div class="field"><label for="cf-message">Message</label><textarea id="cf-message" name="message" rows="5" placeholder="What are you trying to ship?" required></textarea></div>
         <button type="submit">Send message →</button>
-        <p class="alt">Or email me directly: <a href="mailto:arthur.scheidel@gmail.com">arthur.scheidel@gmail.com</a></p>
+        <p class="alt">Or email me directly: <a href="mailto:{{person.email}}">{{person.email}}</a></p>
       </form>
     </div>
   </section>
@@ -330,10 +330,10 @@
     <div class="split-2" style="display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center;">
       <div data-reveal data-delay="120">
         <h2 style="font-size:clamp(34px,5vw,64px); font-weight:700; line-height:.98; letter-spacing:-.025em; margin:0 0 22px;">Same loop,<br>no <span style="color:#4f7fc0;">keyboard.</span></h2>
-        <p style="font-size:16px; line-height:1.7; color:#4f4a40; max-width:440px; margin:0 0 26px;">When I'm not shipping, I'm skating - and it's the exact same loop: practice, fail, adjust, repeat. Three-time French Championship qualifier, 2024, 2025 &amp; 2026.</p>
+        <p style="font-size:16px; line-height:1.7; color:#4f4a40; max-width:440px; margin:0 0 26px;">When I'm not shipping, I'm skating - and it's the exact same loop: practice, fail, adjust, repeat. {{skate.word}} French Championship qualifier, {{skate.seasonsAmp}}.</p>
         <div style="display:flex; gap:34px; flex-wrap:wrap;">
-          <div><div style="font-family:'JetBrains Mono',monospace; font-size:36px; font-weight:700; color:#1a1a1d; line-height:1;">3×</div><div style="font-size:12.5px; color:#6a6456; margin-top:5px;">French champ qualifier</div></div>
-          <div><div style="font-family:'JetBrains Mono',monospace; font-size:36px; font-weight:700; color:#1a1a1d; line-height:1;">'24–'26</div><div style="font-size:12.5px; color:#6a6456; margin-top:5px;">seasons competed</div></div>
+          <div><div style="font-family:'JetBrains Mono',monospace; font-size:36px; font-weight:700; color:#1a1a1d; line-height:1;">{{skate.glyph}}</div><div style="font-size:12.5px; color:#6a6456; margin-top:5px;">French champ qualifier</div></div>
+          <div><div style="font-family:'JetBrains Mono',monospace; font-size:36px; font-weight:700; color:#1a1a1d; line-height:1;">{{skate.short}}</div><div style="font-size:12.5px; color:#6a6456; margin-top:5px;">seasons competed</div></div>
         </div>
       </div>
       <div data-reveal data-delay="220" style="position:relative;">
@@ -349,13 +349,13 @@
   </div>
 
   <footer id="siteFooter" style="display:flex; align-items:center; justify-content:space-between; padding:26px 6vw; background:#efece4; border-top:1px solid #ddd6c6; font-family:'JetBrains Mono',monospace; font-size:11.5px; color:#6a6456; flex-wrap:wrap; gap:12px;">
-    <span>ARTHUR SCHEIDEL © 2026 · PARIS</span>
+    <span>ARTHUR SCHEIDEL © {{person.copyrightYear}} · PARIS</span>
     <div style="display:flex; gap:18px;">
-      <a href="https://github.com/LaCreArthur/" target="_blank" rel="noopener" style="color:#4f4a40; text-decoration:none;">GITHUB</a>
-      <a href="https://lacrearthur.itch.io/" target="_blank" rel="noopener" style="color:#4f4a40; text-decoration:none;">ITCH.IO</a>
-      <a href="https://www.youtube.com/@arthur.scheidel/videos" target="_blank" rel="noopener" style="color:#4f4a40; text-decoration:none;">YOUTUBE</a>
-      <a href="https://www.instagram.com/arthur.scheidel/" target="_blank" rel="noopener" style="color:#4f4a40; text-decoration:none;">INSTAGRAM</a>
-      <a href="https://www.linkedin.com/in/arthur-scheidel/" target="_blank" rel="noopener" style="color:#4f4a40; text-decoration:none;">LINKEDIN</a>
+      <a href="{{links.githubSlash}}" target="_blank" rel="noopener" style="color:#4f4a40; text-decoration:none;">GITHUB</a>
+      <a href="{{links.itch}}" target="_blank" rel="noopener" style="color:#4f4a40; text-decoration:none;">ITCH.IO</a>
+      <a href="{{links.youtube}}" target="_blank" rel="noopener" style="color:#4f4a40; text-decoration:none;">YOUTUBE</a>
+      <a href="{{links.instagram}}" target="_blank" rel="noopener" style="color:#4f4a40; text-decoration:none;">INSTAGRAM</a>
+      <a href="{{links.linkedin}}" target="_blank" rel="noopener" style="color:#4f4a40; text-decoration:none;">LINKEDIN</a>
     </div>
   </footer>
 

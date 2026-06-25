@@ -214,20 +214,51 @@
     };
     resize();
     window.addEventListener('resize', resize);
+
+    // Pointer interaction: dots near the cursor swell, brighten, and part around it.
+    var host = c.parentNode;          // the hero <section>
+    var R = 240;                      // influence radius (css px)
+    var mx = -9999, my = -9999;       // smoothed cursor (what we render against)
+    var tx = -9999, ty = -9999;       // raw cursor target
+    var amp = 0, tAmp = 0;            // influence strength 0..1, eased in/out
+    var onMove = function (e) {
+      var r = c.getBoundingClientRect();
+      tx = e.clientX - r.left; ty = e.clientY - r.top; tAmp = 1;
+      if (mx < -9000) { mx = tx; my = ty; }   // first move: snap, don't fly in
+    };
+    host.addEventListener('mousemove', onMove);
+    host.addEventListener('mouseleave', function () { tAmp = 0; });
+
     var t0 = performance.now();
     var draw = function (t) {
       var time = (t - t0) / 1000;
+      mx += (tx - mx) * 0.16; my += (ty - my) * 0.16;   // trail the cursor smoothly
+      amp += (tAmp - amp) * 0.07;                         // fade influence in/out
       ctx.clearRect(0, 0, w, h);
+      var live = amp > 0.001;
       for (var y = 0; y < rows; y++) {
         for (var x = 0; x < cols; x++) {
           var px = x * gap, py = y * gap;
           var wv = Math.sin((px + py) / 150 - time * 1.0) * 0.6 + Math.sin((px - py) / 230 + time * 0.55) * 0.4;
           var a = (wv + 1) / 2;
           var rr = 0.75 + a * 2.2;
+          var light = 0.06 + a * 0.4;
+          var ox = px, oy = py;
+          if (live) {
+            var dx = px - mx, dy = py - my, d2 = dx * dx + dy * dy;
+            if (d2 < R * R) {
+              var d = Math.sqrt(d2) || 0.0001;
+              var f = 1 - d / R; f = f * f * amp;         // eased falloff
+              ox = px + (dx / d) * f * 14;                // part around the cursor
+              oy = py + (dy / d) * f * 14;
+              rr += f * 3;                                // swell
+              light += f * 0.55;                          // brighten
+            }
+          }
           var hue = (((px - py) / 7) + time * 26) % 360;
           ctx.beginPath();
-          ctx.arc(px, py, rr, 0, 6.2832);
-          ctx.fillStyle = 'hsla(' + (hue < 0 ? hue + 360 : hue) + ',58%,76%,' + (0.06 + a * 0.4) + ')';
+          ctx.arc(ox, oy, rr, 0, 6.2832);
+          ctx.fillStyle = 'hsla(' + (hue < 0 ? hue + 360 : hue) + ',58%,76%,' + light + ')';
           ctx.fill();
         }
       }
