@@ -1,9 +1,0 @@
-{
-  "scripts": {
-    "build": "node scripts/build.js",
-    "check:links": "node scripts/check-links.js",
-    "check:facts": "node scripts/check-facts.js",
-    "check:build": "node scripts/build.js --check",
-    "check": "npm run check:build && npm run check:facts && npm run check:links"
-  }
-}
