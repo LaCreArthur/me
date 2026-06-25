@@ -1,23 +1,24 @@
-# Arthur Scheidel - Unity Developer and Tech Co-Founder
+# Arthur Scheidel - Unity and AI Engineer
 
-> Unity game developer, mobile publishing co-founder, SDK builder, and indie creator. Tech co-founder of Sorolla. Based in Paris, France. Also known as LaCreArthur.
+> Unity and AI engineer, technical co-founder, game developer, mobile publishing builder, and indie creator. Based in Paris, France. Also known as LaCreArthur.
 
 ## Professional Summary
 
-Arthur Scheidel is a Unity game developer and tech co-founder of Sorolla, a mobile game publishing effort focused on publisher SDKs, playable ads, release tooling, and publishing infrastructure. Self-taught in Unity and C#, he has shipped 20+ games. His background spans hyper-casual mobile work at Ubisoft/Ketchapp, Web3 gaming leadership, WebGL/full-stack engineering, independent games, and Unity teaching.
+Arthur Scheidel is a Unity and AI engineer and technical co-founder working across games, mobile publishing infrastructure, playable ads, and agentic AI orchestration. Self-taught in Unity and C#, he has shipped 20+ games. His background spans hyper-casual mobile work at Ubisoft/Ketchapp, Web3 gaming leadership, WebGL/full-stack engineering, AI development workflows, independent games, and Unity teaching.
 
 ## Key Facts
 
-- **Current Role**: Technical co-founder and game-tech lead at Sorolla
+- **Current Role**: Technical co-founder at Sorolla
 - **Location**: Paris, France; remote friendly
 - **Experience**: 7+ years in game development and adjacent full-stack/product engineering
-- **Education**: Master's in Computer Science (Software and Knowledge Engineering), with honors, University of Strasbourg, {{education.mscYear}}
+- **Education**: Master of Technology in Computer and Information Sciences, University of Strasbourg, {{education.mscYear}}; Bachelor of Technology in Mathematics and Computer Science, {{education.bscYear}}
 - **Languages**: French, English
 
 ## Technical Skills
 
 - **Game Development**: Unity, C#, Three.js, C++, game architecture
 - **Mobile Publishing**: iOS ATT, ad network integration, analytics, ASO, release workflows
+- **AI Orchestration**: Agentic AI, prompt engineering, MCP/tool use, context engineering, Claude Code, Codex, agent harnesses
 - **Playable Ads**: Three.js playable ad prototypes, MRAID-style constraints, mobile-first interaction
 - **DevOps**: GitHub Actions, GameCI, Fastlane, Firebase Distribution
 - **Web / Full Stack**: React, Angular, TypeScript, Python, Firebase
@@ -25,14 +26,16 @@ Arthur Scheidel is a Unity game developer and tech co-founder of Sorolla, a mobi
 
 ## Career Timeline
 
-- **Sorolla** - Technical Co-Founder ({{role.sorolla.present}}): mobile game publishing, publisher SDK, analytics, playable ads, production tooling
-- **YourArt** - Senior Unity and Full-Stack Engineer ({{role.yourart.present}}): Unity WebGL and platform engineering
-- **Yumon** - Lead Unity Developer ({{role.yumon.present}}): play-to-earn/Web3 Unity game work
-- **CARFT** - Chief Technology Officer ({{role.carft.present}}): Web3 gaming startup
+- **Sorolla** - Technical co-founder ({{role.sorolla.present}}): publishing platform, ad mediation, ATT/CMP, MMP, analytics, GDPR/CCPA compliance, playable ads, AI-assisted workflows
+- **YourArt** - Senior Unity and Full-Stack Engineer ({{role.yourart.present}}): Unity WebGL and platform engineering; reduced WebGL build size by 50% and improved scene loading by 30-70%
+- **Yumon** - Lead Unity Developer ({{role.yumon.present}}): play-to-earn/Web3 Unity game and B2B SDK platform; cut new-game sprint time from 3-4 weeks to 1 week
+- **CARFT** - Chief Technology Officer ({{role.carft.present}}): Web3 gaming startup; full-stack multiplayer/Web3 systems, tooling, prototypes, and mentoring 5 junior developers
 - **Bretzel Studio** - Independent Game Developer ({{role.bretzel.present}}): indie/mobile games, teaching material, prototypes
-- **Ubisoft / Ketchapp** - Gameplay Programmer ({{role.ubisoft.present}}): hyper-casual mobile prototypes and SDK/ad integrations
-- **Celsius Online** - Game Developer ({{role.celsius.present}}): live mobile game work
-- **University of Strasbourg** - Master's in Computer Science, with honors ({{education.mscYear}}); Bachelor in Computer Science ({{education.bscYear}})
+- **Ubisoft / Ketchapp** - Gameplay Programmer ({{role.ubisoft.present}}): 15+ hyper-casual mobile prototypes, SDK/ad integrations, and reusable components that accelerated prototype development by 50%
+- **Celsius Online** - Game Developer ({{role.celsius.present}}): live mobile game work; 500+ file codebase, iOS platform update, PvP exploit fix
+- **BIOptimize** - Data Scientist (2015-2017): health-data R&D, R scripts, metaheuristic optimization up to 400%
+- **Straformation** - Lead Web Developer Intern (2014): PHP/HTML/CSS website work, animated banners, managed 5 interns
+- **University of Strasbourg** - Master of Technology in Computer and Information Sciences ({{education.mscYear}}); Bachelor of Technology in Mathematics and Computer Science ({{education.bscYear}})
 
 ## Featured Work
 
@@ -48,7 +51,7 @@ Arthur Scheidel is a Unity game developer and tech co-founder of Sorolla, a mobi
 
 ### Doge To Mars / Dogecoin To The Moon
 - Dogecoin-community mobile game, built and shipped solo with no paid marketing
-- 10K+ installs and a 4.5 rating on Google Play, grown organically
+- 25K organic downloads and a 4.9 rating, grown organically
 - Google Play: https://play.google.com/store/apps/details?id=com.bretzelstudio.dogecointothemoon
 - GitHub/page: https://github.com/LaCreArthur/doge-to-mars-gh-page
 - itch.io: https://lacrearthur.itch.io/dogecoin-to-the-moon

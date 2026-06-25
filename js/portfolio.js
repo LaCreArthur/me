@@ -17,6 +17,8 @@
     initReveals(reduce);
     initCounters(reduce);
     initRoles(reduce);
+    initWordRotor(reduce);
+    initSkateVideo(reduce);
     initFoldout();
     initNavFlip();
     initTransition();
@@ -109,7 +111,7 @@
   function initRoles(reduce) {
     var els = [].slice.call(document.querySelectorAll('[data-role]'));
     if (!els.length) return;
-    var colors = ['#9fe0c2', '#a7cdf2', '#c9b8f2'];
+    var colors = ['#9fe0c2', '#a7cdf2', '#f1d99b'];   // game dev / founder / skater (gold)
     var set = function (n) {
       els.forEach(function (el, k) {
         var on = k === n;
@@ -124,6 +126,69 @@
     if (reduce) return;
     var i = 0;
     setInterval(function () { i = (i + 1) % els.length; set(i); }, 1700);
+  }
+
+  // Contact heading: cycle the accent word ("ship?" -> "build?" -> ...) with a vertical
+  // slide while the container width morphs so the "?" (part of the word) tracks it, and
+  // swap to a different pastel accent on each flip.
+  function initWordRotor(reduce) {
+    var rotor = document.querySelector('[data-rotor]');
+    if (!rotor) return;
+    var word = rotor.querySelector('.rotor__word');
+    var words = (rotor.getAttribute('data-rotor') || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+    if (!word || words.length < 2) return;
+    var palette = ['#f4b59e', '#9fe0c2', '#a7cdf2', '#c9b8f2', '#f1d99b', '#f4abce']; // peach, teal, blue, violet, gold, pink
+    var label = function (w) { return w + '?'; };
+
+    // Hidden in-place measurer inherits the heading font, so width is exact per word.
+    var meas = document.createElement('span');
+    meas.setAttribute('aria-hidden', 'true');
+    meas.style.cssText = 'position:absolute; visibility:hidden; white-space:nowrap; pointer-events:none; left:0; top:0;';
+    rotor.appendChild(meas);
+    var widthOf = function (w) { meas.textContent = label(w); return meas.offsetWidth; };
+
+    var setWidth = function (w, animate) {
+      if (animate) { rotor.style.width = widthOf(w) + 'px'; return; }
+      var prev = rotor.style.transition;
+      rotor.style.transition = 'none';
+      rotor.style.width = widthOf(w) + 'px';
+      void rotor.offsetWidth;            // commit before re-enabling the transition
+      rotor.style.transition = prev;
+    };
+
+    setWidth(words[0], false);
+    if (reduce) return;
+
+    var tick = 0;
+    setInterval(function () {
+      tick++;
+      var next = words[tick % words.length];
+      rotor.classList.add('is-out');     // current word slides up + fades
+      setWidth(next, true);              // width morphs alongside
+      setTimeout(function () {
+        word.textContent = label(next);
+        word.style.color = palette[tick % palette.length]; // new pastel per flip
+        rotor.classList.remove('is-out');
+        rotor.classList.add('is-in');    // park the new word below, no transition
+        void rotor.offsetWidth;
+        rotor.classList.remove('is-in'); // let it slide up into place
+      }, 420);                           // matches the .42s CSS duration
+    }, 2200);
+  }
+
+  // Skate reel: muted loop that only plays while it's on screen (saves battery and
+  // decode when scrolled away). Reduced-motion users keep the static poster frame.
+  function initSkateVideo(reduce) {
+    var v = document.querySelector('[data-skate-video]');
+    if (!v || reduce) return;
+    var play = function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) play(); else v.pause(); });
+      }, { threshold: 0.25 }).observe(v);
+    } else {
+      play();
+    }
   }
 
   function initFoldout() {

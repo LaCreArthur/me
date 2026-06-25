@@ -40,7 +40,10 @@ const FORBIDDEN = [
     { pattern: '2× French', why: 'stale skate count (should be 3×)' },
     { pattern: '2x French', why: 'stale skate count (should be 3x)' },
     { pattern: '2&times; French', why: 'stale skate count (should be 3&times;)' },
-    { pattern: 'resume.pdf', why: 'resume.html is the entry point; never link the PDF directly' }
+    { pattern: 'resume.pdf', why: 'resume.html is the entry point; never link the PDF directly' },
+    { pattern: '10K+ installs', why: 'stale Doge To Mars metric (LinkedIn source says 25K organic downloads)' },
+    { pattern: '4.5 rating', why: 'stale Doge To Mars rating (LinkedIn source says 4.9)' },
+    { pattern: '4.5★', why: 'stale Doge To Mars rating (LinkedIn source says 4.9)' }
 ];
 
 function read(file) {

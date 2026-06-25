@@ -3,8 +3,8 @@
   "person": {
     "name": "Arthur Scheidel",
     "alternateName": "LaCreArthur",
-    "jobTitle": "Unity Game Developer and Technical Co-Founder",
-    "roleShortHtml": "Unity Developer &amp; Tech Co-Founder",
+    "jobTitle": "Unity and AI Engineer, Games and Agentic AI Orchestration",
+    "roleShortHtml": "Unity &amp; AI Engineer · Tech Co-Founder",
     "location": "Paris, France",
     "city": "Paris",
     "country": "France",
@@ -15,8 +15,8 @@
   },
   "metrics": {
     "games":    { "count": "20",  "suffix": "+",  "label": "games shipped" },
-    "installs": { "count": "10",  "suffix": "K+", "label": "Google Play installs" },
-    "rating":   { "count": "4.5", "suffix": "",   "dec": "1", "label": "Play Store rating" },
+    "installs": { "count": "25",  "suffix": "K+", "label": "organic downloads" },
+    "rating":   { "count": "4.9", "suffix": "",   "dec": "1", "label": "Doge To Mars rating" },
     "years":    { "count": "7",   "suffix": "+",  "label": "Unity &amp; game dev" }
   },
   "skate": {
@@ -27,18 +27,18 @@
     "school": "University of Strasbourg",
     "mscYear": "2017",
     "bscYear": "2015",
-    "timelineTitle": "MSc Computer Science",
-    "timelineSub": "University of Strasbourg, honors",
-    "jsonldName": "Master's in Computer Science (Software and Knowledge Engineering)"
+    "timelineTitle": "MTech Computer & Information Sciences",
+    "timelineSub": "University of Strasbourg",
+    "jsonldName": "Master of Technology in Computer and Information Sciences"
   },
   "roles": {
-    "sorolla": { "title": "Technical Co-Founder", "org": "Sorolla", "start": 2025, "startMonth": 8, "end": "now" },
+    "sorolla": { "title": "Technical Co-Founder", "org": "Sorolla", "start": 2025, "startMonth": 10, "end": "now" },
     "yourart": { "title": "Senior Unity &amp; Full-Stack Engineer", "org": "YourArt", "start": 2024, "end": 2024 },
     "yumon":   { "title": "Lead Unity Developer", "org": "Yumon", "start": 2023, "end": 2023 },
     "carft":   { "title": "Chief Technology Officer", "org": "CARFT", "start": 2022, "end": 2023 },
     "celsius": { "title": "Game Developer", "org": "Celsius Online", "start": 2018, "end": 2019 },
     "ubisoft": { "title": "Gameplay Programmer", "org": "Ubisoft / Ketchapp", "start": 2019, "end": 2019 },
-    "bretzel": { "title": "Independent Game Developer", "org": "Bretzel Studio", "start": 2015, "end": "now" }
+    "bretzel": { "title": "Independent Game Developer & Tech Entrepreneur", "org": "Bretzel Studio", "start": 2015, "end": "now" }
   },
   "links": {
     "sdk": "https://github.com/sorolla-studio/sorolla-palette",
@@ -51,10 +51,10 @@
     "instagram": "https://www.instagram.com/arthur.scheidel/"
   },
   "head": {
-    "title": "Arthur Scheidel - Unity Developer &amp; Tech Co-Founder | Paris",
-    "metaDescription": "I'm a Unity developer and tech co-founder of Sorolla in Paris. I ship mobile games, build publishing SDKs and playable ads, and automate Unity release pipelines.",
+    "title": "Arthur Scheidel - Unity &amp; AI Engineer | Games &amp; Agentic AI",
+    "metaDescription": "I'm a Unity and AI engineer in Paris. I ship mobile games, build publishing SDKs, playable ads, AI agent workflows, and Unity release pipelines.",
     "ogTitle": "Arthur Scheidel - I make mobile games and the tools to ship them",
-    "ogDescription": "Unity developer, 20+ games shipped, tech co-founder of Sorolla. SDKs, playable ads, and CI/CD for mobile game releases.",
+    "ogDescription": "Unity and AI engineer, 20+ games shipped. SDKs, playable ads, agentic AI orchestration, and mobile game release pipelines.",
     "ogImage": "https://lacrearthur.github.io/me/img/og-image.png",
     "profileImage": "https://lacrearthur.github.io/me/img/id2018.jpg"
   }

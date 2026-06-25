@@ -12,12 +12,12 @@
   --text: #e8e8ec;
   --muted: #9a9aa3;
   --faint: #8a8a93;        /* lifted from the old sub-AA greys (7a7a84 / 7c7c84 / 6c6c75) */
-  --teal: #9fe0c2;         /* primary / actions */
+  --teal: #9fe0c2;         /* pastel accent, kept in rotation */
   --blue: #a7cdf2;         /* games / installs */
   --violet: #c9b8f2;       /* about / SDK / teaching */
   --peach: #f4b59e;        /* contact */
-  --gold: #f1d99b;         /* awards / ratings */
-  --pink: #f4abce;         /* skate / jams (used sparingly) */
+  --gold: #f1d99b;         /* awards / ratings / skater */
+  --pink: #f4abce;         /* jams (used sparingly) */
 }
 
 /* === Base === */
@@ -39,7 +39,7 @@ img { max-width: 100%; }
 a { color: inherit; }
 
 /* Visible keyboard focus on the dark theme (the contact inputs set outline:none). */
-:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 2px; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 2px; }
 /* Light-mode coda (skate + footer) needs a dark ring to stay visible on the cream bg. */
 #skate :focus-visible, #siteFooter :focus-visible { outline-color: #1a1a1d; }
 
@@ -85,16 +85,16 @@ a { color: inherit; }
 .cform label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #9a9aa3; margin: 0 0 7px; }
 .cform input, .cform textarea { width: 100%; background: #202024; border: 1px solid #34343a; border-radius: 8px; padding: 12px 14px; color: #e8e8ec; font-family: 'Space Grotesk', sans-serif; font-size: 15px; outline: none; transition: border-color .15s ease, box-shadow .15s ease; }
 .cform input::placeholder, .cform textarea::placeholder { color: var(--faint); }
-.cform input:focus, .cform textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(159,224,194,.12); }
+.cform input:focus, .cform textarea:focus { border-color: var(--peach); box-shadow: 0 0 0 3px rgba(244,181,158,.15); }
 .cform textarea { resize: vertical; min-height: 120px; }
-.cform button { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 13px; letter-spacing: .04em; background: var(--teal); color: #1a1a1d; border: none; cursor: pointer; padding: 14px 28px; border-radius: 6px; transition: background-color .15s ease; }
-.cform button:hover { background: #b8ecd3; }
+.cform button { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 13px; letter-spacing: .04em; background: var(--peach); color: #1a1a1d; border: none; cursor: pointer; padding: 14px 28px; border-radius: 6px; transition: background-color .15s ease; }
+.cform button:hover { background: #f8cbb9; }
 .cform .alt { margin-top: 18px; font-size: 13.5px; color: #9a9aa3; }
-.cform .alt a { color: var(--teal); text-decoration: none; }
+.cform .alt a { color: var(--peach); text-decoration: none; }
 
 /* === More-work foldout === */
-.fold-toggle { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: .04em; color: var(--teal); background: rgba(26,26,29,.55); border: 1px solid #2f3a35; border-radius: 30px; padding: 9px 17px; cursor: pointer; white-space: nowrap; transition: background-color .15s ease, color .15s ease; }
-.fold-toggle:hover { background: var(--teal); color: #1a1a1d; }
+.fold-toggle { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: .04em; color: var(--blue); background: rgba(26,26,29,.55); border: 1px solid rgba(167,205,242,.28); border-radius: 30px; padding: 9px 17px; cursor: pointer; white-space: nowrap; transition: background-color .15s ease, color .15s ease; }
+.fold-toggle:hover { background: var(--blue); color: #1a1a1d; }
 .fold-toggle .chev { display: inline-block; transition: transform .3s ease; }
 .fold-toggle[aria-expanded="true"] .chev { transform: rotate(180deg); }
 .fold-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s ease; }
@@ -104,16 +104,31 @@ a { color: inherit; }
 .arch-group { margin-top: 26px; }
 .arch-head { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid #2a2a2f; }
 .arch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.arch-card { display: flex; gap: 12px; align-items: flex-start; border: 1px solid #2a2a2f; border-radius: 11px; background: #202024; padding: 12px; }
+.arch-card { --arch-accent: var(--teal); --arch-border: rgba(159,224,194,.28); display: flex; gap: 12px; align-items: flex-start; border: 1px solid #2a2a2f; border-radius: 11px; background: #202024; padding: 12px; }
+.arch-card:nth-child(6n+2) { --arch-accent: var(--blue); --arch-border: rgba(167,205,242,.28); }
+.arch-card:nth-child(6n+3) { --arch-accent: var(--violet); --arch-border: rgba(201,184,242,.28); }
+.arch-card:nth-child(6n+4) { --arch-accent: var(--peach); --arch-border: rgba(244,181,158,.28); }
+.arch-card:nth-child(6n+5) { --arch-accent: var(--gold); --arch-border: rgba(241,217,155,.28); }
+.arch-card:nth-child(6n+6) { --arch-accent: var(--pink); --arch-border: rgba(244,171,206,.28); }
 .arch-thumb { flex: 0 0 auto; width: 44px; height: 44px; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 17px; }
 .arch-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .arch-title { font-size: 14px; font-weight: 700; color: #e8e8ec; line-height: 1.2; }
 .arch-desc { font-size: 12px; color: #9a9aa3; line-height: 1.4; margin: 3px 0 7px; }
 .arch-links { display: flex; flex-wrap: wrap; gap: 6px; }
 .arch-links a, .arch-links .muted { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .03em; border-radius: 20px; padding: 3px 9px; text-decoration: none; }
-.arch-links a { color: var(--teal); border: 1px solid #2f3a35; }
-.arch-links a:hover { background: var(--teal); color: #1a1a1d; }
+.arch-links a { color: var(--arch-accent); border: 1px solid var(--arch-border); }
+.arch-links a:hover { background: var(--arch-accent); color: #1a1a1d; }
 .arch-links .muted { color: var(--faint); border: 1px solid #34343a; }
 
 @media (max-width: 860px) { .arch-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .arch-grid { grid-template-columns: 1fr; } .cform .row { grid-template-columns: 1fr; } }
+
+/* === Rotating word in the contact heading ("Got something to ship/build/...?") ===
+   One word element slides up out as the next slides up in; the container width morphs
+   so the trailing "?" follows snugly. JS drives the swap and width (see initWordRotor);
+   reduced-motion keeps the static "ship". */
+.rotor { position: relative; display: inline-flex; overflow: hidden; vertical-align: bottom; height: 1em; line-height: 1; color: var(--gold); transition: width .42s cubic-bezier(.65, 0, .35, 1); }
+.rotor__word { display: inline-block; white-space: nowrap; transition: transform .42s cubic-bezier(.65, 0, .35, 1), opacity .42s ease; }
+.rotor.is-out .rotor__word { transform: translateY(-100%); opacity: 0; }
+.rotor.is-in .rotor__word { transform: translateY(100%); opacity: 0; transition: none; }
+@media (prefers-reduced-motion: reduce) { .rotor, .rotor__word { transition: none !important; } }
