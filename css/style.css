@@ -123,6 +123,22 @@ a { color: inherit; }
 @media (max-width: 860px) { .arch-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .arch-grid { grid-template-columns: 1fr; } .cform .row { grid-template-columns: 1fr; } }
 
+/* === Uniform button hover bump ===
+   One micro-interaction shared by every button/chip: a slight scale on hover and a
+   small press-in on click. The transition lists keep each button's own colour fade
+   (so adding transform here doesn't drop the existing background/colour animation). */
+.btn-pop, .fold-toggle, .cform button, .arch-links a {
+  transition: transform .16s ease, background-color .15s ease, color .15s ease, box-shadow .15s ease;
+}
+.btn-pop:hover, .fold-toggle:hover, .cform button:hover, .arch-links a:hover { transform: scale(1.05); }
+.btn-pop:active, .fold-toggle:active, .cform button:active, .arch-links a:active { transform: scale(.97); }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-pop, .fold-toggle, .cform button, .arch-links a { transition: none; }
+  .btn-pop:hover, .fold-toggle:hover, .cform button:hover, .arch-links a:hover,
+  .btn-pop:active, .fold-toggle:active, .cform button:active, .arch-links a:active { transform: none; }
+}
+
 /* === Rotating word in the contact heading ("Got something to ship/build/...?") ===
    One word element slides up out as the next slides up in; the container width morphs
    so the trailing "?" follows snugly. JS drives the swap and width (see initWordRotor);
