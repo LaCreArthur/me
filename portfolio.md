@@ -23,8 +23,8 @@ Conventions:
 ## Hero
 - Kicker: `// PARIS · UNITY · AI AGENTS · FOUNDER · SKATE`
 - Name: ARTHUR SCHEIDEL
-- Tagline: I make mobile games and the tools to ship them - 20+ titles, publishing SDKs, playable ads, AI agentic workflows, and release pipelines.
-  - (inline styling in HTML: "and the tools to ship them" is brightened)
+- Tagline: I spent ten years writing game code. AI writes it now. What's left is the interesting part: judgment, taste, and knowing what's worth shipping.
+  - (inline styling in HTML: "judgment, taste, and knowing what's worth shipping" is brightened)
 - Role badges: GAME DEV · FOUNDER · SKATER
 - Buttons: `▶ SEE MY WORK` / `VIEW RESUME`
 - Portrait badges: `● ONLINE` / `PARIS · FR`
@@ -32,22 +32,22 @@ Conventions:
 ## Metrics (the four-up band)
 - 20+ games shipped
 - 25K+ organic downloads
-- 4.9★ Doge To Mars rating
+- 4.9★ Doge · App Store rating
 - 7+ yrs Unity & game dev
 
 ## Three modes
 - Heading: Three modes, one loop. (inline `<br>` after "modes,")
 - Intro: practice → fail → adjust → repeat. The same loop whether I'm shipping a game, building the studio, or landing a trick.
-- 🎮 Game dev: 20+ titles, indie passion projects to hyper-casual at Ubisoft/Ketchapp. Unity gameplay, tools and playable ads.
-- 🚀 Founder: Technical co-founder of Sorolla. I build the ad mediation, ATT/CMP, MMP, analytics and compliance stack that gets games shipped.
-- 🛹 Skater: 3× French Championship qualifier (2024, 2025, 2026). The off-screen version of the same practice loop.
+- 🎮 Game dev: 20+ games in 10 years. The craft was code; now it's knowing what to build and when it's good. AI didn't replace me, it promoted me.
+- 🚀 Founder: Co-founder at Sorolla. When making a game costs nothing, distribution and monetization are the moat. I build that moat.
+- 🛹 Skater: French Championship qualifier three years running, at an age most people quit. Skateboarding is my lab for fear, commitment and progress you can't fake.
 
 ## Selected work
 - Section heading: Selected work · label `01 - 03 / 23`
 - Sorolla Palette SDK (`01 · CURRENT · SOROLLA`): A Unity publishing stack for ad mediation, ATT & CMP, MMP, analytics and GDPR/CCPA compliance, plus the AI-assisted release workflows around it.
   - Tags: `Unity · C#` / `Open source` / `GitHub ↗`
   - Tile placeholder text: `[ SDK ARCHITECTURE / DEMO VIDEO ]`
-- Doge To Mars (`02 · 25K+ ORGANIC`): A Dogecoin-community game shipped solo with no paid marketing - 25K organic downloads, 4.9★, grown through the community.
+- Doge To Mars (`02 · 25K+ ORGANIC`): A Dogecoin-community game shipped solo with no paid marketing - 25K organic downloads, 4.9★ on the App Store, grown through the community.
 - Rody & Mastico (`03 · LEVEL EDITOR`): A 3-year solo Atari-ST remaster with rebuilt 1987 voice synth and an in-game level editor. Featured by French YouTubers.
 
 ## More games (foldout index)
@@ -57,12 +57,16 @@ Conventions:
 - Marquee order: HAPPY SNAKE 3D · DOGE TO MARS · DON'T FALL GUYS · SNAP GUYS · MINE BLOCK · FARM RUN · RODY & MASTICO · FIND-IT 3D · BINDING OF EUCLIDE · UNITY CI/CD
 
 Shipped games:
-- Happy Snake 3D - Sorolla mobile game. (App Store)
+- Happy Snake 3D - Sorolla mobile game. (App Store · Google Play)
 - Don't Fall Guys - Hyper-casual runner. (Google Play)
 - Snap Guys - Hyper-casual party game. (itch.io)
 - Mine Block - Hyper-casual miner. (Trailer)
 - Farm Run - Ketchapp / Ubisoft prototype. (Prototype, no link)
-- Find-it 3D - Hidden-object hyper-casual. (iOS · Android, no link)
+- Find-it 3D - Hidden-object hyper-casual. (Archived, no link)
+
+Playable in browser (Unity WebGL, runs in-page):
+- Fall To Infinity - Arcade faller. (Play ↗ -> Fall/fall.html)
+- Roll To Infinity - Endless roller. (Play ↗ -> Roll/roll.html)
 
 SDKs & tools:
 - Facebook SDK UPM - Unity Package Manager port. (GitHub)
@@ -85,8 +89,8 @@ CS fundamentals:
 ## About
 - Kicker: `// ABOUT`
 - Heading: Builder, co-founder, and teacher. (inline `<br>` after "co-founder,")
-- Para 1: I taught myself Unity and C# to remake the Atari ST games I grew up with, and I've since shipped 20+ titles - from indie passion projects to hyper-casual games at Ubisoft/Ketchapp. Today I work across Unity publishing infrastructure and agentic AI orchestration: SDKs, playable ads, compliance tooling, Codex/Claude workflows and release pipelines.
-- Para 2: Outside code I skate competitively and teach Unity to students. Same loop as shipping games: practice, fail, adjust, repeat.
+- Para 1: I'm a late bloomer, and by design. I've had to rebuild my life more than once, and each rebuild taught me the same thing shipping games and landing tricks does: you don't rise to your ambitions, you fall to your systems.
+- Para 2: At 34 I compete better than I did at 28, ship faster than I did with twice the team, and I'm more interested in what humans keep when AI takes the rest: judgment, taste, and everything you earn with your body.
 - Signature: Arthur Scheidel / Paris, France
 
 ## Timeline (right column)
@@ -96,10 +100,23 @@ CS fundamentals:
 - Independent Game Developer & Tech Entrepreneur · Bretzel Studio · 2015-now
 - MTech Computer & Information Sciences · University of Strasbourg · 2017
 
+## Now / Next (between About and Contact)
+- Kicker: `// NOW / NEXT`
+- Heading: What I'm building toward. (inline `<br>` after "building")
+- Intro: The code is AI's job now. I'm putting the years I spent earning judgment, on a board and in a codebase, into work that needs a human in the loop.
+- Now (active, two cards):
+  - Sorolla: The publishing stack, ad mediation, compliance, analytics, release tooling, that lets small teams ship and get paid when making a game costs nothing.
+  - Content · @arthur.scheidel: Skate, mind, and the AI shift, in public. Documented self-experiments, not lectures.
+- Exploring (open threads, three cards, honest framing):
+  - AI-agent workshops: Helping teams actually ship with Claude Code, Codex and MCP, the harness I use daily, not the hype.
+  - Coaching: Mental performance and adult skate progression. Fear, commitment, and starting late, from someone who did.
+  - Mental gyms: A bet that as AI removes cognitive friction, people will pay to put it back, deliberately. Skateboarding is my first proof.
+- CTA line: If one of these speaks to you, tell me what you're working toward → (links to #contactSec)
+
 ## Contact
 - Kicker: `// LET'S BUILD`
-- Heading: Got something to ship? (inline `<br>` after "something"; "ship" is a rotating word cycling: ship, build, launch, make, talk)
-- Subtitle: Best fit: Unity SDK work, mobile-publishing consulting, playable-ad production, or focused freelance with a clear shipping target. ~24h reply.
+- Heading: Got something to ship? (inline `<br>` after "something"; "ship" is a rotating word cycling: ship, build, launch, make, talk, judge, commit, teach)
+- Subtitle: Best fit: AI-agent workshops, Unity SDK and mobile-publishing work, coaching conversations, or focused freelance with a clear target. ~24h reply.
 - Form: Email (placeholder `you@example.com`) / Subject (placeholder `Unity SDK / publishing inquiry`) / Message (placeholder `What are you trying to ship?`)
 - Submit button: `Send message →`
 - Alt line: Or email me directly: arthur.scheidel@gmail.com
@@ -109,7 +126,7 @@ CS fundamentals:
 - Heading: Same loop, no keyboard. (inline `<br>`; "keyboard." is blue)
 - Body: When I'm not shipping, I'm skating - and it's the exact same loop: practice, fail, adjust, repeat. Three-time French Championship qualifier, 2024, 2025 & 2026.
 - Stats: `3×` French champ qualifier / `'24-'26` seasons competed
-- CTA: `drop in →` (links to Instagram)
+- CTA: `@arthur.scheidel →` (links to Instagram; aria-label "Follow the journey on Instagram: @arthur.scheidel". Handle shortened from "follow the journey → @arthur.scheidel" to fit the corner pill.)
 
 ## Footer
 - Copyright: ARTHUR SCHEIDEL © 2026 · PARIS
@@ -118,7 +135,7 @@ CS fundamentals:
 ## Head / SEO (not visible on the page)
 - Title: Arthur Scheidel - Unity & AI Engineer | Games & Agentic AI
 - Meta description: I'm a Unity and AI engineer in Paris. I ship mobile games, build publishing SDKs, playable ads, AI agent workflows, and Unity release pipelines.
-- OG / Twitter title: Arthur Scheidel - I make mobile games and the tools to ship them
+- OG / Twitter title: Arthur Scheidel - Unity & AI engineer, founder, skater
 - OG / Twitter description: Unity and AI engineer, 20+ games shipped. SDKs, playable ads, agentic AI orchestration, and mobile game release pipelines.
 
 ---
@@ -140,7 +157,7 @@ Unity and AI engineer, technical co-founder, and startup builder with 20+ shippe
 - Gameplay Programmer · Ubisoft / Ketchapp (2019): Early Ketchapp hyper-casual team member. Shipped 15+ mobile game prototypes in 1-2 week cycles, handled SDK/ad-network/analytics integrations for soft launches, and built reusable components that accelerated prototype development by 50%.
 - Game Developer · Celsius Online (2018-19): First professional game-dev role on live mobile games with millions of users. Mastered a 500+ file undocumented codebase across C++, ActionScript, C# and NodeJS; led a critical iOS platform update and fixed a PvP exploit.
 - Earlier (collapsed to a one-line note on the résumé; full descriptions kept in llms.txt): Data Scientist at BIOptimize (2015-17) and Lead Web Developer Intern at Straformation (2014).
-- Independent Game Developer & Tech Entrepreneur · Bretzel Studio (2015-now): 20+ published games and freelance missions. Doge To Mars - 25K organic downloads, 4.9★, NFT integration, solo. Rody Collection - Unity remake of Atari ST's Rody & Mastico, featured by Benzaie with 800K+ views. Teach Unity and C# at Futurae Private School.
+- Independent Game Developer & Tech Entrepreneur · Bretzel Studio (2015-now): 20+ published games and freelance missions. Doge To Mars - 25K organic downloads, 4.9★ on the App Store, NFT integration, solo. Rody Collection - Unity remake of Atari ST's Rody & Mastico, featured by Benzaie with 800K+ views. Teach Unity and C# at Futurae Private School.
 
 ## Selected work (right column)
 - Sorolla Palette SDK - Unity mobile-publisher SDK. (github.com/sorolla-studio/sorolla-palette)
@@ -184,10 +201,10 @@ Atomic values that appear in several exact forms across surfaces. Change them he
 the agent expands every form listed.
 
 ## Skate (changes yearly)
-- Canonical: 3 qualifications; seasons 2024, 2025, 2026
+- Canonical: 3 qualifications; seasons 2024, 2025, 2026. Public claim is "qualified" only; round results are not disclosed (2026: qualified, out in quarter-finals, private).
 - Rendered forms:
   - `3x` -> llms.txt, JSON-LD award string
-  - `3&times;` -> homepage "Three modes" skater card
+  - `three years running` -> homepage "Three modes" skater card (no glyph)
   - `3×` -> homepage skate stat glyph, résumé "Also" line
   - `Three-time` -> homepage skate body sentence
   - `'24-'26` -> homepage skate stat (rendered with en dash: `'24` to `'26`)
@@ -209,7 +226,7 @@ the agent expands every form listed.
 ## Metrics (homepage band)
 - 20+ games shipped
 - 25K+ organic downloads
-- 4.9 Doge To Mars rating (one decimal, shown with ★)
+- 4.9 Doge To Mars App Store rating (one decimal, shown with ★; App-Store-specific, not universal)
 - 7+ years Unity & game dev
 
 ## Person

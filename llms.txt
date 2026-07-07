@@ -51,7 +51,8 @@ Arthur Scheidel is a Unity and AI engineer and technical co-founder working acro
 
 ### Doge To Mars / Dogecoin To The Moon
 - Dogecoin-community mobile game, built and shipped solo with no paid marketing
-- 25K organic downloads and a 4.9 rating, grown organically
+- 25K organic downloads and a 4.9 App Store rating, grown organically
+- App Store: https://apps.apple.com/us/app/doge-to-mars/id1574465636
 - Google Play: https://play.google.com/store/apps/details?id=com.bretzelstudio.dogecointothemoon
 - GitHub/page: https://github.com/LaCreArthur/doge-to-mars-gh-page
 - itch.io: https://lacrearthur.itch.io/dogecoin-to-the-moon
