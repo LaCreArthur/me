@@ -40,7 +40,10 @@ js/
                       nav light/dark flip, skate-panel transition, dot field
 img/                - static images and social preview image
 fonts/              - bundled fonts (legacy; current page uses Google Fonts)
-docs/               - internal notes (git-ignored, never published)
+                      (internal notes moved 2026-07-24 to the private workspace repo at
+                      corpus/projects/portfolio/ — plan, profile, and the per-item audit.
+                      They were git-ignored here, so they lived on one machine with no
+                      backup and never reached the second Mac.)
 robots.txt
 sitemap.xml
 ```
