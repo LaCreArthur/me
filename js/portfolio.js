@@ -13,7 +13,9 @@
 
   ready(function () {
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    initLetters(reduce);
+    var fine = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+    var introMs = reduce ? 0 : initIntro();
+    initLetters(reduce, introMs);
     initReveals(reduce);
     initCounters(reduce);
     initRoles(reduce);
@@ -23,9 +25,10 @@
     initNavFlip();
     initTransition();
     if (!reduce) initDots();
+    if (!reduce) initMotion(fine);
   });
 
-  function initLetters(reduce) {
+  function initLetters(reduce, base) {
     var els = [].slice.call(document.querySelectorAll('[data-letter]'));
     els.forEach(function (el, i) {
       el.style.display = 'inline-block';
@@ -33,7 +36,7 @@
       el.style.opacity = '0';
       el.style.transform = 'translateY(46px) rotate(7deg)';
       el.style.transition = 'opacity .6s ease, transform .65s cubic-bezier(.2,.8,.2,1)';
-      el.style.transitionDelay = (140 + i * 40) + 'ms';
+      el.style.transitionDelay = (base + 140 + i * 40) + 'ms';
     });
     if (reduce) return;
     requestAnimationFrame(function () {
@@ -330,5 +333,137 @@
       requestAnimationFrame(draw);
     };
     requestAnimationFrame(draw);
+  }
+
+  // Intro reel: 00 -> 100 counter over the name, then a two-layer wipe reveals the page.
+  // Once per session so returning visitors are not made to wait. Returns the ms the hero
+  // choreography should wait before starting.
+  function initIntro() {
+    try { if (sessionStorage.getItem('introSeen')) return 0; sessionStorage.setItem('introSeen', '1'); } catch (e) {}
+    var el = document.createElement('div');
+    el.className = 'intro';
+    el.setAttribute('aria-hidden', 'true');
+    el.innerHTML = '<div class="intro__layer intro__layer--a"></div><div class="intro__layer intro__layer--b">' +
+      '<div class="intro__name"><b>ARTHUR SCHEIDEL</b><br>SHOWREEL · 2015—2026</div><div class="intro__count">00</div>' +
+      '<div class="intro__bar"></div></div>';
+    document.body.appendChild(el);
+    var count = el.querySelector('.intro__count'), bar = el.querySelector('.intro__bar');
+    var dur = 1100, t0 = performance.now();
+    var tick = function (t) {
+      var p = Math.min(1, (t - t0) / dur);
+      var e = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+      var n = Math.round(e * 100);
+      count.textContent = n < 10 ? '0' + n : n;
+      bar.style.transform = 'scaleX(' + e + ')';
+      if (p < 1) return requestAnimationFrame(tick);
+      el.classList.add('is-done');
+      setTimeout(function () { el.remove(); }, 1300);
+    };
+    requestAnimationFrame(tick);
+    document.documentElement.style.setProperty('--intro-delay', '1.35s');
+    return 1250;
+  }
+
+  function initMotion(fine) {
+    var palette = ['#9fe0c2', '#a7cdf2', '#c9b8f2', '#f4b59e', '#f1d99b', '#f4abce'];
+    var vh = function () { return window.innerHeight || 800; };
+
+    // One-shot "in view" class for every choreographed block.
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -12% 0px' });
+
+    // Headings: split text nodes into masked words (element children like the rotor stay intact).
+    [].forEach.call(document.querySelectorAll('h2'), function (h) {
+      var k = 0;
+      [].slice.call(h.childNodes).forEach(function (n) {
+        if (n.nodeType !== 3 || !n.textContent.trim()) return;
+        var frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function (w) {
+          if (!w) return;
+          if (/^\s+$/.test(w)) { frag.appendChild(document.createTextNode(w)); return; }
+          var m = document.createElement('span'); m.className = 'w-mask';
+          var r = document.createElement('span'); r.className = 'w-rise'; r.textContent = w;
+          r.style.transitionDelay = (k++ * 70) + 'ms';
+          m.appendChild(r); frag.appendChild(m);
+        });
+        h.replaceChild(frag, n);
+      });
+      h.classList.add('is-split');
+      io.observe(h);
+    });
+    [].forEach.call(document.querySelectorAll('.img-reveal, .tl'), function (el) { io.observe(el); });
+
+    // Palette.cs types itself in when it scrolls into view.
+    var code = document.querySelector('[data-code]');
+    if (code) {
+      [].forEach.call(code.lastElementChild.children, function (l, i) { l.style.setProperty('--i', i); });
+      code.classList.add('typing');
+      new IntersectionObserver(function (es, o) {
+        if (es[0].isIntersecting) { code.classList.add('typed'); o.disconnect(); }
+      }, { threshold: .5 }).observe(code);
+    }
+
+    // Hero letters hop and take a pastel on hover, then settle back.
+    [].forEach.call(document.querySelectorAll('[data-letter]'), function (l, i) {
+      l.addEventListener('mouseenter', function () {
+        l.classList.remove('hop'); void l.offsetWidth; l.classList.add('hop');
+        l.style.color = palette[i % palette.length];
+        clearTimeout(l.__t); l.__t = setTimeout(function () { l.style.color = ''; }, 900);
+      });
+    });
+
+    // Scroll-linked: progress bar, hero parallax, velocity-driven marquee.
+    var bar = document.createElement('div'); bar.className = 'progress'; document.body.appendChild(bar);
+    var heroCopy = document.querySelector('.hero-copy');
+    var heroImg = document.querySelector('.hero-visual img');
+    var track = document.querySelector('.marquee-track');
+    var mq = track && track.parentNode, mqX = 0, mqHover = false, lastY = window.scrollY, vel = 0;
+    if (heroImg) heroImg.addEventListener('animationend', function () { heroImg.style.animation = 'none'; heroImg.style.clipPath = 'none'; heroImg.__free = true; });
+    if (track) {
+      track.style.animation = 'none';
+      mq.addEventListener('mouseenter', function () { mqHover = true; });
+      mq.addEventListener('mouseleave', function () { mqHover = false; });
+    }
+    var frame = function () {
+      var y = window.scrollY, H = document.documentElement.scrollHeight - vh();
+      bar.style.transform = 'scaleX(' + (H > 0 ? y / H : 0) + ')';
+      if (y < vh() * 1.2) {
+        if (heroCopy) { heroCopy.style.transform = 'translate3d(0,' + (y * .22) + 'px,0)'; heroCopy.style.opacity = String(Math.max(0, 1 - y / (vh() * .75))); }
+        if (heroImg && heroImg.__free) heroImg.style.transform = 'translate3d(0,' + (y * .12) + 'px,0) scale(' + (1.08 + y * .0002) + ')';
+      }
+      vel += ((y - lastY) - vel) * .12; lastY = y;
+      if (track) {
+        var half = track.scrollWidth / 2;
+        if (!mqHover) mqX -= .6 + Math.abs(vel) * .35;
+        if (half && mqX <= -half) mqX += half;
+        track.style.transform = 'translate3d(' + mqX + 'px,0,0) skewX(' + Math.max(-12, Math.min(12, -vel * .4)) + 'deg)';
+      }
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+
+    if (!fine) return;
+
+    // Tilt + spotlight: cards lean toward the pointer, light follows it.
+    [].forEach.call(document.querySelectorAll('[data-tilt]'), function (c) {
+      c.addEventListener('mousemove', function (e) {
+        var r = c.getBoundingClientRect(), px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+        c.style.setProperty('--mx', px * 100 + '%'); c.style.setProperty('--my', py * 100 + '%');
+        c.style.transform = 'perspective(900px) rotateX(' + ((.5 - py) * 7) + 'deg) rotateY(' + ((px - .5) * 9) + 'deg) translateZ(0)';
+      });
+      c.addEventListener('mouseleave', function () { c.style.transform = ''; });
+    });
+
+    // Magnetic buttons pull toward the pointer and spring back.
+    [].forEach.call(document.querySelectorAll('.btn-pop, .fold-toggle, .cform button'), function (b) {
+      b.classList.add('magnetic');
+      b.addEventListener('mousemove', function (e) {
+        var r = b.getBoundingClientRect();
+        b.style.translate = ((e.clientX - r.left - r.width / 2) * .25) + 'px ' + ((e.clientY - r.top - r.height / 2) * .35) + 'px';
+      });
+      b.addEventListener('mouseleave', function () { b.style.translate = ''; });
+    });
+
   }
 })();

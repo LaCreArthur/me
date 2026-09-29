@@ -148,3 +148,77 @@ a { color: inherit; }
 .rotor.is-out .rotor__word { transform: translateY(-100%); opacity: 0; }
 .rotor.is-in .rotor__word { transform: translateY(100%); opacity: 0; transition: none; }
 @media (prefers-reduced-motion: reduce) { .rotor, .rotor__word { transition: none !important; } }
+
+/* === Motion layer (showreel pass) ===
+   Everything below is progressive: JS adds the classes/elements, reduced-motion and
+   touch devices get the static page. Easing tokens keep the whole reel one voice. */
+:root { --ease-out: cubic-bezier(.16, 1, .3, 1); --ease-io: cubic-bezier(.76, 0, .24, 1); }
+
+/* Intro: counter + name, then the panel wipes up in two pastel layers. */
+.intro { position: fixed; inset: 0; z-index: 200; pointer-events: none; }
+.intro__layer { position: absolute; inset: 0; transition: transform 1s var(--ease-io); }
+.intro__layer--a { background: var(--violet); transition-delay: .12s; }
+.intro__layer--b { background: #111113; display: flex; align-items: flex-end; justify-content: space-between; padding: 6vw; }
+.intro.is-done .intro__layer { transform: translateY(-101%); }
+.intro__name { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .22em; color: var(--muted); }
+.intro__name b { color: var(--text); font-weight: 700; }
+.intro__count { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(80px, 18vw, 240px); line-height: .8; letter-spacing: -.05em; color: var(--text); font-variant-numeric: tabular-nums; }
+.intro__bar { position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; transform-origin: left; transform: scaleX(0);
+  background: linear-gradient(90deg, var(--teal), var(--blue), var(--violet), var(--pink), var(--peach), var(--gold)); }
+
+/* Scroll progress: a pastel spectrum under the nav. */
+.progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 60; transform-origin: left; transform: scaleX(0);
+  background: linear-gradient(90deg, var(--teal), var(--blue), var(--violet), var(--pink), var(--peach), var(--gold)); }
+
+/* Masked word rise for section headings. */
+.w-mask { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .08em; margin-bottom: -.08em; }
+.w-rise { display: inline-block; transform: translateY(110%) rotate(4deg); transition: transform 1s var(--ease-out); }
+.is-split.in .w-rise { transform: none; }
+
+/* Hero letters: playful hop on hover. */
+[data-letter] { will-change: transform; }
+[data-letter].hop { animation: hop .6s var(--ease-out); }
+@keyframes hop { 0% { transform: none; } 35% { transform: translateY(-18%) scaleY(1.08) rotate(-4deg); } 70% { transform: translateY(3%) scaleY(.94); } 100% { transform: none; } }
+
+/* Portrait: clip-wipe in, then parallax on scroll. */
+.hero-visual img { animation: wipeUp 1.4s var(--ease-io) both; animation-delay: var(--intro-delay, .3s); }
+@keyframes wipeUp { from { clip-path: inset(100% 0 0 0); transform: scale(1.25); } to { clip-path: inset(0 0 0 0); transform: scale(1.08); } }
+
+/* Work images: curtain reveal on first view. */
+.img-reveal img { clip-path: inset(0 0 100% 0); transform: scale(1.3); transition: clip-path 1.2s var(--ease-io), transform 1.6s var(--ease-out); }
+.img-reveal.in img { clip-path: inset(0 0 0 0); transform: scale(1); }
+[data-tilt]:hover .img-reveal.in img { transform: scale(1.06); transition: transform .8s var(--ease-out); }
+
+/* Tilt + pointer spotlight. */
+[data-tilt] { position: relative; transform-style: preserve-3d; transition: transform .6s var(--ease-out), border-color .3s ease, box-shadow .6s var(--ease-out); }
+[data-tilt]::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .4s ease;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(201,184,242,.16), transparent 45%); }
+[data-tilt]:hover::after { opacity: 1; }
+[data-tilt]:hover { border-color: rgba(201,184,242,.4) !important; box-shadow: 0 30px 60px -30px rgba(0,0,0,.8); }
+
+/* Palette.cs: lines type in, a caret blinks on the last one. */
+[data-code].typing > div:last-child > div { clip-path: inset(0 100% 0 0); }
+[data-code].typed > div:last-child > div { animation: type .55s steps(22) both; animation-delay: calc(var(--i) * .32s); }
+[data-code].typed > div:last-child > div:last-child::after { content: '▍'; color: var(--teal); animation: blink 1s steps(1) infinite; margin-left: 2px; }
+@keyframes type { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Timeline: rail draws down, rows slide in. */
+.tl { position: relative; padding-left: 18px; }
+.tl::before { content: ''; position: absolute; left: 0; top: 14px; bottom: 14px; width: 1.5px; transform-origin: top; transform: scaleY(0); transition: transform 1.4s var(--ease-io);
+  background: linear-gradient(var(--pink), var(--violet), var(--blue), var(--gold)); }
+.tl > div { opacity: 0; transform: translateX(-16px); transition: opacity .7s ease, transform .9s var(--ease-out); }
+.tl.in::before { transform: none; }
+.tl.in > div { opacity: 1; transform: none; }
+.tl > div:nth-child(2) { transition-delay: .12s; } .tl > div:nth-child(3) { transition-delay: .24s; }
+.tl > div:nth-child(4) { transition-delay: .36s; } .tl > div:nth-child(5) { transition-delay: .48s; }
+
+/* Magnetic buttons ride on `translate` so hover `transform: scale` still composes. */
+.magnetic { transition: translate .5s var(--ease-out), transform .16s ease, background-color .15s ease, color .15s ease, box-shadow .15s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  .intro, .progress { display: none !important; }
+  .hero-visual img { animation: none; }
+  .img-reveal img, .tl > div, .w-rise { clip-path: none !important; transform: none !important; opacity: 1 !important; }
+  .tl::before { transform: none; }
+}
