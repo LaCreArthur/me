@@ -87,8 +87,8 @@ Open `http://127.0.0.1:8080/`.
 When `resume.html` changed, re-render `resume.pdf` with headless Chrome:
 
 ```bash
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
-  --headless --disable-gpu --no-pdf-header-footer \
+~/.claude/skills/brave-cdp/scripts/headless-chrome \
+  --disable-gpu --no-pdf-header-footer \
   --print-to-pdf=resume.pdf "file://$PWD/resume.html"
 ```
 
